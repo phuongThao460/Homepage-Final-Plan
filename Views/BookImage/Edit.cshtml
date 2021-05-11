@@ -1,0 +1,36 @@
+﻿@model Homepage.Models.ANHBIA
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<script src="~/Scripts/jquery-3.6.0.js"></script>
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="~/Content/Scripts/AddImage.js"></script>
+
+
+@using (Html.BeginForm("Edit", "BookImage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>ANHBIA</h4>
+        <hr />
+        <img src="@Url.Content(Model.ANH)" id="previewImg" width="350" height="350" />
+        <br />
+        <input type="file" name="ImageFile" value="Thêm ảnh ..." onchange="ChangeImage(this, document.getElementById('previewImg'))" />
+        <br />
+        <input type="submit" value="Xác nhận" />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

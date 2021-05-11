@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6b9afd46a6ce4d6d847862cec5056cb3" Name="Diagram1">
+        <EntityTypeShape EntityType="BookshopModel.ANHBIA" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.ANHFEEDBACK" Width="1.5" PointX="7.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.BANGGIA" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.CHITIETDONHANG" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.CHITIETHOADON" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.DIEUKIENKHUYENMAI" Width="1.5" PointX="1.5" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.DONHANG" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.FEEDBACK" Width="1.5" PointX="5.25" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.HINHANHKHUYENMAI" Width="1.5" PointX="6" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.HOADON" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.KHUYENMAI" Width="1.5" PointX="3.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.LOAITAIKHOAN" Width="1.5" PointX="1.5" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.NHAXUATBAN" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.SACH" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.SANPHAMKHUYENMAI" Width="1.5" PointX="6" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.TACGIA" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.TAIKHOANKHACHHANG" Width="1.5" PointX="7.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.TAIKHOANNGANHANG" Width="1.5" PointX="7.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.TAIKHOANQUANTRIVIEN" Width="1.5" PointX="8.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.THELOAI" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.THONGTINKHACHHANG" Width="1.5" PointX="1.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookshopModel.TRANGTHAIDONHANG" Width="1.5" PointX="1.5" PointY="17.25" IsExpanded="true" />
+        <AssociationConnector Association="BookshopModel.FK_ANHBIA_SACH" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_ANHFEED_FEEDBACK" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_BANGGIA_SACH" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_CTDH_DONHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_CTDH_SACH" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_CTDH_SANPHAMKHUYENMAI" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_CTHD_HOADON" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_CTHD_SACH" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_CTHD_SANPHAMKHUYENMAI" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_KHUYENMAI_DIEUKIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_DONHANG_TRANGTHAI" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_DONHANG_TTKH" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_HOADON_DONHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_FEEDBACK_SACH" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_HINHANH_KHUYENMAI" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_HOADON_TRANGTHAI" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_HOADON_TTKH" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_KHUYENMAI_LOAITK" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_SANPHAMKM_KHUYENMAI" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_TKKH_LOAITK" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_SACH_NCC" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_SACH_NXB" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_SACH_TACGIA" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_SACH_THELOAI" ManuallyRouted="false" />
+        <AssociationConnector Association="BookshopModel.FK_TKKH_TTKH" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

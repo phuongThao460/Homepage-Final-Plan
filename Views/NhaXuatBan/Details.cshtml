@@ -1,0 +1,31 @@
+﻿@model Homepage.Models.NHAXUATBAN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_homepageLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NHAXUATBAN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_NXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_NXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_NHAXUATBAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_NHAXUATBAN)
+        </dd>
+
+    </dl>
+</div>

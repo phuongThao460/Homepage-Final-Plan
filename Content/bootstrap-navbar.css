@@ -1,0 +1,141 @@
+﻿body, html {
+    height: 100%;
+}
+
+a {
+    float: left;
+    font-size: 20px;
+    text-decoration: none;
+    
+}
+.navbar{
+    padding:0;
+}
+
+.box {
+    float: right;
+    padding: 0px 0px;
+    margin-top: -1px;
+    margin-right: -27px;
+}
+
+#collapsibleNavbar:hover .navbar-brand {
+    background-color: transparent;
+}
+
+.nav-item {
+    padding: -1px 44px;
+}
+
+.nav-link {
+    text-align: center;
+    padding: 0px 100px;
+    text-decoration: none;
+    color: white;
+}
+.nav-link:hover{
+    color: black;
+    background-color: white;
+}
+    #navbardrop {
+        position: relative;
+    }
+
+.dropdown-menu {
+    position: absolute;
+}
+
+#navbardrop:hover .dropdown-menu {
+    display: block;
+}
+
+#collapsibleNavbar a:hover {
+    background-color: white;
+    color: black;
+}
+.sign-item {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    margin-right: 37px;
+}
+
+.navbar-ul .navbar-nav .nav-item {
+    padding: 0px 20px;
+}
+
+.navbar {
+    padding: 0px;
+}
+
+
+.dropdown-user:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-user:focus .dropdown-menu {
+    display: block;
+}
+
+.dropdown-user:active .dropdown-menu {
+    display: block;
+}
+
+.container-4 {
+    overflow: hidden;
+    width: 705px;
+    vertical-align: middle;
+    white-space: nowrap;
+    margin-right: 60px;
+}
+
+    .container-4 input#search {
+        width: 705px;
+        height: 45px;
+        border: none;
+        font-size: 10pt;
+        float: left;
+        color: #fff;
+        padding-left: 15px;
+    }
+
+        .container-4 input#search::-webkit-input-placeholder {
+            color: #65737e;
+        }
+
+        .container-4 input#search:-moz-placeholder { /* Firefox 18- */
+            color: #65737e;
+        }
+
+        .container-4 input#search::-moz-placeholder { /* Firefox 19+ */
+            color: #65737e;
+        }
+
+        .container-4 input#search:-ms-input-placeholder {
+            color: #65737e;
+        }
+
+    .container-4 button.icon {
+        border: none;
+        background: #c3adad;
+        height: 50px;
+        width: 50px;
+        color: #4f5b66;
+        opacity: 0;
+        font-size: 10pt;
+        -webkit-transition: all .55s ease;
+        -moz-transition: all .55s ease;
+        -o-transition: all .55s ease;
+        transition: all .55s ease;
+    }
+
+    .container-4:hover button.icon, .container-4:active button.icon, .container-4:focus button.icon {
+        outline: none;
+        opacity: 1;
+        margin-left: -50px;
+    }
+
+.container-4:hover button.icon:hover {
+   background: white;
+}
+

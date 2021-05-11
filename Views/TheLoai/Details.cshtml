@@ -1,0 +1,35 @@
+﻿@model Homepage.Models.THELOAI
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_homepageLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>THELOAI</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_THELOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_THELOAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN_THELOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN_THELOAI)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

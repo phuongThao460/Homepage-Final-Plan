@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Homepage.Models.SACH>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_homepageLayout.cshtml";
+}
+<div class="row-table">
+    @foreach (var item in Model)
+    {
+        <!-- Team member -->
+        <div class="product_contener">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="image">
+                        @foreach (var anh in item.ANHBIAs)
+                        {
+                            <img src="@Url.Content(anh.ANH)"/>
+                            break;
+                        }
+                    </div>
+                    <div class="productname">
+                        @Html.ActionLink(@item.TEN_SACH, "Details", new { id = item.ID_SACH })
+                        
+                    </div>
+                    <div class="author-name">
+                        <p class="card-text">@{Html.RenderAction("GetNameTG", "uHome", new { id = item.ID_TACGIA });}</p>
+                    </div>
+                    <div class="price">
+                        <p class="money">@item.GIA_BAN</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- ./Team member -->
+    }
+</div>

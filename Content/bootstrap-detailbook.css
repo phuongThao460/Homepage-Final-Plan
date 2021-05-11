@@ -1,0 +1,137 @@
+﻿.product-view-contener {
+  width: 100%;
+  height: 200px;
+  padding: 0;
+  margin: 20px 0 0 0;
+  color: #333;
+  padding-bottom: 20px;
+}
+
+.product-view-contener .product-info {
+  margin-left: 320px;
+  overflow: hidden;
+}
+
+.product-view-contener .showleft {
+  width: 100%;
+  margin-left: -320px;
+  float: right;
+  overflow: hidden;
+}
+
+.product-view-contener .product-info h1 {
+  margin: 0;
+  padding: 0 0 10px 0;
+  text-transform: capitalize;
+  color: #333;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.viewfield {
+  float: left;
+  margin: 5px 0;
+}
+
+.product-info .prices-contener {
+    width: 100% !important;
+    position: relative !important;
+    width: 100% !important;
+    padding: 20px 0;
+    border-bottom: 1px solid #e4e4e4 !important;
+    border-top: 1px solid #e4e4e4 !important;
+}
+
+.product-info .saleprice {
+  margin: 5px 0;
+}
+
+.clear {
+  clear: both;
+}
+
+.prices-contener .buy-button .buy-link {
+    left: 490px;
+}
+.product-info .groups {
+  margin-bottom: 10px;
+}
+
+.buy-button .buy-link {
+    background-color: red;
+}
+.prices-contener .buy-button .buy-link:hover {
+    text-decoration: none;
+    background-color: #933ab1;
+}
+.buy-button .buy-link {
+    position: absolute;
+    top: 20px;
+    padding: 10px 45px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #CC33FF;
+    display: block;
+    white-space: nowrap;
+}
+
+.product-view-contener .img-contener {
+  width: 240px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.product-view-contener .img-contener .mainimage {
+  display: inline-block;
+  position: relative;
+}
+
+.container .block {
+  padding-top: 20px;
+}
+input[type="hidden" i] {
+  display: none;
+  -webkit-appearance: none;
+  background-color: initial;
+  cursor: default;
+  padding: initial;
+  border: initial;
+}
+.container .block h3 {
+  text-transform: capitalize;
+  color: #333;
+  font-size: 19px;
+  font-weight: normal;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  color: #444;
+  margin-top: 15px;
+  border-bottom: 1px solid #e7e7e7;
+}
+.container .block table {
+  border: 1px solid #ddd;
+  border-top: none;
+}
+.container .block table tr .title {
+  width: 280px;
+  border-right: 1px solid #ddd;
+}
+tr .title {
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}

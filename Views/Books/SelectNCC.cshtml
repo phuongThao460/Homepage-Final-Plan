@@ -1,0 +1,3 @@
+﻿@model Homepage.Models.NHACUNGCAP
+@Html.DropDownListFor(model => model.ID_NCC,
+    new SelectList(Model.ListNCC.OrderBy(model => model.TEN_NHACUNGCAP), "ID_NCC", "TEN_NHACUNGCAP"), "---select Nha cung cap---")

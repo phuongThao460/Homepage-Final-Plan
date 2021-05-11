@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Homepage.Models.DONHANG>
+
+@{
+    ViewBag.Title = "DanhSachDonHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DanhSachDonHang</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_DONHANG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_TTKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_TRANGTHAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.THOIGIAN_DAT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_DONHANG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_TTKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_TRANGTHAI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.THOIGIAN_DAT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,3 @@
+﻿@model Homepage.Models.TACGIA
+@Html.DropDownListFor(model => model.ID_TACGIA,
+new SelectList(Model.ListTG.OrderBy(model => model.TEN_TACGIA), "ID_TACGIA", "TEN_TACGIA"), "---select Tac gia---")

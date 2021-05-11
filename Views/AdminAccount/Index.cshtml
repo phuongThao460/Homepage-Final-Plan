@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Homepage.Models.TAIKHOANQUANTRIVIEN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN_DANGNHAP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN_QUANTRIVIEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANH_DAIDIEN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_DANGNHAP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_QUANTRIVIEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ANH_DAIDIEN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_QUANTRIVIEN }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_QUANTRIVIEN }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_QUANTRIVIEN })
+        </td>
+    </tr>
+}
+
+</table>

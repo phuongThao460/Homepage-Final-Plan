@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap-homepage.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-navbar.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-card.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/css/font-awesome.min.css" type="text/css">
+    <script type="text/javascript" src="~/lib/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/lib/js/script.js"></script>
+    <script type="text/javascript" src="~/lib/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/lib/js/a076d05399.js"></script>
+    <link href="~/Views/Shared/_DetailBook.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    @{
+        Html.RenderPartial("_UserMenu");
+    }
+    <br />
+    @{
+        Html.RenderPartial("_Carousel");
+    }
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

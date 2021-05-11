@@ -1,0 +1,134 @@
+﻿@model IEnumerable<Homepage.Models.SACH>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Mã Sách
+            </th>
+            <th>
+                Tên Sách
+            </th>
+            <th>
+                Loại Bìa
+            </th>
+            <th>
+                Ngày Xuất Bản
+            </th>
+            <th>
+                Số Lượng Tồn
+            </th>
+            <th>
+                Số Trang
+            </th>
+            <th>
+                Kích Thước
+            </th>
+            <th>
+                Mô Tả
+            </th>
+            <th>
+                @Html.DisplayName("Nhà xuất bản")
+
+            </th>
+            <th>
+                @Html.DisplayName("Tác giả")
+            </th>
+            <th>
+                @Html.DisplayName("Nhà cung cấp")
+            </th>
+            <th>
+                @Html.DisplayName("Thể loại")
+
+            </th>
+            <th>
+                Khối Lượng
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GIA_BIA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GIA_BAN)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_SACH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TEN_SACH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LOAI_BIA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAY_XUATBAN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SOLUONG_TON)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SO_TRANG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KICH_THUOC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MOTA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NHAXUATBAN.TEN_NHAXUATBAN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TACGIA.TEN_TACGIA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NHACUNGCAP.TEN_NHACUNGCAP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.THELOAI.TEN_THELOAI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KHOILUONG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GIA_BIA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GIA_BAN)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_SACH }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_SACH }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_SACH })
+                </td>
+            </tr>
+            <tr>
+                @foreach (var image in item.ANHBIAs)
+                {
+                    <td>
+                        <img src="@Url.Content(image.ANH)" width="100" height="100" />
+                    </td>                
+                }
+            </tr>
+        }
+    </table>
+</body>
+</html>

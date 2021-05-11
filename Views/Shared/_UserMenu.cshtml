@@ -1,0 +1,43 @@
+﻿<nav class="navbar navbar-expand-sm" style="background-color: rebeccapurple ; padding: 0;">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="padding-left: 62px">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Trang Chủ <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Danh Mục Sản Phẩm
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Văn Học Trong Nước</a>
+                    <a class="dropdown-item" href="#">Văn Học Nước Ngoài</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Nhà Xuất Bản</a>
+                </div>
+            </li>
+        </ul>
+        @*Search Bar*@
+        <div class="box justify-content-end">
+            <div class="container-4">
+                <input type="text" onkeyup="myFunction()" id="search" placeholder="Search..." />
+                <button class="icon" style="height: 45px;"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="sign-item">
+        <div>
+            <span>
+                <a href="/ShoppingCart/ShowCart">
+                    <i class='fa fa-shopping-cart' style='font-size: 37px;color: white;margin-top: 10px;padding: 0px;margin-left: 16px;'></i>
+                </a>
+            </span>
+            @Html.Action("BagCart", "ShoppingCart")
+        </div>
+        <div>
+            <a href="LogIn.html" target="_blank"><i class='fas fa-user-circle' style='font-size: 24px; color: white; padding: 0px;margin-left: 11px;position: relative;margin-top: 8px;'></i><p style="margin-bottom: 0px;font-size: 12px;">username</p></a>
+        </div>
+
+    </div>
+</nav>
+
