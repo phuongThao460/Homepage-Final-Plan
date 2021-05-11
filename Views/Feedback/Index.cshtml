@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Homepage.Models.FEEDBACK>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.XACNHAN_MUAHANG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIEM_DANHGIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.THOIGIAN_DANG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOIDUNG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SACH.TEN_SACH)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.XACNHAN_MUAHANG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIEM_DANHGIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.THOIGIAN_DANG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOIDUNG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SACH.TEN_SACH)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_FEEDBACK }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_FEEDBACK }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_FEEDBACK })
+        </td>
+    </tr>
+}
+
+</table>
