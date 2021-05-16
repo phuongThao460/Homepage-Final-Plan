@@ -1,0 +1,3 @@
+﻿@model Homepage.Models.SACH
+@Html.DropDownListFor(model => model.ID_SACH,
+new SelectList(Model.ListSach.OrderBy(model => model.ID_SACH), "ID_SACH", "TEN_SACH"), "---select Sách---")

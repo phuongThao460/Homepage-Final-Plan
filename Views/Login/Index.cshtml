@@ -1,8 +1,6 @@
 ﻿@model Homepage.Models.TAIKHOANQUANTRIVIEN
 
-@{
-    Layout = null;
-}
+@{ Layout = null; }
 <style>
     .adminLogin .mainForm {
         margin-left: 40%;
@@ -67,37 +65,35 @@
     <title>Index</title>
 </head>
 <body class="adminLogin">
-    @using (Html.BeginForm()) 
+    @using (Html.BeginForm())
     {
-        @Html.AntiForgeryToken()
-        
-    <div class="form-horizontal mainForm">
-        <p class="title">Đăng nhập quản trị viên</p>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TEN_DANGNHAP, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TEN_DANGNHAP, new { htmlAttributes = new { @class = "editorBox" } })
-                @Html.ValidationMessageFor(model => model.TEN_DANGNHAP, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-horizontal mainForm">
+                    <p class="title">Đăng nhập quản trị viên</p>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.MATKHAU, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MATKHAU, new { htmlAttributes = new { @class = "editorBox" } })
-                @Html.ValidationMessageFor(model => model.MATKHAU, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TEN_DANGNHAP, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TEN_DANGNHAP, new { htmlAttributes = new { @class = "editorBox" } })
+                            @Html.ValidationMessageFor(model => model.TEN_DANGNHAP, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Đăng nhập" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-    }
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MATKHAU, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MATKHAU, new { htmlAttributes = new { @class = "editorBox" } })
+                            @Html.ValidationMessageFor(model => model.MATKHAU, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Đăng nhập" class="button" />
+                        </div>
+                    </div>
+                </div>}
 </body>
 </html>

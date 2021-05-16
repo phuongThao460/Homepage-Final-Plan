@@ -133,12 +133,15 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
     <Compile Include="Controllers\Admin\AdminAccountController.cs" />
+    <Compile Include="Controllers\Admin\AutoPriceController.cs" />
+    <Compile Include="Controllers\Admin\BillController.cs" />
     <Compile Include="Controllers\Admin\BookImageController.cs" />
     <Compile Include="Controllers\Admin\BooksController.cs" />
     <Compile Include="Controllers\Admin\CustomerAccountController.cs" />
     <Compile Include="Controllers\Admin\CustomerInfoController.cs" />
     <Compile Include="Controllers\Admin\FeedbackController.cs" />
     <Compile Include="Controllers\Admin\LoginController.cs" />
+    <Compile Include="Controllers\Admin\ManualPriceController.cs" />
     <Compile Include="Controllers\Admin\NhaCungCapController.cs" />
     <Compile Include="Controllers\Admin\NhaXuatBanController.cs" />
     <Compile Include="Controllers\Admin\OrderController.cs" />
@@ -3903,6 +3906,9 @@
     <Content Include="Views\CustomerAccount\Index.cshtml" />
     <Content Include="Views\CustomerInfo\Index.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
+    <Content Include="Views\AutoPrice\Index.cshtml" />
+    <Content Include="Views\AutoPrice\Create.cshtml" />
+    <Content Include="Views\AutoPrice\SelectSach.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3910,6 +3916,8 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Customer\Data\" />
     <Folder Include="Areas\Customer\Views\Shared\" />
+    <Folder Include="Views\Bill\" />
+    <Folder Include="Views\ManualPrice\" />
     <Folder Include="Views\UserLogin\" />
   </ItemGroup>
   <ItemGroup>
