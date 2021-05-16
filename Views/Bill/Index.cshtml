@@ -5,29 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Quản lý đơn hàng</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ID_HOADON)
+            <b>Mã hóa đơn</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ID_TTKH)
+            <b>Mã khách hàng</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ID_TRANGTHAI)
+            <b>Trạng thái</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TONGTIEN)
+            <b>Tổng tiền</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ID_DONHANG)
+            <b>Mã đơn hàng</b>
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {

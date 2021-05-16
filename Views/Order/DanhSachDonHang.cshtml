@@ -19,33 +19,55 @@
             @Html.DisplayNameFor(model => model.ID_TTKH)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ID_TRANGTHAI)
+            <b>Trạng thái đơn hàng cũ</b>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.THOIGIAN_DAT)
         </th>
-        <th></th>
-    </tr>
+        <th>
+            <b>Trạng thái đơn hàng mới</b>
+        </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_DONHANG)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_TTKH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_TRANGTHAI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.THOIGIAN_DAT)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-        </td>
     </tr>
-}
+    @{
+        var detail = new Homepage.Models.DONHANG();
+        if (Session["Details"] != null)
+        {
+            detail = Session["Details"] as Homepage.Models.DONHANG;
+        }
+
+    }
+    @foreach (var item in Model)
+    {
+        
+<tr>
+    @Html.Partial("UpdateState", item)
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("More", "More", new { id = item.ID_DONHANG })
+    </td>
+</tr>
+        if (Session["Details"]!= null && item.ID_DONHANG == detail.ID_DONHANG)
+        {
+            <tr style="background-color:aquamarine">
+                <th>Mã chi tiết</th>
+                <th>Mã sách</th>
+                <th>Tên sách</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+            </tr>
+            <tr style="background-color:aquamarine">
+                @foreach (var prd in detail.CHITIETDONHANGs)
+                {
+                    <td>@prd.ID_CTDH</td>
+                    <td>@prd.ID_SACH</td>
+                    <td>@prd.SACH.TEN_SACH</td>
+                    <td>@prd.SOLUONG</td>
+                    <td>@prd.TONGTIEN</td>
+                }
+            </tr>
+        }
+    }
 
 </table>

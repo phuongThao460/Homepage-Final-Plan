@@ -1,0 +1,24 @@
+﻿@model Homepage.Models.DONHANG
+@using (Html.BeginForm("UpdateState", "Order"))
+{
+    <td>
+        @Html.TextBoxFor(modelItem => modelItem.ID_DONHANG, htmlAttributes: new { @readonly = "readonly" })
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.ID_TTKH)
+    </td>
+    <td>
+        <p>@Model.TRANGTHAIDONHANG.TEN_TRANGTHAI</p>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.THOIGIAN_DAT)
+    </td>
+    <td>
+        @{Html.RenderAction("SelectOrderState", "Order");}
+    </td>
+
+    <td>
+        <input type="submit" value="Lưu trạng thái" />
+    </td>
+}
+

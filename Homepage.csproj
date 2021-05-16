@@ -3923,6 +3923,8 @@
     <Content Include="Views\OrderState\DanhSachTrangThai.cshtml" />
     <Content Include="Views\OrderState\Details.cshtml" />
     <Content Include="Views\OrderState\Edit.cshtml" />
+    <Content Include="Views\Order\SelectOrderState.cshtml" />
+    <Content Include="Views\Order\UpdateState.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
