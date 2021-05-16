@@ -14,5 +14,11 @@ namespace Homepage.Controllers.Admin
         {
             return View(db.FEEDBACKs.ToList());
         }
+        public ActionResult Delete(int id)
+        {
+            db.FEEDBACKs.Remove(db.FEEDBACKs.Where(f => f.ID_FEEDBACK == id).FirstOrDefault());
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

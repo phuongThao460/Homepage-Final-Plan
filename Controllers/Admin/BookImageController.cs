@@ -22,6 +22,7 @@ namespace Homepage.Controllers
             ViewBag.Id = url;
             return View(list);
         }
+
         [HttpGet]
         public ActionResult UploadImages()
         {
@@ -37,7 +38,7 @@ namespace Homepage.Controllers
                 string extent = Path.GetExtension(anhBia.ImageFile.FileName);
                 fileName = fileName + extent;
                 anhBia.ANH = "~/Content/Images/" + fileName;
-                anhBia.ImageFile.SaveAs(Path.Combine(Server.MapPath("~/Content/Images/"),fileName));
+                anhBia.ImageFile.SaveAs(Path.Combine(Server.MapPath("~/Content/Images/"), fileName));
             }
             anhBia.ID_SACH = url;
             db.ANHBIAs.Add(anhBia);
@@ -77,7 +78,7 @@ namespace Homepage.Controllers
             int idSach = int.Parse(select.ID_SACH.ToString());
             db.ANHBIAs.Remove(select);
             db.SaveChanges();
-            return RedirectToRoute(new { controller="BookImage", action="Index",id = idSach});
+            return RedirectToRoute(new { controller = "BookImage", action = "Index", id = idSach });
         }
     }
 }

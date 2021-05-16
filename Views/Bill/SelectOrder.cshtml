@@ -1,0 +1,3 @@
+﻿@model Homepage.Models.DONHANG
+@Html.DropDownListFor(model => model.ID_DONHANG,
+    new SelectList(Model.lsDonHang.OrderBy(model => model.ID_DONHANG), "ID_DONHANG", "ID_DONHANG"), "--- Chọn đơn hàng ---")

@@ -1,0 +1,29 @@
+﻿@model Homepage.Models.SACH
+    <style>
+        .manualPrice .fakeInput input{
+            background-color:transparent;
+            border-style:none;
+        }
+    </style>
+@using (Html.BeginForm("UpdatePrice","ManualPrice"))
+{
+    <tr>
+        <td class="fakeInput">
+            @Html.TextBoxFor(modelItem => modelItem.ID_SACH, htmlAttributes: new { @readonly = "readonly" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.TEN_SACH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.GIA_BIA)
+        </td>
+
+        <td>
+            @Html.TextBoxFor(modelItem => modelItem.GIA_BAN)
+        </td>
+        <td>
+            <input type="submit" value="Update" />
+        </td>
+    </tr>
+}
+

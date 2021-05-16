@@ -10,7 +10,6 @@ namespace Homepage.Controllers
     public class BooksController : Controller
     {
         BookshopEntity db = new BookshopEntity();
-        // GET: Books
         public ActionResult Index()
         {
             return View(db.SACHes.ToList());
@@ -27,7 +26,7 @@ namespace Homepage.Controllers
             db.SaveChanges();
             var list = db.SACHes.ToList();
             int id = list.Last().ID_SACH;
-            return RedirectToRoute(new { controller= "BookImage", action = "Index", id = id});
+            return RedirectToRoute(new { controller = "BookImage", action = "Index", id = id });
         }
         public ActionResult UploadImage()
         {
@@ -53,6 +52,7 @@ namespace Homepage.Controllers
         public RedirectToRouteResult Edit(SACH sach)
         {
             int id = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+
             return RedirectToRoute(new { controller = "Books", action = "Details", id = id });
         }
 

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Homepage.Models.HOADON>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_HOADON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_TTKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_TRANGTHAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TONGTIEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_DONHANG)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_HOADON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_TTKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_TRANGTHAI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TONGTIEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_DONHANG)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID_HOADON }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID_HOADON })
+        </td>
+    </tr>
+}
+
+</table>

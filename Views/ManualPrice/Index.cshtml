@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Homepage.Models.SACH>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cập nhật giá - Thủ công</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_SACH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN_SACH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIA_BIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIA_BAN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    @Html.Partial("UpdatePrice",item)
+}
+
+</table>

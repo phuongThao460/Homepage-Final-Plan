@@ -28,7 +28,7 @@ namespace Homepage.Controllers
         }
         public RedirectToRouteResult Logout()
         {
-  
+
             return RedirectToRoute(new { controller = "Login", action = "Index" });
         }
     }

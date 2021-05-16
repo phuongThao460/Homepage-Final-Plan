@@ -3863,17 +3863,6 @@
     <Content Include="Views\Shared\_homepageLayout.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_MainMenu.cshtml" />
-    <Content Include="Views\BookImage\Edit.cshtml" />
-    <Content Include="Views\BookImage\Index.cshtml" />
-    <Content Include="Views\BookImage\UploadImages.cshtml" />
-    <Content Include="Views\Books\Create.cshtml" />
-    <Content Include="Views\Books\Details.cshtml" />
-    <Content Include="Views\Books\Edit.cshtml" />
-    <Content Include="Views\Books\Index.cshtml" />
-    <Content Include="Views\Books\SelectNCC.cshtml" />
-    <Content Include="Views\Books\SelectNXB.cshtml" />
-    <Content Include="Views\Books\SelectTG.cshtml" />
-    <Content Include="Views\Books\SelectTL.cshtml" />
     <Content Include="Views\DanhSachDonHang\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\NhaCungCap\Create.cshtml" />
@@ -3884,9 +3873,6 @@
     <Content Include="Views\NhaXuatBan\Details.cshtml" />
     <Content Include="Views\NhaXuatBan\Edit.cshtml" />
     <Content Include="Views\NhaXuatBan\Index.cshtml" />
-    <Content Include="Views\Order\DanhSachDonHang.cshtml" />
-    <Content Include="Views\OrderState\Create.cshtml" />
-    <Content Include="Views\OrderState\DanhSachTrangThai.cshtml" />
     <Content Include="Views\ShoppingCart\BagCart.cshtml" />
     <Content Include="Views\ShoppingCart\ShowCart.cshtml" />
     <Content Include="Views\TacGia\Create.cshtml" />
@@ -3904,11 +3890,39 @@
     <Content Include="Views\Shared\_UserMenu.cshtml" />
     <Content Include="Views\AdminAccount\Index.cshtml" />
     <Content Include="Views\CustomerAccount\Index.cshtml" />
-    <Content Include="Views\CustomerInfo\Index.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
     <Content Include="Views\AutoPrice\Index.cshtml" />
     <Content Include="Views\AutoPrice\Create.cshtml" />
     <Content Include="Views\AutoPrice\SelectSach.cshtml" />
+    <Content Include="Views\AutoPrice\Edit.cshtml" />
+    <Content Include="Views\Bill\Create.cshtml" />
+    <Content Include="Views\Bill\Index.cshtml" />
+    <Content Include="Views\Bill\SelectOrder.cshtml" />
+    <Content Include="Views\Bill\SelectState.cshtml" />
+    <Content Include="Views\BookImage\Edit.cshtml" />
+    <Content Include="Views\BookImage\Index.cshtml" />
+    <Content Include="Views\BookImage\UploadImages.cshtml" />
+    <Content Include="Views\Books\Create.cshtml" />
+    <Content Include="Views\Books\Details.cshtml" />
+    <Content Include="Views\Books\Edit.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
+    <Content Include="Views\Books\SelectNCC.cshtml" />
+    <Content Include="Views\Books\SelectNXB.cshtml" />
+    <Content Include="Views\Books\SelectTG.cshtml" />
+    <Content Include="Views\Books\SelectTL.cshtml" />
+    <Content Include="Views\CustomerInfo\Create.cshtml" />
+    <Content Include="Views\CustomerInfo\Edit.cshtml" />
+    <Content Include="Views\CustomerInfo\Index.cshtml" />
+    <Content Include="Views\ManualPrice\Index.cshtml" />
+    <Content Include="Views\ManualPrice\UpdatePrice.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\DanhSachDonHang.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
+    <Content Include="Views\OrderState\Create.cshtml" />
+    <Content Include="Views\OrderState\DanhSachTrangThai.cshtml" />
+    <Content Include="Views\OrderState\Details.cshtml" />
+    <Content Include="Views\OrderState\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3916,8 +3930,6 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Customer\Data\" />
     <Folder Include="Areas\Customer\Views\Shared\" />
-    <Folder Include="Views\Bill\" />
-    <Folder Include="Views\ManualPrice\" />
     <Folder Include="Views\UserLogin\" />
   </ItemGroup>
   <ItemGroup>

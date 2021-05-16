@@ -1,0 +1,3 @@
+﻿@model Homepage.Models.TRANGTHAIDONHANG
+@Html.DropDownListFor(model => model.ID_TRANGTHAI,
+    new SelectList(Model.lsTTDH.OrderBy(model => model.TEN_TRANGTHAI), "ID_TRANGTHAI", "TEN_TRANGTHAI"), "--- Chọn trạng thái ---")
