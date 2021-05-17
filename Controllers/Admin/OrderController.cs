@@ -70,20 +70,8 @@ namespace Homepage.Controllers
                     newHD.TONGTIEN = check.TONGTIEN;
                     newHD.ID_DONHANG = check.ID_DONHANG;
                     db.HOADONs.Add(newHD);
-                    db.SaveChanges();
-                    HOADON checkHD = db.HOADONs.Last();
-                    foreach(var item in check.CHITIETDONHANGs)
-                    {
-                        CHITIETHOADON newCTHD = new CHITIETHOADON();
-                        newCTHD.ID_HOADON = checkHD.ID_HOADON;
-                        newCTHD.ID_SACH = item.ID_SACH;
-                        newCTHD.GIA_BAN = item.GIA_BAN;
-                        newCTHD.SOLUONG = item.SOLUONG;
-                        newCTHD.TONGTIEN = item.TONGTIEN;
-                        db.CHITIETHOADONs.Add(newCTHD);
-                        checkHD.TONGTIEN += item.TONGTIEN;
-                        db.SaveChanges();
-                    }
+                    AutoConvertBill(newStateDH.ID_DONHANG);
+                    
                 }
                 // Check if id == hoàn thành thì chuyển thành hóa đơn
                 
@@ -93,6 +81,24 @@ namespace Homepage.Controllers
             {
                 return RedirectToAction("DanhSachDonHang");
             }
+        }
+        public void AutoConvertBill(int idOrder)
+        {
+            HOADON checkHD = db.HOADONs.ToList().Last();
+            var listCTHD = db.CHITIETDONHANGs.Where(ct => ct.ID_DONHANG == idOrder).ToList();
+            foreach (var item in listCTHD)
+            {
+                CHITIETHOADON newCTHD = new CHITIETHOADON();
+                newCTHD.ID_HOADON = checkHD.ID_HOADON;
+                newCTHD.ID_SACH = item.ID_SACH;
+                newCTHD.GIA_BAN = item.GIA_BAN;
+                newCTHD.SOLUONG = item.SOLUONG;
+                newCTHD.TONGTIEN = item.TONGTIEN;
+                db.CHITIETHOADONs.Add(newCTHD);
+                checkHD.TONGTIEN += item.TONGTIEN;
+                
+            }
+            db.SaveChanges();
         }
         [HttpGet]
         public ActionResult CreateOrderDetail()

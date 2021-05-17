@@ -47,7 +47,7 @@
         @Html.ActionLink("More", "More", new { id = item.ID_DONHANG })
     </td>
 </tr>
-        if (Session["Details"]!= null && item.ID_DONHANG == detail.ID_DONHANG)
+        if (Session["Details"]!= null &&detail!= null&& item.ID_DONHANG == detail.ID_DONHANG)
         {
             <tr style="background-color:aquamarine">
                 <th>Mã chi tiết</th>
