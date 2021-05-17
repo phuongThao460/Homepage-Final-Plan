@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Homepage.Models.CHITIETDONHANG>
+
+@{
+    ViewBag.Title = "ManageOrderDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lý chi tiết đơn hàng</h2>
+
+@{Html.RenderAction("CreateOrderDetail", "Order");}
+
+<table class="table">
+    <tr>
+        <th>
+            Mã chi tiết
+        </th>
+        <th>
+            Mã đơn hàng
+        </th>
+        <th>
+            Mã sách
+        </th>
+        <th>
+            Tên sách
+        </th>
+        <th>
+            Giá bán
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Tổng tiền
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_CTDH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_DONHANG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_SACH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SACH.TEN_SACH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GIA_BAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SOLUONG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TONGTIEN)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditOrderDetail", new { id = item.ID_CTDH }) |
+                @Html.ActionLink("Delete", "DeleteOrderDetail", new { id = item.ID_CTDH })
+            </td>
+        </tr>
+    }
+
+</table>

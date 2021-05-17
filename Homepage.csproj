@@ -3895,7 +3895,6 @@
     <Content Include="Views\AutoPrice\Create.cshtml" />
     <Content Include="Views\AutoPrice\SelectSach.cshtml" />
     <Content Include="Views\AutoPrice\Edit.cshtml" />
-    <Content Include="Views\Bill\Create.cshtml" />
     <Content Include="Views\Bill\Index.cshtml" />
     <Content Include="Views\Bill\SelectOrder.cshtml" />
     <Content Include="Views\Bill\SelectState.cshtml" />
@@ -3925,6 +3924,10 @@
     <Content Include="Views\OrderState\Edit.cshtml" />
     <Content Include="Views\Order\SelectOrderState.cshtml" />
     <Content Include="Views\Order\UpdateState.cshtml" />
+    <Content Include="Views\Bill\UpdateState.cshtml" />
+    <Content Include="Views\Order\ManageOrderDetail.cshtml" />
+    <Content Include="Views\Order\SelectBooks.cshtml" />
+    <Content Include="Views\Order\CreateOrderDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

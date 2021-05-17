@@ -1,0 +1,20 @@
+﻿@model Homepage.Models.CHITIETDONHANG
+@using (Html.BeginForm("CreateOrderDetail", "Order"))
+{
+    <table class="table">
+        <tr>
+            <td>Tên sách</td>
+            <td>@{Html.RenderAction("SelectBooks", "Order");}</td>
+        </tr>
+        <tr>
+            <td>Số lượng</td>
+            <td>@Html.TextBoxFor(model => model.SOLUONG)</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Thêm"/>
+            </td>
+        </tr>
+    </table>
+}
+

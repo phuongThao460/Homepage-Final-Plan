@@ -1,0 +1,27 @@
+﻿@model Homepage.Models.HOADON
+@using (Html.BeginForm("UpdateState", "Bill"))
+{
+    <td>
+        @Html.TextBoxFor(modelItem => modelItem.ID_HOADON, htmlAttributes: new { @readonly = "readonly" })
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.ID_TTKH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.TRANGTHAIDONHANG.TEN_TRANGTHAI)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.TONGTIEN)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.ID_DONHANG)
+    </td>
+    <td>
+        @{Html.RenderAction("SelectState", "Bill");}
+    </td>
+    <td>
+        <input type="submit" value="Lưu trạng thái" />
+    </td>
+}
+
+

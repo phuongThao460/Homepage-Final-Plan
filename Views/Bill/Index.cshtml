@@ -24,30 +24,52 @@
         <th>
             <b>Mã đơn hàng</b>
         </th>
+        <th>
+            <b>Trạng thái mới</b>
+        </th>
+        @{
+            var detail = new Homepage.Models.HOADON();
+            if (Session["Details"] != null)
+            {
+                detail = Session["Details"] as Homepage.Models.HOADON;
+            }
+
+        }
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_HOADON)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_TTKH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_TRANGTHAI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TONGTIEN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_DONHANG)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID_HOADON }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID_HOADON })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            @Html.Partial("UpdateState", item)
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID_HOADON })|
+                @Html.ActionLink("More", "More", new { id = item.ID_HOADON })
+            </td>
+
+        </tr>
+        if (Session["Details"] != null && item.ID_HOADON == detail.ID_HOADON)
+        {
+            <tr style="background-color:aquamarine">
+                <th>Mã chi tiết</th>
+                <th>Mã sách</th>
+                <th>Tên sách</th>
+                <th>Giá bán</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+            </tr>
+            <tr style="background-color:aquamarine">
+                @foreach (var prd in detail.CHITIETHOADONs)
+                {
+                    <td>@prd.ID_CTHD</td>
+                    <td>@prd.ID_SACH</td>
+                    <td>@prd.SACH.TEN_SACH</td>
+                    <td>@prd.GIA_BAN</td>
+                    <td>@prd.SOLUONG</td>
+                    <td>@prd.TONGTIEN</td>
+                }
+            </tr>
+        }
+    }
+
 
 </table>

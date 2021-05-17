@@ -15,24 +15,7 @@ namespace Homepage.Controllers.Admin
         {
             return View(db.HOADONs.ToList());
         }
-        [HttpGet]
-        public ActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Create(HOADON hd)
-        {
-            db.HOADONs.Add(hd);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        public ActionResult SelectOrder()
-        {
-            DONHANG dh = new DONHANG();
-            dh.lsDonHang = db.DONHANGs.ToList<DONHANG>();
-            return PartialView(dh);
-        }
+        
         public ActionResult SelectState()
         {
             TRANGTHAIDONHANG tt = new TRANGTHAIDONHANG();
@@ -54,6 +37,32 @@ namespace Homepage.Controllers.Admin
             check.ID_DONHANG = hd.ID_DONHANG;
             check.TONGTIEN = hd.TONGTIEN;
             db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public PartialViewResult UpdateState()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public RedirectToRouteResult UpdateState(HOADON newStateHD)
+        {
+            try
+            {
+                var check = db.HOADONs.Where(dh => dh.ID_HOADON == newStateHD.ID_HOADON).FirstOrDefault();
+                check.ID_TRANGTHAI = newStateHD.ID_TRANGTHAI;
+                
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index");
+            }
+        }
+        public ActionResult More(int id)
+        {
+            Session["Details"] = db.HOADONs.Where(d => d.ID_HOADON == id).FirstOrDefault();
             return RedirectToAction("Index");
         }
     }
