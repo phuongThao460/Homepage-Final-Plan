@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Homepage.Models;
@@ -13,6 +16,119 @@ namespace Homepage.Controllers.Admin
         public ActionResult Index()
         {
             return View(db.TAIKHOANKHACHHANGs.ToList());
+        }
+        // GET: Administrator/USER/Create
+        public ActionResult Create()
+        {
+            TAIKHOANKHACHHANG t = new TAIKHOANKHACHHANG();
+            ViewBag.ID_LOAITK = new SelectList(db.LOAITAIKHOANs, "ID_LOAITK", "TEN_LOAITK");
+            ViewBag.ID_TTKH = new SelectList(db.THONGTINKHACHHANGs, "ID_TTKH", "TEN_KHACHHANG");
+            return View(t);
+        }
+
+        // POST: Administrator/USER/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(TAIKHOANKHACHHANG user)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // TODO: Add insert logic here
+                    if (user.ImageUpload != null)
+                    {
+                        string file = Path.GetFileNameWithoutExtension(user.ImageUpload.FileName);
+                        string extension = Path.GetExtension(user.ImageUpload.FileName);
+                        file = file + extension;
+                        user.ANH_DAIDIEN = "/Content/Images/" + file;
+                        //pro.MoreImages= "~/Contents/images/" + file;
+                        user.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/Images/"), file));
+                    }
+                    db.TAIKHOANKHACHHANGs.Add(user);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception e)
+                {
+                    return View();
+                }
+
+            }
+            ViewBag.ID_LOAITK = new SelectList(db.LOAITAIKHOANs, "ID_LOAITK", "TEN_LOAITK", user.ID_LOAITK);
+            ViewBag.ID_TTKH = new SelectList(db.THONGTINKHACHHANGs, "ID_TTKH", "TEN_KHACHHANG", user.ID_TTKH);
+            return View(user);
+
+        }
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TAIKHOANKHACHHANG ad = db.TAIKHOANKHACHHANGs.Find(id);
+            if (ad == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.ID_LOAITK = new SelectList(db.LOAITAIKHOANs, "ID_LOAITK", "TEN_LOAITK", ad.ID_LOAITK);
+            ViewBag.ID_TTKH = new SelectList(db.THONGTINKHACHHANGs, "ID_TTKH", "TEN_KHACHHANG", ad.ID_TTKH);
+            return View(ad);
+        }
+
+        // POST: Administrator/USER/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "ID_KHACHHANG,TEN_DANGNHAP,MATKHAU,ID_LOAITK,ID_TTKH,ANH_DAIDIEN")] TAIKHOANKHACHHANG ad)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(ad).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.ID_LOAITK = new SelectList(db.LOAITAIKHOANs, "ID_LOAITK", "TEN_LOAITK", ad.ID_LOAITK);
+            ViewBag.ID_TTKH = new SelectList(db.THONGTINKHACHHANGs, "ID_TTKH", "TEN_KHACHHANG", ad.ID_TTKH);
+            return View(ad);
+        }
+
+        // GET: Administrator/USER/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TAIKHOANKHACHHANG ad = db.TAIKHOANKHACHHANGs.Find(id);
+            if (ad == null)
+            {
+                return HttpNotFound();
+            }
+            return View(ad);
+        }
+
+        // POST: Administrator/USER/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            TAIKHOANKHACHHANG ad = db.TAIKHOANKHACHHANGs.Find(id);
+            db.TAIKHOANKHACHHANGs.Remove(ad);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

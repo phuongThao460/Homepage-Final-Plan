@@ -12,6 +12,8 @@ namespace Homepage.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
 
     public partial class TAIKHOANQUANTRIVIEN
     {
@@ -29,5 +31,7 @@ namespace Homepage.Models
 
         [Display(Name = "Ảnh đại diện")]
         public string ANH_DAIDIEN { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase ImageUpload { get; set; }
     }
 }

@@ -11,7 +11,9 @@ namespace Homepage.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
+
     public partial class TAIKHOANKHACHHANG
     {
         public int ID_KHACHHANG { get; set; }
@@ -23,5 +25,7 @@ namespace Homepage.Models
     
         public virtual LOAITAIKHOAN LOAITAIKHOAN { get; set; }
         public virtual THONGTINKHACHHANG THONGTINKHACHHANG { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase ImageUpload { get; set; }
     }
 }

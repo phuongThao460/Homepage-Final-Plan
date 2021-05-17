@@ -140,6 +140,7 @@
     <Compile Include="Controllers\Admin\CustomerAccountController.cs" />
     <Compile Include="Controllers\Admin\CustomerInfoController.cs" />
     <Compile Include="Controllers\Admin\FeedbackController.cs" />
+    <Compile Include="Controllers\Admin\LoaiTKKHController.cs" />
     <Compile Include="Controllers\Admin\LoginController.cs" />
     <Compile Include="Controllers\Admin\ManualPriceController.cs" />
     <Compile Include="Controllers\Admin\NhaCungCapController.cs" />
@@ -3849,6 +3850,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -3930,6 +3932,14 @@
     <Content Include="Views\Order\SelectBooks.cshtml" />
     <Content Include="Views\Order\CreateOrderDetail.cshtml" />
     <Content Include="Views\Order\SearchBar.cshtml" />
+    <Content Include="Views\AdminAccount\Create.cshtml" />
+    <Content Include="Views\AdminAccount\Edit.cshtml" />
+    <Content Include="Views\AdminAccount\Delete.cshtml" />
+    <Content Include="Views\LoaiTKKH\Index.cshtml" />
+    <Content Include="Views\LoaiTKKH\Create.cshtml" />
+    <Content Include="Views\LoaiTKKH\Edit.cshtml" />
+    <Content Include="Views\CustomerAccount\Create.cshtml" />
+    <Content Include="Views\CustomerAccount\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
