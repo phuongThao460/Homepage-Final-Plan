@@ -3929,6 +3929,7 @@
     <Content Include="Views\Order\ManageOrderDetail.cshtml" />
     <Content Include="Views\Order\SelectBooks.cshtml" />
     <Content Include="Views\Order\CreateOrderDetail.cshtml" />
+    <Content Include="Views\Order\SearchBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

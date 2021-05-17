@@ -1,0 +1,17 @@
+﻿@model Homepage.Models.DONHANG
+
+@using (Html.BeginForm("SearchBar", "Order"))
+{
+    <table>
+        <tr>
+            <td>Mã đơn hàng:</td>
+            <td>@Html.TextBoxFor(model => model.ID_DONHANG)</td>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                <input value="Tìm kiếm" type="submit"/>
+            </td>
+        </tr>
+    </table>
+}
+

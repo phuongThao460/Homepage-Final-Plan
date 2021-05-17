@@ -13,16 +13,122 @@ namespace Homepage.Controllers
         // GET: Order
         public RedirectToRouteResult Index()
         {
+            
             return RedirectToRoute(new { controller = "Order", action = "DanhSachDonHang" });
         }
-        public ActionResult DanhSachDonHang()
+        public ActionResult DanhSachDonHang(int id)
         {
-            return View(db.DONHANGs.ToList());
+            List<DONHANG> lsDH = new List<DONHANG>();
+            if(id == 0)
+            {
+                lsDH = db.DONHANGs.ToList();
+            }
+            else
+            {
+                lsDH = db.DONHANGs.Where(d => d.ID_DONHANG == id).ToList();
+            }
+            return View(SortByTime(lsDH));
+            
+        }
+        public List<DONHANG> SortByTime(List<DONHANG> ls)
+        {
+            // 0 8 : 0 2   1 2 / 0 5 / 2 0 2 1
+            // 0 1 2 3 4 5 6 7 8 9101112131415
+            List<DONHANG> result = new List<DONHANG>();
+            List<DONHANG> temp = new List<DONHANG>();
+            int idComplete = db.TRANGTHAIDONHANGs.Where(tt => tt.TEN_TRANGTHAI == "Hoàn thành").FirstOrDefault().ID_TRANGTHAI;
+            while (ls!= null && ls.Count != 0)
+            {
+                DONHANG min = ls[0];
+                foreach(var item in ls)
+                {
+                    if (TimeMoreThan(min, item))
+                    {
+                        min = item;
+                    }
+                }
+                ls.Remove(min);
+                temp.Add(min);
+            }
+            foreach(var item in temp)
+            {
+                if(item.ID_TRANGTHAI != idComplete)
+                {
+                    result.Add(item);
+                }
+            }
+            foreach (var item in temp)
+            {
+                if (item.ID_TRANGTHAI == idComplete)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+        }
+        public bool TimeMoreThan (DONHANG donXet, DONHANG donThamChieu)
+        {
+            // Năm
+            int checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(12, 4));
+            int checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(12, 4));
+            if (checkX > checkTC)
+            {
+                return true;
+            }
+            if(checkX < checkTC)
+            {
+                return false;
+            }
+            // Tháng
+            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(9, 2));
+            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(9, 2));
+            if (checkX > checkTC)
+            {
+                return true;
+            }
+            if (checkX < checkTC)
+            {
+                return false;
+            }
+            // Ngày
+            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(6, 2));
+            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(6, 2));
+            if (checkX > checkTC)
+            {
+                return true;
+            }
+            if (checkX < checkTC)
+            {
+                return false;
+            }
+            // Giờ
+            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(0, 2));
+            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(0, 2));
+            if (checkX > checkTC)
+            {
+                return true;
+            }
+            if (checkX < checkTC)
+            {
+                return false;
+            }
+            // Phút
+            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(3, 2));
+            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(3, 2));
+            if (checkX > checkTC)
+            {
+                return true;
+            }
+            if (checkX < checkTC)
+            {
+                return false;
+            }
+            return false;
         }
         public ActionResult More(int id)
         {
             Session["Details"] = db.DONHANGs.Where(d => d.ID_DONHANG == id).FirstOrDefault();
-            return RedirectToRoute(new { controller = "Order", action = "DanhSachDonHang" });
+            return RedirectToRoute(new { controller = "Order", action = "DanhSachDonHang" ,id=0});
         }
         [HttpGet]
         public ActionResult Create()
@@ -86,12 +192,12 @@ namespace Homepage.Controllers
                     
                 }
                 // Check if id == hoàn thành thì chuyển thành hóa đơn
-                
-                return RedirectToAction("DanhSachDonHang");
+
+                return RedirectToRoute(new { controller = "Order", action = "DanhSachDonHang", id = 0 });
             }
             catch (Exception)
             {
-                return RedirectToAction("DanhSachDonHang");
+                return RedirectToRoute(new { controller = "Order", action = "DanhSachDonHang", id = 0 });
             }
         }
         public void AutoConvertBill(int idOrder)
@@ -135,6 +241,21 @@ namespace Homepage.Controllers
             SACH newS = new SACH();
             newS.ListSach = db.SACHes.ToList();
             return PartialView(newS);
+        }
+        [HttpGet]
+        public ActionResult SearchBar()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public ActionResult SearchBar(DONHANG srch)
+        {
+            var check = db.DONHANGs.Where(dh => dh.ID_DONHANG == srch.ID_DONHANG).FirstOrDefault();
+            if(check != null)
+            {
+                return RedirectToRoute(new { controller = "Order", action = "DanhSachDonHang", id = srch.ID_DONHANG });
+            }
+            return RedirectToRoute(new { controller = "Order", action = "DanhSachDonHang", id = 0 });
         }
     }
 }

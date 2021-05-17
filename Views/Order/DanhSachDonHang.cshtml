@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>DanhSachDonHang</h2>
+<h2>Danh sách đơn hàng</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@{Html.RenderAction("SearchBar", "Order"); }
 <table class="table">
     <tr>
         <th>
@@ -73,4 +74,4 @@
         }
     }
 
-    </table>
+</table>
