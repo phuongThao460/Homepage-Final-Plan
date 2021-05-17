@@ -3,11 +3,15 @@
 {
     <table class="table">
         <tr>
-            <td>Tên sách</td>
+            <td>Mã đơn hàng:</td>
+            <td>@Html.TextBoxFor(model => model.ID_DONHANG, htmlAttributes: new { @readonly = "readonly" })</td>
+        </tr>
+        <tr>
+            <td>Tên sách:</td>
             <td>@{Html.RenderAction("SelectBooks", "Order");}</td>
         </tr>
         <tr>
-            <td>Số lượng</td>
+            <td>Số lượng:</td>
             <td>@Html.TextBoxFor(model => model.SOLUONG)</td>
         </tr>
         <tr>

@@ -65,5 +65,17 @@ namespace Homepage.Controllers.Admin
             Session["Details"] = db.HOADONs.Where(d => d.ID_HOADON == id).FirstOrDefault();
             return RedirectToAction("Index");
         }
+        public ActionResult Delete(int id)
+        {
+            var checkHD = db.HOADONs.Where(hd => hd.ID_HOADON == id).FirstOrDefault();
+            List<CHITIETHOADON> lsDt = db.CHITIETHOADONs.Where(ct => ct.ID_HOADON == id).ToList();
+            foreach(var item in lsDt)
+            {
+                db.CHITIETHOADONs.Remove(item);
+            }
+            db.HOADONs.Remove(checkHD);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

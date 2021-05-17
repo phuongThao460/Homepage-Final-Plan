@@ -47,7 +47,7 @@
             </td>
 
         </tr>
-        if (Session["Details"] != null && detail!= null&& item.ID_HOADON == detail.ID_HOADON)
+        if (Session["Details"] != null && detail != null && item.ID_HOADON == detail.ID_HOADON)
         {
             <tr style="background-color:aquamarine">
                 <th>Mã chi tiết</th>
@@ -57,19 +57,20 @@
                 <th>Số lượng</th>
                 <th>Tổng tiền</th>
             </tr>
-            <tr style="background-color:aquamarine">
-                @foreach (var prd in detail.CHITIETHOADONs)
-                {
+
+            foreach (var prd in detail.CHITIETHOADONs)
+            {
+                <tr style="background-color:aquamarine">
                     <td>@prd.ID_CTHD</td>
                     <td>@prd.ID_SACH</td>
                     <td>@prd.SACH.TEN_SACH</td>
                     <td>@prd.GIA_BAN</td>
                     <td>@prd.SOLUONG</td>
                     <td>@prd.TONGTIEN</td>
-                }
-            </tr>
+                    
+                </tr>
+            }
         }
     }
 
-
-</table>
+    </table>

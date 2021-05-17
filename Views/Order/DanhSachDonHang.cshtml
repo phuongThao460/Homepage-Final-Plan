@@ -25,6 +25,9 @@
             @Html.DisplayNameFor(model => model.THOIGIAN_DAT)
         </th>
         <th>
+            Tổng tiền
+        </th>
+        <th>
             <b>Trạng thái đơn hàng mới</b>
         </th>
 
@@ -39,15 +42,15 @@
     }
     @foreach (var item in Model)
     {
-        
-<tr>
-    @Html.Partial("UpdateState", item)
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("More", "More", new { id = item.ID_DONHANG })
-    </td>
-</tr>
-        if (Session["Details"]!= null &&detail!= null&& item.ID_DONHANG == detail.ID_DONHANG)
+
+        <tr>
+            @Html.Partial("UpdateState", item)
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID_DONHANG }) |
+                @Html.ActionLink("More", "More", new { id = item.ID_DONHANG })
+            </td>
+        </tr>
+        if (Session["Details"] != null && detail != null && item.ID_DONHANG == detail.ID_DONHANG)
         {
             <tr style="background-color:aquamarine">
                 <th>Mã chi tiết</th>
@@ -56,17 +59,18 @@
                 <th>Số lượng</th>
                 <th>Tổng tiền</th>
             </tr>
-            <tr style="background-color:aquamarine">
-                @foreach (var prd in detail.CHITIETDONHANGs)
-                {
+
+            foreach (var prd in detail.CHITIETDONHANGs)
+            {
+                <tr style="background-color:aquamarine">
                     <td>@prd.ID_CTDH</td>
                     <td>@prd.ID_SACH</td>
                     <td>@prd.SACH.TEN_SACH</td>
                     <td>@prd.SOLUONG</td>
                     <td>@prd.TONGTIEN</td>
-                }
-            </tr>
+                </tr>
+            }
         }
     }
 
-</table>
+    </table>

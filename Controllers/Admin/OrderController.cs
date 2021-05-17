@@ -35,12 +35,24 @@ namespace Homepage.Controllers
             newDH.TONGTIEN = 0;
             db.DONHANGs.Add(newDH);
             db.SaveChanges();
-            int id = db.DONHANGs.Last().ID_DONHANG;
+            int id = db.DONHANGs.ToList().Last().ID_DONHANG;
+            return RedirectToRoute(new { controller = "Order", action = "ManageOrderDetail", id = id });
+        }
+        public ActionResult Edit(int id)
+        {
             return RedirectToRoute(new { controller = "Order", action = "ManageOrderDetail", id = id });
         }
         public ActionResult ManageOrderDetail(int id)
         {
-            return View(db.CHITIETDONHANGs.Where(ct => ct.ID_DONHANG == id).FirstOrDefault());
+            List<CHITIETDONHANG> lsDt = db.CHITIETDONHANGs.Where(ct => ct.ID_DONHANG == id).ToList();
+            return View(lsDt);
+        }
+        public ActionResult DeleteOrderDetail(int id)
+        {
+            var check = db.CHITIETDONHANGs.Where(ct => ct.ID_CTDH == id).FirstOrDefault();
+            db.CHITIETDONHANGs.Remove(check);
+            db.SaveChanges();
+            return RedirectToRoute(new { controller = "Order", action = "ManageOrderDetail", id = id });
         }
         public ActionResult SelectOrderState()
         {
@@ -103,18 +115,20 @@ namespace Homepage.Controllers
         [HttpGet]
         public ActionResult CreateOrderDetail()
         {
-            return PartialView();
+            int id = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+            CHITIETDONHANG newCT = new CHITIETDONHANG();
+            newCT.ID_DONHANG = id;
+            return PartialView(newCT);
         }
         [HttpPost]
         public ActionResult CreateOrderDetail(CHITIETDONHANG newCT)
         {
-            int id = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
-            newCT.ID_DONHANG = id;
             var checkBook = db.SACHes.Where(s => s.ID_SACH == newCT.ID_SACH).FirstOrDefault();
             newCT.GIA_BAN = checkBook.GIA_BAN;
             newCT.TONGTIEN = checkBook.GIA_BAN * newCT.SOLUONG;
             db.CHITIETDONHANGs.Add(newCT);
-            return RedirectToAction("ManageOrderDetail");
+            db.SaveChanges();
+            return RedirectToRoute(new { controller = "Order", action = "ManageOrderDetail", id = newCT.ID_DONHANG });
         }
         public ActionResult SelectBooks()
         {
