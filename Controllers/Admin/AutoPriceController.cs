@@ -17,31 +17,46 @@ namespace Homepage.Controllers.Admin
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            ListAutoPrice newObj = new ListAutoPrice();
+            foreach(var item in db.SACHes.ToList())
+            {
+                var check = db.BANGGIAs.Where(bg => bg.ID_SACH == item.ID_SACH).FirstOrDefault();
+                if(check == null)
+                {
+                    newObj.lsDepend.Add(item);
+                }
+            }
+            return View(newObj);
         }
         [HttpPost]
-        public ActionResult Create(BANGGIA bg)
+        public ActionResult Create(ListAutoPrice obj)
         {
-            if (bg.GIATRI >= 0)
+            string ngayApDung = obj.ngayApDung;
+            bool tangGiam = obj.tangGiam == "down" ? false : true;
+            double giaTri = obj.giaTri;
+            bool donVi = obj.donVi == "VND" ? true : false;
+            // Ko nhận dc ls
+            foreach(var item in obj.lsDepend)
             {
-                bg.TANG_GIAM = true;
-            }
-            else
-            {
-                var check = db.SACHes.Where(s => s.ID_SACH == bg.ID_SACH).FirstOrDefault();
-                if ((check.GIA_BAN + bg.GIATRI) < 0)
+                if(item.IsDepend == "1")
                 {
-                    return RedirectToAction("Create");
+                    BANGGIA newBG = new BANGGIA();
+                    newBG.ID_SACH = item.ID_SACH;
+                    newBG.NGAY_APDUNG = ngayApDung;
+                    newBG.TANG_GIAM = tangGiam;
+                    if (donVi)
+                    {
+                        newBG.GIATRI = giaTri;
+                    }
+                    else
+                    {
+                        newBG.GIATRI = (item.GIA_BAN * giaTri) / 100;
+                    }
+                    db.BANGGIAs.Add(newBG);
                 }
-                bg.TANG_GIAM = false;
             }
-            if (bg.TANG_GIAM == false)
-            {
-                bg.GIATRI = bg.GIATRI * (-1);
-            }
-            db.BANGGIAs.Add(bg);
             db.SaveChanges();
-            return RedirectToAction("Index", "");
+            return RedirectToAction("Index");
         }
         public ActionResult SelectSach()
         {

@@ -204,6 +204,7 @@
     <Compile Include="Models\KHUYENMAI.cs">
       <DependentUpon>BookshopModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ListAutoPrice.cs" />
     <Compile Include="Models\LOAITAIKHOAN.cs">
       <DependentUpon>BookshopModel.tt</DependentUpon>
     </Compile>

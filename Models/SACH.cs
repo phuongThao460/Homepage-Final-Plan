@@ -23,6 +23,7 @@ namespace Homepage.Models
             this.CHITIETDONHANGs = new HashSet<CHITIETDONHANG>();
             this.CHITIETHOADONs = new HashSet<CHITIETHOADON>();
             this.FEEDBACKs = new HashSet<FEEDBACK>();
+            this.IsDepend = "1";
         }
 
         [Display(Name = "Mã sách")]
@@ -85,5 +86,6 @@ namespace Homepage.Models
         public virtual TACGIA TACGIA { get; set; }
         public virtual THELOAI THELOAI { get; set; }
         public List<SACH> ListSach { get; set; }
+        public string IsDepend { get; set; }
     }
 }
