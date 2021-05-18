@@ -35,25 +35,31 @@ namespace Homepage.Controllers.Admin
             bool tangGiam = obj.tangGiam == "down" ? false : true;
             double giaTri = obj.giaTri;
             bool donVi = obj.donVi == "VND" ? true : false;
-            // Ko nhận dc ls
-            foreach(var item in obj.lsDepend)
+            ListAutoPrice newObj = new ListAutoPrice();
+            foreach (var item in db.SACHes.ToList())
             {
-                if(item.IsDepend == "1")
+                var check = db.BANGGIAs.Where(bg => bg.ID_SACH == item.ID_SACH).FirstOrDefault();
+                if (check == null)
                 {
-                    BANGGIA newBG = new BANGGIA();
-                    newBG.ID_SACH = item.ID_SACH;
-                    newBG.NGAY_APDUNG = ngayApDung;
-                    newBG.TANG_GIAM = tangGiam;
-                    if (donVi)
-                    {
-                        newBG.GIATRI = giaTri;
-                    }
-                    else
-                    {
-                        newBG.GIATRI = (item.GIA_BAN * giaTri) / 100;
-                    }
-                    db.BANGGIAs.Add(newBG);
+                    newObj.lsDepend.Add(item);
                 }
+            }
+            // Ko nhận dc ls
+            foreach (var item in newObj.lsDepend)
+            {
+                BANGGIA newBG = new BANGGIA();
+                newBG.ID_SACH = item.ID_SACH;
+                newBG.NGAY_APDUNG = ngayApDung;
+                newBG.TANG_GIAM = tangGiam;
+                if (donVi)
+                {
+                    newBG.GIATRI = giaTri;
+                }
+                else
+                {
+                    newBG.GIATRI = (item.GIA_BAN * giaTri) / 100;
+                }
+                db.BANGGIAs.Add(newBG);
             }
             db.SaveChanges();
             return RedirectToAction("Index");
