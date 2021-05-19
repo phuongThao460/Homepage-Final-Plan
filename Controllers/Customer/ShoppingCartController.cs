@@ -70,7 +70,7 @@ namespace Homepage.Controllers
             {
                 Cart cart = Session["Cart"] as Cart;
                 DONHANG _order = new DONHANG();
-                _order.THOIGIAN_DAT =Convert.ToString(DateTime.Now);
+                _order.THOIGIAN_DAT = String.Format("{0:u}", DateTime.Now);
                 _order.ID_TTKH = int.Parse(form["CodeCustomer"]);
                 database.DONHANGs.Add(_order);
                 foreach (var item in cart.Items)
@@ -79,9 +79,15 @@ namespace Homepage.Controllers
                     _order_detail.ID_DONHANG = _order.ID_DONHANG;
                     _order_detail.ID_SACH = item._sach.ID_SACH;
                     _order_detail.GIA_BAN = (double)item._sach.GIA_BAN;
-                    _order_detail.SOLUONG = (short)item._quantity;
+                    _order_detail.SOLUONG = Convert.ToInt16(item._quantity);
                     database.CHITIETDONHANGs.Add(_order_detail);
+                    foreach (var p in database.SACHes.Where(s => s.ID_SACH == _order_detail.ID_SACH))
+                    {
+                        var update_quan_pro = p.SOLUONG_TON - item._quantity;
+                        p.SOLUONG_TON = Convert.ToInt16(update_quan_pro);
+                    }
                 }
+                 
                 database.SaveChanges();
                 cart.ClearCart();
                 return RedirectToAction("CheckOut_Success", "ShoppingCart");

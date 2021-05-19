@@ -69,8 +69,8 @@ namespace Homepage.Controllers
         public bool TimeMoreThan (DONHANG donXet, DONHANG donThamChieu)
         {
             // Năm
-            int checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(12, 4));
-            int checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(12, 4));
+            int checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(0, 4));
+            int checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(0, 4));
             if (checkX > checkTC)
             {
                 return true;
@@ -80,8 +80,8 @@ namespace Homepage.Controllers
                 return false;
             }
             // Tháng
-            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(9, 2));
-            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(9, 2));
+            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(5, 2));
+            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(5, 2));
             if (checkX > checkTC)
             {
                 return true;
@@ -91,8 +91,8 @@ namespace Homepage.Controllers
                 return false;
             }
             // Ngày
-            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(6, 2));
-            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(6, 2));
+            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(8, 2));
+            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(8, 2));
             if (checkX > checkTC)
             {
                 return true;
@@ -102,8 +102,8 @@ namespace Homepage.Controllers
                 return false;
             }
             // Giờ
-            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(0, 2));
-            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(0, 2));
+            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(11, 2));
+            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(11, 2));
             if (checkX > checkTC)
             {
                 return true;
@@ -113,8 +113,8 @@ namespace Homepage.Controllers
                 return false;
             }
             // Phút
-            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(3, 2));
-            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(3, 2));
+            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(14, 2));
+            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(14, 2));
             if (checkX > checkTC)
             {
                 return true;

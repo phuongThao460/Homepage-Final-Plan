@@ -47,7 +47,11 @@ namespace Homepage.Models
             var item = items.Find(s => s._sach.ID_SACH == id);
             if (item != null)
             {
-                item._quantity = _new_quan;
+                if (items.Find(s => s._sach.SOLUONG_TON > _new_quan) != null)
+                {
+                    item._quantity = _new_quan;
+                }
+                else item._quantity = 1;
             }
         }
         public void Remove_CartItem(int id)
