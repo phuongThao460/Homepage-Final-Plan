@@ -146,11 +146,10 @@
     <Compile Include="Controllers\Admin\OrderStateController.cs" />
     <Compile Include="Controllers\Admin\TacGiaController.cs" />
     <Compile Include="Controllers\Admin\TheLoaiController.cs" />
-    <Compile Include="Controllers\Customer\ChiTietSanPhamController.cs" />
-    <Compile Include="Controllers\Customer\CustomerController.cs" />
-    <Compile Include="Controllers\Customer\ShoppingCartController.cs" />
-    <Compile Include="Controllers\Customer\uHomeController.cs" />
-    <Compile Include="Controllers\Customer\UserLoginController.cs" />
+    <Compile Include="Controllers\Client\ChiTietSanPhamController.cs" />
+    <Compile Include="Controllers\Client\ShoppingCartController.cs" />
+    <Compile Include="Controllers\Client\uHomeController.cs" />
+    <Compile Include="Controllers\Client\UserLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4039,11 +4038,10 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\ShoppingCart\CheckOut_Success.cshtml" />
-    <Content Include="Views\Customer\Create.cshtml" />
-    <Content Include="Views\Customer\Delete.cshtml" />
-    <Content Include="Views\Customer\Details.cshtml" />
-    <Content Include="Views\Customer\Edit.cshtml" />
-    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\CustomerInfo\Details.cshtml" />
+    <Content Include="Views\ShoppingCart\EmptyCart.cshtml" />
+    <Content Include="Views\UserLogin\Index.cshtml" />
+    <Content Include="Views\UserLogin\RegisterUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4051,7 +4049,6 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Customer\Data\" />
     <Folder Include="Areas\Customer\Views\Shared\" />
-    <Folder Include="Views\UserLogin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

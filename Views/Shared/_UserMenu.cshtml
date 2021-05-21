@@ -35,7 +35,15 @@
             @Html.Action("BagCart", "ShoppingCart")
         </div>
         <div>
-            <a href="LogIn.html" target="_blank"><i class='fas fa-user-circle' style='font-size: 24px; color: white; padding: 0px;margin-left: 11px;position: relative;margin-top: 8px;'></i><p style="margin-bottom: 0px;font-size: 12px;">username</p></a>
+            @if (Session["TEN_DANGNHAP"] == null)
+            {
+                <a href="/UserLogin/Index" style="text-decoration: none; color: white;"><i class='fas fa-user-circle' style='font-size: 24px; color: white; padding: 0px;margin-left: 11px;position: relative;margin-top: 8px;'></i><p style="margin-bottom: 0px;font-size: 12px;">Login</p></a>
+            }
+            else
+            {
+                <a href="" target="_blank" style="text-decoration: none; color: white;"><i class='fas fa-user-circle' style='font-size: 24px; color: white; padding: 0px;margin-left: 11px;position: relative;margin-top: 8px;'></i><p style="margin-bottom: 0px;font-size: 12px;">@Session["TEN_DANGNHAP"]</p></a>
+            }
+
         </div>
 
     </div>

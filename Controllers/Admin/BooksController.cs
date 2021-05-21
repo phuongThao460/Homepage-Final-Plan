@@ -36,7 +36,6 @@ namespace Homepage.Controllers
         {
             int id = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
             var select = db.SACHes.Where(s => s.ID_SACH == id).FirstOrDefault();
-
             return View(select);
         }
 

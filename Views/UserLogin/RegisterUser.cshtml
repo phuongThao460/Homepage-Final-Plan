@@ -1,0 +1,36 @@
+﻿@model Homepage.Models.TAIKHOANKHACHHANG
+
+@{
+    ViewBag.Title = "RegisterUser";
+    Layout = "~/Views/Shared/_Book.cshtml";
+}
+
+<h2>RegisterUser</h2>
+
+@using (Html.BeginForm("RegisterUser", "UserLogin")) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
+    <p>@Html.LabelFor(model => model.TEN_DANGNHAP)</p>
+    <p>@Html.TextBoxFor(model => model.TEN_DANGNHAP, new { style = "field-validation-error" })</p>
+    <p>@Html.ValidationMessageFor(model => model.TEN_DANGNHAP)</p>
+
+    <p>@Html.LabelFor(model => model.MATKHAU)</p>
+    <p>@Html.PasswordFor(model => model.MATKHAU, new { style = "field-validation-error" })</p>
+    <p>@Html.ValidationMessageFor(model => model.MATKHAU)</p>
+
+    <p>@Html.LabelFor(model => model.ConfirmPassword)</p>
+    <p>@Html.PasswordFor(model => model.ConfirmPassword, new { style = "field-validation-error" })</p>
+    <p>@Html.ValidationMessageFor(model => model.ConfirmPassword)</p>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
