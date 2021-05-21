@@ -15,121 +15,130 @@
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ID_SACH)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TEN_SACH)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LOAI_BIA)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NGAY_XUATBAN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SOLUONG_TON)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SO_TRANG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KICH_THUOC)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MOTA)
-            </th>
-            <th>
-                @Html.DisplayName("Nhà xuất bản")
-
-            </th>
-            <th>
-                @Html.DisplayName("Tác giả")
-            </th>
-            <th>
-                @Html.DisplayName("Nhà cung cấp")
-            </th>
-            <th>
-                @Html.DisplayName("Thể loại")
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KHOILUONG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GIA_BIA)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GIA_BAN)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
+    <p>
+        @using (Html.BeginForm("Index", "ChiTietSanPham", FormMethod.Get))
         {
+        <p>
+            Title: @Html.TextBox("searchString")--- Category: @Html.DropDownList("theloaiID", "All")<input type="submit" value="Tìm kiếm" />
+        </p>
+    }
+        <!---------------->
+        </p>
+        <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID_SACH)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TEN_SACH)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LOAI_BIA)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NGAY_XUATBAN)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SOLUONG_TON)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SO_TRANG)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.KICH_THUOC)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MOTA)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NHAXUATBAN.TEN_NHAXUATBAN)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TACGIA.TEN_TACGIA)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NHACUNGCAP.TEN_NHACUNGCAP)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.THELOAI.TEN_THELOAI)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.KHOILUONG)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GIA_BIA)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GIA_BAN)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_SACH }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_SACH }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_SACH })
-                </td>
-            </tr>
-            <tr>
-                @foreach (var image in item.ANHBIAs)
-                {
-                    <td>
-                        <img src="@Url.Content(image.ANH)" width="100" height="100" />
-                    </td>
-                }
-            </tr>
-        }
+                <th>
+                    @Html.DisplayNameFor(model => model.ID_SACH)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TEN_SACH)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LOAI_BIA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NGAY_XUATBAN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SOLUONG_TON)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SO_TRANG)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KICH_THUOC)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MOTA)
+                </th>
+                <th>
+                    @Html.DisplayName("Nhà xuất bản")
 
-    </table>
-</body>
+                </th>
+                <th>
+                    @Html.DisplayName("Tác giả")
+                </th>
+                <th>
+                    @Html.DisplayName("Nhà cung cấp")
+                </th>
+                <th>
+                    @Html.DisplayName("Thể loại")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KHOILUONG)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GIA_BIA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GIA_BAN)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID_SACH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TEN_SACH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LOAI_BIA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NGAY_XUATBAN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SOLUONG_TON)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SO_TRANG)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KICH_THUOC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MOTA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NHAXUATBAN.TEN_NHAXUATBAN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TACGIA.TEN_TACGIA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NHACUNGCAP.TEN_NHACUNGCAP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.THELOAI.TEN_THELOAI)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KHOILUONG)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GIA_BIA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GIA_BAN)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_SACH }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_SACH }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_SACH })
+                    </td>
+                </tr>
+                <tr>
+                    @foreach (var image in item.ANHBIAs)
+                    {
+                        <td>
+                            <img src="@Url.Content(image.ANH)" width="100" height="100" />
+                        </td>
+                    }
+                </tr>
+            }
+
+        </table>
+    </body>
 </html>
