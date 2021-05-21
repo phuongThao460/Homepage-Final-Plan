@@ -32,7 +32,7 @@ namespace Homepage.Controllers
         }
         public List<DONHANG> SortByTime(List<DONHANG> ls)
         {
-            // 0 8 : 0 2   1 2 / 0 5 / 2 0 2 1
+            // 2 0 0 8 - 0 3 - 0 9  1 6 : 0 5 : 0 7
             // 0 1 2 3 4 5 6 7 8 9101112131415
             List<DONHANG> result = new List<DONHANG>();
             List<DONHANG> temp = new List<DONHANG>();
@@ -68,6 +68,8 @@ namespace Homepage.Controllers
         }
         public bool TimeMoreThan (DONHANG donXet, DONHANG donThamChieu)
         {
+            // 2008-03-09 16:05:07Z
+            // 012345678910
             // Năm
             int checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(0, 4));
             int checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(0, 4));
@@ -123,6 +125,18 @@ namespace Homepage.Controllers
             {
                 return false;
             }
+            
+            // Giây
+            checkX = int.Parse(donXet.THOIGIAN_DAT.Substring(17, 2));
+            checkTC = int.Parse(donThamChieu.THOIGIAN_DAT.Substring(17, 2));
+            if (checkX > checkTC)
+            {
+                return true;
+            }
+            if (checkX < checkTC)
+            {
+                return false;
+            }
             return false;
         }
         public ActionResult More(int id)
@@ -139,6 +153,7 @@ namespace Homepage.Controllers
         public ActionResult Create(DONHANG newDH)
         {
             newDH.TONGTIEN = 0;
+            newDH.THOIGIAN_DAT = String.Format("{0:u}", DateTime.Now);
             db.DONHANGs.Add(newDH);
             db.SaveChanges();
             int id = db.DONHANGs.ToList().Last().ID_DONHANG;
@@ -188,6 +203,7 @@ namespace Homepage.Controllers
                     newHD.TONGTIEN = check.TONGTIEN;
                     newHD.ID_DONHANG = check.ID_DONHANG;
                     db.HOADONs.Add(newHD);
+                    db.SaveChanges();
                     AutoConvertBill(newStateDH.ID_DONHANG);
                     
                 }
@@ -233,6 +249,9 @@ namespace Homepage.Controllers
             newCT.GIA_BAN = checkBook.GIA_BAN;
             newCT.TONGTIEN = checkBook.GIA_BAN * newCT.SOLUONG;
             db.CHITIETDONHANGs.Add(newCT);
+            var checkOrder = db.DONHANGs.Where(d => d.ID_DONHANG == newCT.ID_DONHANG).FirstOrDefault();
+            checkOrder.TONGTIEN += newCT.TONGTIEN;
+            checkOrder.THOIGIAN_DAT = String.Format("{0:u}", DateTime.Now);
             db.SaveChanges();
             return RedirectToRoute(new { controller = "Order", action = "ManageOrderDetail", id = newCT.ID_DONHANG });
         }

@@ -131,10 +131,10 @@ namespace Homepage.Controllers.Admin
         }
         public bool HetHan(BANGGIA bg)
         {
-            int ngay = int.Parse(bg.NGAY_APDUNG.Substring(0, 2));
-            // 20/12/2021
-            int thang = int.Parse(bg.NGAY_APDUNG.Substring(3, 2));
-            int nam = int.Parse(bg.NGAY_APDUNG.Substring(6, 4));
+            int ngay = int.Parse(bg.NGAY_APDUNG.Substring(8, 2));
+            // 2008-03-09
+            int thang = int.Parse(bg.NGAY_APDUNG.Substring(5, 2));
+            int nam = int.Parse(bg.NGAY_APDUNG.Substring(0, 4));
             DateTime current = DateTime.Now;
             if (current.Year > nam)
             {
