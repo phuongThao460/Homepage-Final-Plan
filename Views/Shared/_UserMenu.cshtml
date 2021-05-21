@@ -20,7 +20,7 @@
         @*Search Bar*@
         <div class="box justify-content-end">
             <div class="container-4">
-                <input type="text" onkeyup="myFunction()" id="search" placeholder="Search..." />
+                <input type="text" id="search" placeholder="Search..." />
                 <button class="icon" style="height: 45px;"><i class="fa fa-search"></i></button>
             </div>
         </div>
@@ -29,7 +29,7 @@
         <div>
             <span>
                 <a href="/ShoppingCart/ShowCart">
-                    <i class='fa fa-shopping-cart' style='font-size: 37px;color: white;margin-top: 10px;padding: 0px;margin-left: 16px;'></i>
+                    <i class='fa fa-shopping-cart' style='font-size: 37px;color: white;margin-top: 10px;padding: 0px;margin-left: 3px;'></i>
                 </a>
             </span>
             @Html.Action("BagCart", "ShoppingCart")
@@ -37,11 +37,11 @@
         <div>
             @if (Session["TEN_DANGNHAP"] == null)
             {
-                <a href="/UserLogin/Index" style="text-decoration: none; color: white;"><i class='fas fa-user-circle' style='font-size: 24px; color: white; padding: 0px;margin-left: 11px;position: relative;margin-top: 8px;'></i><p style="margin-bottom: 0px;font-size: 12px;">Login</p></a>
+                <a href="/UserLogin/Index" style="text-decoration: none; color: white;"><i class='fas fa-user-circle' style='font-size: 24px; color: white; padding: 0px;margin-left: 3px;position: relative;margin-top: 8px;'></i><p style="margin-bottom: 0px;font-size: 12px;">Login</p></a>
             }
             else
             {
-                <a href="" target="_blank" style="text-decoration: none; color: white;"><i class='fas fa-user-circle' style='font-size: 24px; color: white; padding: 0px;margin-left: 11px;position: relative;margin-top: 8px;'></i><p style="margin-bottom: 0px;font-size: 12px;">@Session["TEN_DANGNHAP"]</p></a>
+                <a href="" target="_blank" style="text-decoration: none; color: white;"><i class='fas fa-user-circle' style='font-size: 24px; color: white; padding: 0px;margin-left: 3px;position: relative;margin-top: 8px;'></i><p style="margin-bottom: 0px;font-size: 12px;">@Session["TEN_DANGNHAP"]</p></a>
             }
 
         </div>

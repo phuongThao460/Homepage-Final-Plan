@@ -10,7 +10,7 @@
     display: inline-block;
     vertical-align: top;
     height: 100%;
-    width: 18%;
+    width: auto;
     padding-bottom: 20px;
 }
 
@@ -23,15 +23,17 @@
         border: none;
     }
 
-    .card .card-body .productname a {
-        font-size: 18px;
-        color: #A0CFEB !important;
-        display: -webkit-box;
-        text-overflow: ellipsis;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-        word-break: break-all;
-    }
+.card .card-body .productname a {
+    font-size: 18px;
+    color: #A0CFEB !important;
+    /*display: -webkit-box;
+    text-overflow: ellipsis;*/
+    /*word-break: break-all;*/
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 
     .card .card-body .image img {
         border: none;

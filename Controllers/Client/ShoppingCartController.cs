@@ -72,6 +72,7 @@ namespace Homepage.Controllers
                 DONHANG _order = new DONHANG();
                 _order.THOIGIAN_DAT = String.Format("{0:u}", DateTime.Now);
                 _order.ID_TTKH = int.Parse(form["CodeCustomer"]);
+                _order.ID_TRANGTHAI = 1;
                 database.DONHANGs.Add(_order);
                 foreach (var item in cart.Items)
                 {

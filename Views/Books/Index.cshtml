@@ -15,15 +15,6 @@
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <p>
-        @using (Html.BeginForm("Index", "ChiTietSanPham", FormMethod.Get))
-        {
-        <p>
-            Title: @Html.TextBox("searchString")--- Category: @Html.DropDownList("theloaiID", "All")<input type="submit" value="Tìm kiếm" />
-        </p>
-    }
-        <!---------------->
-        </p>
         <table class="table">
             <tr>
                 <th>

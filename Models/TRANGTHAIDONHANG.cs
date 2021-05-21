@@ -28,7 +28,6 @@ namespace Homepage.Models
         public virtual ICollection<DONHANG> DONHANGs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
-
         public List<TRANGTHAIDONHANG> lsTTDH { get; set; }
     }
 }

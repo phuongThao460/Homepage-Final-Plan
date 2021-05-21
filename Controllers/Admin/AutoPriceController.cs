@@ -115,7 +115,7 @@ namespace Homepage.Controllers.Admin
                 if (HetHan(item))
                 {
                     var check = db.SACHes.Where(s => s.ID_SACH == item.ID_SACH).FirstOrDefault();
-                    if (item.TANG_GIAM)
+                    if (item.TANG_GIAM == true)
                     {
                         check.GIA_BAN += item.GIATRI;
                     }

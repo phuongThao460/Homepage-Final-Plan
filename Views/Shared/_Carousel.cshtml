@@ -1,28 +1,63 @@
 ﻿<!--Carousel-->
-<div id="demo" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-    </ul>
-    <!-- The slideshow -->
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="~/Content/Images/update3.jpg" alt="pic1" width="790" height="450" hspace="300">
-        </div>
-        <div class="carousel-item">
-            <img src="~/Content/Images/event10.png" alt="pic2" width="790" height="450" hspace="300">
-        </div>
-        <div class="carousel-item">
-            <img src="~/Content/Images/event3.jpg" alt="pic3" width="790" height="450" hspace="300">
-        </div>
+<style>
+    .carousel-wrapped {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #img-carousel {
+        margin-left: 48px;
+        margin-right: 48px;
+        height: 315px;
+        width: 582px;
+    }
+    #demo {
+        width: 50%;
+        margin-bottom: 30px;    
+    }
+    .carousel-control-prev {
+        left: 6px;
+    }
+    .carousel-control-next {
+        right: 6px;
+    }
+    .img-side img{
+        height: 317px
+    }
+</style>
+<div class="carousel-wrapped">
+    <div class="img-side">
+        <img src="~/Content/Images/new-book.jpg" />
     </div>
-    <!-- Left and right controls -->
-    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#demo" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </a>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/Content/Images/update3.jpg" alt="pic1" id="img-carousel">
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/Images/event10.png" alt="pic2" id="img-carousel">
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/Images/event3.jpg" alt="pic3" id="img-carousel">
+            </div>
+        </div>
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <div class="img-side">
+        <img src="~/Content/Images/new-event.jpg" />
+    </div>
 </div>
+

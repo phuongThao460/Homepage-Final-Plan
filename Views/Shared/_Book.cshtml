@@ -2,6 +2,7 @@
 
 <html>
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/bootstrap-homepage.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-navbar.css" rel="stylesheet" />
@@ -16,6 +17,14 @@
     <script type="text/javascript" src="~/lib/js/a076d05399.js"></script>
     @RenderSection("scripts", required: false)
     <title>@ViewBag.Title</title>
+    <style>
+        footer {
+            background-color: rebeccapurple;
+            margin-top: 50px;
+            color:white;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
     @{
@@ -24,6 +33,8 @@
     <div class="container body-content">
         @RenderBody()
     </div>
-
+    <footer style="">
+        new footer
+    </footer>
 </body>
 </html>
