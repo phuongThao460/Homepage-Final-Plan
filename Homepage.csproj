@@ -218,6 +218,7 @@
     <Compile Include="Models\SANPHAMKHUYENMAI.cs">
       <DependentUpon>BookshopModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\StaticClass.cs" />
     <Compile Include="Models\TACGIA.cs">
       <DependentUpon>BookshopModel.tt</DependentUpon>
     </Compile>

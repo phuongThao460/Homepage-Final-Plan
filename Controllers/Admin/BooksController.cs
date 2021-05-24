@@ -12,6 +12,12 @@ namespace Homepage.Controllers
         BookshopEntity db = new BookshopEntity();
         public ActionResult Index()
         {
+            List<SACH> ls = db.SACHes.ToList(); 
+            foreach(var item in ls)
+            {
+                item.fomatGiaBia = StaticClass.ConvertNumberToPrice(item.GIA_BIA.ToString());
+                item.fomatGiaBan = StaticClass.ConvertNumberToPrice(item.GIA_BAN.ToString());
+            }
             return View(db.SACHes.ToList());
         }
         [HttpGet]

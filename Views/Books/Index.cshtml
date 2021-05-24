@@ -5,63 +5,69 @@
 }
 
 <!DOCTYPE html>
-
+<style>
+    .createBtn {
+        padding: 10px 20px 10px 20px;
+        border-radius: 10px;
+        margin-left:20px;
+        background-color: #0032A0;
+        color:white;
+        border-style: none;
+    }
+</style>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Quản lý sách</title>
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Create New", "Create","Books", htmlAttributes: new { @class = "createBtn" })
     </p>
         <table class="table">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.ID_SACH)
+                    Mã sách
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.TEN_SACH)
+                    Tên sách
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.LOAI_BIA)
+                    Loại bìa
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.NGAY_XUATBAN)
+                    Ngày xuất bản
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.SOLUONG_TON)
+                    Số lượng tồn
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.SO_TRANG)
+                    Số trang
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.KICH_THUOC)
+                    Kích thước
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.MOTA)
-                </th>
-                <th>
-                    @Html.DisplayName("Nhà xuất bản")
+                    Nhà xuất bản
 
                 </th>
                 <th>
-                    @Html.DisplayName("Tác giả")
+                    Tác giả
                 </th>
                 <th>
-                    @Html.DisplayName("Nhà cung cấp")
+                    Nhà cung cấp
                 </th>
                 <th>
-                    @Html.DisplayName("Thể loại")
+                    Thể loại
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.KHOILUONG)
+                    Khối lượng
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.GIA_BIA)
+                    Giá bìa
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.GIA_BAN)
+                    Giá bán
                 </th>
                 <th></th>
             </tr>
@@ -91,9 +97,6 @@
                         @Html.DisplayFor(modelItem => item.KICH_THUOC)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.MOTA)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.NHAXUATBAN.TEN_NHAXUATBAN)
                     </td>
                     <td>
@@ -109,10 +112,10 @@
                         @Html.DisplayFor(modelItem => item.KHOILUONG)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.GIA_BIA)
+                        @Html.DisplayFor(modelItem => item.fomatGiaBia)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.GIA_BAN)
+                        @Html.DisplayFor(modelItem => item.fomatGiaBan)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.ID_SACH }) |

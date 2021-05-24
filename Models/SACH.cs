@@ -87,5 +87,7 @@ namespace Homepage.Models
         public virtual THELOAI THELOAI { get; set; }
         public List<SACH> ListSach { get; set; }
         public string IsDepend { get; set; }
+        public string fomatGiaBia { get; set; }
+        public string fomatGiaBan { get; set; }
     }
 }
