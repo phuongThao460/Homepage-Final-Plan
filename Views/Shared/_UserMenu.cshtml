@@ -3,7 +3,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto" style="padding-left: 62px">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Trang Chủ <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="@Url.Action("Index", "uHome")">Trang Chủ <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="@Url.Action("Search", "uHome")">Tìm kiếm sản phẩm <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -17,13 +20,6 @@
                 </div>
             </li>
         </ul>
-        @*Search Bar*@
-        <div class="box justify-content-end">
-            <div class="container-4">
-                <input type="text" id="search" placeholder="Search..." />
-                <button class="icon" style="height: 45px;"><i class="fa fa-search"></i></button>
-            </div>
-        </div>
     </div>
     <div class="sign-item">
         <div>

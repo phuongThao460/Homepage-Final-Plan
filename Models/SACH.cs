@@ -85,6 +85,7 @@ namespace Homepage.Models
         public virtual NHAXUATBAN NHAXUATBAN { get; set; }
         public virtual TACGIA TACGIA { get; set; }
         public virtual THELOAI THELOAI { get; set; }
+        public string ANH { get; set; }
         public List<SACH> ListSach { get; set; }
         public string IsDepend { get; set; }
     }
