@@ -3529,6 +3529,7 @@
     <Content Include="Content\Images\cart2.png" />
     <Content Include="Content\Images\event10.png" />
     <Content Include="Content\Images\event3.jpg" />
+    <Content Include="Content\Images\Icon\books.png" />
     <Content Include="Content\Images\new-book.jpg" />
     <Content Include="Content\Images\new-event.jpg" />
     <Content Include="Content\Images\sach0.jpg" />
