@@ -1,4 +1,4 @@
 ﻿@model Homepage.Models.NHAXUATBAN
 @Html.DropDownListFor(model => model.ID_NXB,
-new SelectList(Model.ListNXB.OrderBy(model => model.TEN_NHAXUATBAN), "ID_NXB", "TEN_NHAXUATBAN"), "---select Nha xuat ban---")
+new SelectList(Model.ListNXB.OrderBy(model => model.TEN_NHAXUATBAN), "ID_NXB", "TEN_NHAXUATBAN"), "Chọn nhà xuất bản ...", htmlAttributes: new { @class = "form-control" })
 
