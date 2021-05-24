@@ -73,7 +73,8 @@ namespace Homepage.Controllers
                 _order.THOIGIAN_DAT = String.Format("{0:u}", DateTime.Now);
                 _order.ID_TTKH = int.Parse(form["CodeCustomer"]);
                 _order.ID_TRANGTHAI = 1;
-                database.DONHANGs.Add(_order);
+                
+                
                 foreach (var item in cart.Items)
                 {
                     CHITIETDONHANG _order_detail = new CHITIETDONHANG();
@@ -81,6 +82,8 @@ namespace Homepage.Controllers
                     _order_detail.ID_SACH = item._sach.ID_SACH;
                     _order_detail.GIA_BAN = (double)item._sach.GIA_BAN;
                     _order_detail.SOLUONG = Convert.ToInt16(item._quantity);
+                    _order_detail.TONGTIEN = item._quantity * item._sach.GIA_BAN;
+                    _order.TONGTIEN = item._quantity * item._sach.GIA_BAN;
                     database.CHITIETDONHANGs.Add(_order_detail);
                     foreach (var p in database.SACHes.Where(s => s.ID_SACH == _order_detail.ID_SACH))
                     {
@@ -88,7 +91,7 @@ namespace Homepage.Controllers
                         p.SOLUONG_TON = Convert.ToInt16(update_quan_pro);
                     }
                 }
-                 
+                database.DONHANGs.Add(_order);
                 database.SaveChanges();
                 cart.ClearCart();
                 return RedirectToAction("CheckOut_Success", "ShoppingCart");
