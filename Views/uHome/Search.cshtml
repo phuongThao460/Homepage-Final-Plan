@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Homepage.Models.SACH>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_homepageLayout.cshtml";
+}
+<style>
+    .container-type {
+        font-size: 30px;
+        background-color: #6e72fc;
+        background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%);
+        color: white;
+        text-align: center;
+        margin-right: 65px;
+        margin-left: 65px;
+        height: 48px;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+</style>
+<h2>Tìm kiếm sản phẩm</h2>
+<p>
+    @using (Html.BeginForm("Search", "uHome", FormMethod.Get))
+    {
+    <p>
+        Tên Sản Phẩm: @Html.TextBox("searchString")  Thể Loại: @Html.DropDownList("theloaiID", "All")<input type="submit" value="Tìm kiếm" />
+    </p>
+}
+    <!---------------->
+    </p>
+    <div class="container-type">
+        <p>Danh sách sản phẩm</p>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TEN_SACH)
+            </th>
+            <th>
+                Tác giả
+            </th>
+            <th>
+                Thể loại
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GIA_BAN)
+            </th>
+            <!----------------->
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(@item.TEN_SACH, "Details", new { id = item.ID_SACH })
+                </td>
+                <td>
+                    @{Html.RenderAction("GetNameTG", "uHome", new { id = item.ID_TACGIA });}
+                </td>
+                <td>
+                    @{Html.RenderAction("GetNameTL", "uHome", new { id = item.ID_THELOAI });}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GIA_BAN)
+                </td>
+            </tr>
+        }
+
+    </table>

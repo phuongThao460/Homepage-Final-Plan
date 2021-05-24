@@ -10,14 +10,18 @@ namespace Homepage.Controllers
     public class uHomeController : Controller
     {
         BookshopEntity db = new BookshopEntity();
-        /*public ActionResult Index(string searchString, int theloaiID = 0)
+        public ActionResult Index()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult Search(string searchString, int theloaiID = 0)
         {
             var theloai = from c in db.THELOAIs select c;
             ViewBag.theloaiID = new SelectList(theloai, "ID_THELOAI", "TEN_THELOAI"); // danh sách Category 
 
             var sach = from l in db.SACHes
                        join c in db.THELOAIs on l.ID_THELOAI equals c.ID_THELOAI
-                       select new { l.ID_SACH, l.TEN_SACH, l.LOAI_BIA, l.GIA_BAN, l.ID_THELOAI, c.TEN_THELOAI };
+                       select new { l.ID_SACH, l.TEN_SACH, l.LOAI_BIA, l.GIA_BAN, l.ID_THELOAI, l.ID_TACGIA, c.TEN_THELOAI };
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -37,20 +41,23 @@ namespace Homepage.Controllers
                 temp.ID_THELOAI = item.ID_THELOAI;
                 temp.ID_SACH = item.ID_SACH;
                 temp.TEN_SACH = item.TEN_SACH;
-                temp.LOAI_BIA = item.LOAI_BIA;
+                temp.GIA_BAN = item.GIA_BAN;
+                temp.ID_TACGIA = item.ID_TACGIA;
                 listSach.Add(temp);
             }
             return View(listSach);
-        }*/
-        public ActionResult Index()
-        {
-            return View(db.SACHes.ToList());
         }
         public ActionResult GetNameTG()
         {
             int id = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
             var tacgia = db.TACGIAs.Where(tg => tg.ID_TACGIA == id).FirstOrDefault();
             return PartialView(tacgia);
+        }
+        public ActionResult GetNameTL()
+        {
+            int id = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+            var theloai = db.THELOAIs.Where(tl => tl.ID_THELOAI == id).FirstOrDefault();
+            return PartialView(theloai);
         }
         public ActionResult Details(int id)
         {
