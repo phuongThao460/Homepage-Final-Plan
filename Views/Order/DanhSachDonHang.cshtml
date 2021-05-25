@@ -5,25 +5,56 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Danh sách đơn hàng</h2>
+<h2 class="text-center">Danh sách đơn hàng</h2>
+<style>
+    .createBtn {
+        padding: 10px 20px 10px 20px;
+        border-radius: 10px;
+        margin-left: 20px;
+        background-color: #0032A0;
+        color: white;
+        border-style: none;
+    }
 
+        .createBtn:hover {
+            text-decoration: none;
+            background-color: aqua;
+            color: black;
+        }
+
+    .actionBtn {
+        padding: 2px 5px 2px 5px;
+        margin-right: 2px;
+        border-radius: 5px;
+        background-color: #0032A0;
+        color: white;
+    }
+
+        .actionBtn :hover {
+            text-decoration: none;
+            background-color: aqua;
+            color: black;
+        }
+</style>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo đơn hàng mới", "Create","Order",htmlAttributes: new { @class = "createBtn" })
 </p>
+<br/>
 @{Html.RenderAction("SearchBar", "Order"); }
+<hr/>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ID_DONHANG)
+            Mã đơn hàng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ID_TTKH)
+            Mã tài khoản khách hàng
         </th>
         <th>
             <b>Trạng thái đơn hàng cũ</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.THOIGIAN_DAT)
+            Thời gian đặt
         </th>
         <th>
             Tổng tiền
@@ -31,7 +62,9 @@
         <th>
             <b>Trạng thái đơn hàng mới</b>
         </th>
-
+        <th>
+            Thao tác
+        </th>
     </tr>
     @{
         var detail = new Homepage.Models.DONHANG();
@@ -47,14 +80,13 @@
         <tr>
             @Html.Partial("UpdateState", item)
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_DONHANG }) |
-                @Html.ActionLink("More", "More", new { id = item.ID_DONHANG })
+                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_DONHANG }, htmlAttributes: new { @class = "actionBtn" })
+                @Html.ActionLink("Chi tiết", "More", new { id = item.ID_DONHANG }, htmlAttributes: new { @class = "actionBtn" })
             </td>
         </tr>
         if (Session["Details"] != null && detail != null && item.ID_DONHANG == detail.ID_DONHANG)
         {
-            <tr style="background-color:aquamarine">
-                <th>Mã chi tiết</th>
+            <tr class="p-3 mb-2 bg-warning text-dark">
                 <th>Mã sách</th>
                 <th>Tên sách</th>
                 <th>Số lượng</th>
@@ -63,8 +95,7 @@
 
             foreach (var prd in detail.CHITIETDONHANGs)
             {
-                <tr style="background-color:aquamarine">
-                    <td>@prd.ID_CTDH</td>
+                <tr class="p-3 mb-2 bg-light text-dark">
                     <td>@prd.ID_SACH</td>
                     <td>@prd.SACH.TEN_SACH</td>
                     <td>@prd.SOLUONG</td>

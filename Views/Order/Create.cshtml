@@ -30,12 +30,26 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default center-block" />
             </div>
         </div>
     </div>
 }
+<style>
+    .backBtn {
+        margin-top: 10px;
+        background-color: gainsboro;
+        color: darkslateblue;
+        margin-left: 20px;
+        padding: 10px 20px 10px 20px;
+    }
 
+        .backBtn:hover {
+            background-color: darkslateblue;
+            color: white;
+            text-decoration: none;
+        }
+</style>
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Trở về trang chủ", "DanhSachDonHang", "Order", htmlAttributes: new { @class = "backBtn" })
 </div>

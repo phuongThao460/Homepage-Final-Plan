@@ -5,11 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="text-center">Chi tiết trạng thái</h2>
 
 <div>
-    <h4>TRANGTHAIDONHANG</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.ID_TRANGTHAI)
@@ -33,3 +31,22 @@
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<style>
+    .backBtn {
+        margin-top: 10px;
+        background-color: gainsboro;
+        color: darkslateblue;
+        margin-left: 20px;
+        padding: 10px 20px 10px 20px;
+    }
+
+        .backBtn:hover {
+            background-color: darkslateblue;
+            color: white;
+            text-decoration: none;
+        }
+</style>
+<div>
+    @Html.ActionLink("Trở về trang chủ", "DanhSachTrangThai", "OrderState", htmlAttributes: new { @class = "backBtn" })
+</div>
+

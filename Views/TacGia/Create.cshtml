@@ -9,17 +9,16 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
 </head>
 <body>
-    @using (Html.BeginForm()) 
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
-            <h4>TACGIA</h4>
+            <h4 class="text-center">Thêm tác giả</h4>
             <hr />
-            
+
             <div class="form-group">
                 @Html.LabelFor(model => model.TEN_TACGIA, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -27,13 +26,31 @@
                     @Html.ValidationMessageFor(model => model.TEN_TACGIA, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Tại" class="btn btn-default center-block" />
                 </div>
             </div>
         </div>
     }
+    <style>
+        .backBtn {
+            margin-top: 10px;
+            background-color: gainsboro;
+            color: darkslateblue;
+            margin-left: 20px;
+            padding: 10px 20px 10px 20px;
+        }
+
+            .backBtn:hover {
+                background-color: darkslateblue;
+                color: white;
+                text-decoration: none;
+            }
+    </style>
+    <div>
+        @Html.ActionLink("Trở về trang chủ", "Index", "TacGia", htmlAttributes: new { @class = "backBtn" })
+    </div>
 </body>
 </html>

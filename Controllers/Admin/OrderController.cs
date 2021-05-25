@@ -187,6 +187,20 @@ namespace Homepage.Controllers
             return PartialView();
         }
         [HttpPost]
+        public ActionResult UpdateQuantity(CHITIETDONHANG chitiet)
+        {
+            var checkD = db.DONHANGs.Where(d => d.ID_DONHANG == chitiet.ID_DONHANG).FirstOrDefault();
+            var check = db.CHITIETDONHANGs.Where(ct => ct.ID_CTDH == chitiet.ID_CTDH).FirstOrDefault();
+            checkD.TONGTIEN = checkD.TONGTIEN - check.TONGTIEN;
+            db.SaveChanges();
+            check.SOLUONG = chitiet.SOLUONG;
+            check.TONGTIEN = check.GIA_BAN * chitiet.SOLUONG;
+            checkD.TONGTIEN = checkD.TONGTIEN + check.TONGTIEN;
+            db.SaveChanges();
+            return RedirectToRoute(new { controller = "Order", action = "ManageOrderDetail", id = chitiet.ID_DONHANG });
+
+        }
+        [HttpPost]
         public RedirectToRouteResult UpdateState(DONHANG newStateDH)
         {
             try
@@ -200,7 +214,7 @@ namespace Homepage.Controllers
                     HOADON newHD = new HOADON();
                     newHD.ID_TTKH = check.ID_TTKH;
                     newHD.ID_TRANGTHAI = newStateDH.ID_TRANGTHAI;
-                    newHD.TONGTIEN = check.TONGTIEN;
+                    newHD.TONGTIEN = 0;
                     newHD.ID_DONHANG = check.ID_DONHANG;
                     db.HOADONs.Add(newHD);
                     db.SaveChanges();

@@ -7,20 +7,22 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm loại tài khoản", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ID_LOAITK)
+            Mã loại
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TEN_LOAITK)
+            Tên loại
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MUC_DATDUOC)
+            Mức đạt được
         </th>
-        <th></th>
+        <th>
+            Thao tác
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -35,9 +37,9 @@
             @Html.DisplayFor(modelItem => item.MUC_DATDUOC)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Sửa", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Chi tiết", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Xóa", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

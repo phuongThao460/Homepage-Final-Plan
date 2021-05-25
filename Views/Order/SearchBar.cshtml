@@ -1,17 +1,20 @@
 ﻿@model Homepage.Models.DONHANG
-
+<style>
+    .searchBox{
+        border-style:solid;
+        border-color:whitesmoke;
+        padding:20px 20px 20px 20px;
+        border-radius: 10px;
+        margin:10px 20px 10px 20px;
+        width:fit-content();
+    }
+</style>
 @using (Html.BeginForm("SearchBar", "Order"))
 {
-    <table>
-        <tr>
-            <td>Mã đơn hàng:</td>
-            <td>@Html.TextBoxFor(model => model.ID_DONHANG)</td>
-        </tr>
-        <tr>
-            <td rowspan="2">
-                <input value="Tìm kiếm" type="submit"/>
-            </td>
-        </tr>
-    </table>
+<div class="searchBox">
+    <p>Mã đơn hàng:</p>
+    @Html.TextBoxFor(model => model.ID_DONHANG)
+    <input value="Tìm kiếm" type="submit"  class="btn btn-default"/>
+</div>
 }
 

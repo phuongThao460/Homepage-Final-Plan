@@ -1,7 +1,7 @@
 ﻿@model Homepage.Models.TACGIA
 
 <div>
-    <h4>TACGIA</h4>
+    <h4 class="text-center">Chi tiết tác giả</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -21,4 +21,22 @@
         </dd>
 
     </dl>
+</div>
+<style>
+    .backBtn {
+        margin-top: 10px;
+        background-color: gainsboro;
+        color: darkslateblue;
+        margin-left: 20px;
+        padding: 10px 20px 10px 20px;
+    }
+
+        .backBtn:hover {
+            background-color: darkslateblue;
+            color: white;
+            text-decoration: none;
+        }
+</style>
+<div>
+    @Html.ActionLink("Trở về trang chủ", "Index", "TacGia", htmlAttributes: new { @class = "backBtn" })
 </div>

@@ -9,7 +9,6 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>UploadImages</title>
 </head>
 <body>
 
@@ -29,12 +28,27 @@
             <br />
             <input type="file" name="ImageFile" value="Thêm ảnh ..." onchange="ChangeImage(this, document.getElementById('previewImg'))" />
             <br />
-            <input type="submit" value="Xác nhận" />
+            <input type="submit" value="Xác nhận" class="btn btn-default" />
         </div>
     }
 
+    <style>
+        .backBtn {
+            margin-top: 10px;
+            background-color: gainsboro;
+            color: darkslateblue;
+            margin-left: 20px;
+            padding: 10px 20px 10px 20px;
+        }
+
+            .backBtn:hover {
+                background-color: darkslateblue;
+                color: white;
+                text-decoration: none;
+            }
+    </style>
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Trở về trang chủ", "Index", "BookImage", htmlAttributes: new { @class = "backBtn" })
     </div>
 </body>
 </html>

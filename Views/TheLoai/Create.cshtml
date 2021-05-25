@@ -9,17 +9,16 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
 </head>
 <body>
-    @using (Html.BeginForm()) 
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
-            <h4>THELOAI</h4>
+            <h4 class="text-center">Thêm thể loại</h4>
             <hr />
-            
+
             <div class="form-group">
                 @Html.LabelFor(model => model.TEN_THELOAI, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -27,7 +26,7 @@
                     @Html.ValidationMessageFor(model => model.TEN_THELOAI, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
@@ -35,9 +34,24 @@
             </div>
         </div>
     }
-    
+
+    <style>
+        .backBtn {
+            margin-top: 10px;
+            background-color: gainsboro;
+            color: darkslateblue;
+            margin-left: 20px;
+            padding: 10px 20px 10px 20px;
+        }
+
+            .backBtn:hover {
+                background-color: darkslateblue;
+                color: white;
+                text-decoration: none;
+            }
+    </style>
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Trở về trang chủ", "Index", "TheLoai", htmlAttributes: new { @class = "backBtn" })
     </div>
 </body>
 </html>
