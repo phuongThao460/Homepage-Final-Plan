@@ -1,8 +1,15 @@
 ﻿@model Homepage.Models.DONHANG
+    <style>
+        .fakeLable{
+            background-color:transparent;
+            border-style:none;
+            width:fit-content();
+        }
+    </style>
 @using (Html.BeginForm("UpdateState", "Order"))
 {
     <td>
-        @Html.TextBoxFor(modelItem => modelItem.ID_DONHANG, htmlAttributes: new { @readonly = "readonly" })
+        @Html.TextBoxFor(modelItem => modelItem.ID_DONHANG, htmlAttributes: new { @readonly = "readonly",@class="fakeLable" })
     </td>
     <td>
         @Html.DisplayFor(modelItem => modelItem.ID_TTKH)

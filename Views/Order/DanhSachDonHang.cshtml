@@ -39,7 +39,9 @@
 <p>
     @Html.ActionLink("Tạo đơn hàng mới", "Create","Order",htmlAttributes: new { @class = "createBtn" })
 </p>
+<br/>
 @{Html.RenderAction("SearchBar", "Order"); }
+<hr/>
 <table class="table">
     <tr>
         <th>
@@ -85,7 +87,6 @@
         if (Session["Details"] != null && detail != null && item.ID_DONHANG == detail.ID_DONHANG)
         {
             <tr class="p-3 mb-2 bg-warning text-dark">
-                <th>Mã chi tiết</th>
                 <th>Mã sách</th>
                 <th>Tên sách</th>
                 <th>Số lượng</th>
@@ -95,13 +96,13 @@
             foreach (var prd in detail.CHITIETDONHANGs)
             {
                 <tr class="p-3 mb-2 bg-light text-dark">
-                    <td>@prd.ID_CTDH</td>
                     <td>@prd.ID_SACH</td>
                     <td>@prd.SACH.TEN_SACH</td>
                     <td>@prd.SOLUONG</td>
                     <td>@prd.TONGTIEN</td>
                 </tr>
             }
+            <br/>
         }
     }
 

@@ -4,7 +4,36 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .createBtn {
+        padding: 10px 20px 10px 20px;
+        border-radius: 10px;
+        margin-left: 20px;
+        background-color: #0032A0;
+        color: white;
+        border-style: none;
+    }
 
+        .createBtn:hover {
+            text-decoration: none;
+            background-color: aqua;
+            color: black;
+        }
+
+    .actionBtn {
+        padding: 2px 5px 2px 5px;
+        margin-right: 2px;
+        border-radius: 5px;
+        background-color: #0032A0;
+        color: white;
+    }
+
+        .actionBtn :hover {
+            text-decoration: none;
+            background-color: aqua;
+            color: black;
+        }
+</style>
 <h2>Quản lý đơn hàng</h2>
 
 <table class="table">
@@ -42,15 +71,14 @@
         <tr>
             @Html.Partial("UpdateState", item)
             <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID_HOADON })|
-                @Html.ActionLink("More", "More", new { id = item.ID_HOADON })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID_HOADON }, htmlAttributes: new { @class = "actionBtn" })
+                @Html.ActionLink("More", "More", new { id = item.ID_HOADON }, htmlAttributes: new { @class = "actionBtn" })
             </td>
 
         </tr>
         if (Session["Details"] != null && detail != null && item.ID_HOADON == detail.ID_HOADON)
         {
-            <tr style="background-color:aquamarine">
-                <th>Mã chi tiết</th>
+            <tr class="p-3 mb-2 bg-warning text-dark">
                 <th>Mã sách</th>
                 <th>Tên sách</th>
                 <th>Giá bán</th>
@@ -60,8 +88,7 @@
 
             foreach (var prd in detail.CHITIETHOADONs)
             {
-                <tr style="background-color:aquamarine">
-                    <td>@prd.ID_CTHD</td>
+                <tr class="p-3 mb-2 bg-light text-dark">
                     <td>@prd.ID_SACH</td>
                     <td>@prd.SACH.TEN_SACH</td>
                     <td>@prd.GIA_BAN</td>
