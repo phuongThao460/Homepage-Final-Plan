@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2 class="text-center">Thêm trạng thái</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
 
         <div class="form-group">
@@ -23,8 +23,27 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Tạo" class="btn btn-default center-block" />
             </div>
         </div>
     </div>
+
 }
+<style>
+    .backBtn {
+        margin-top: 10px;
+        background-color: gainsboro;
+        color: darkslateblue;
+        margin-left: 20px;
+        padding: 10px 20px 10px 20px;
+    }
+
+        .backBtn:hover {
+            background-color: darkslateblue;
+            color: white;
+            text-decoration: none;
+        }
+</style>
+<div>
+    @Html.ActionLink("Trở về trang chủ", "DanhSachTrangThai", "OrderState", htmlAttributes: new { @class = "backBtn" })
+</div>

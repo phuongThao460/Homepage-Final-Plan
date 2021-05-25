@@ -37,27 +37,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_CTDH)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_DONHANG)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_SACH)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SACH.TEN_SACH)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GIA_BAN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SOLUONG)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TONGTIEN)
-            </td>
+            @Html.Partial("UpdateQuantity",item)
             <td>
                 @Html.ActionLink("Delete", "DeleteOrderDetail", new { id = item.ID_CTDH })
             </td>
@@ -65,3 +45,21 @@
     }
 
 </table>
+<style>
+    .backBtn {
+        margin-top: 10px;
+        background-color: gainsboro;
+        color: darkslateblue;
+        margin-left: 20px;
+        padding: 10px 20px 10px 20px;
+    }
+
+        .backBtn:hover {
+            background-color: darkslateblue;
+            color: white;
+            text-decoration: none;
+        }
+</style>
+<div>
+    @Html.ActionLink("Trở về trang chủ", "DanhSachDonHang", "Order",new { id =  0}, htmlAttributes: new { @class = "backBtn" })
+</div>

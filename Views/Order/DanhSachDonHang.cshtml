@@ -80,7 +80,7 @@
         <tr>
             @Html.Partial("UpdateState", item)
             <td>
-                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_DONHANG },htmlAttributes: new { @class= "actionBtn"}) 
+                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_DONHANG }, htmlAttributes: new { @class = "actionBtn" })
                 @Html.ActionLink("Chi tiết", "More", new { id = item.ID_DONHANG }, htmlAttributes: new { @class = "actionBtn" })
             </td>
         </tr>
@@ -102,7 +102,6 @@
                     <td>@prd.TONGTIEN</td>
                 </tr>
             }
-            <br/>
         }
     }
 

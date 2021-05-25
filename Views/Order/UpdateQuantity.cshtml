@@ -1,0 +1,35 @@
+﻿@model Homepage.Models.CHITIETDONHANG
+
+<style>
+    .fakeLable {
+        background-color: transparent;
+        border-style: none;
+        width: fit-content();
+    }
+</style>
+@using (Html.BeginForm("UpdateQuantity", "Order"))
+{
+    <td>
+        @Html.TextBoxFor(modelItem => modelItem.ID_CTDH, htmlAttributes: new { @readonly = "readonly", @class = "fakeLable" })
+    </td>
+    <td>
+        @Html.TextBoxFor(modelItem => modelItem.ID_DONHANG, htmlAttributes: new { @readonly = "readonly", @class = "fakeLable" })
+    </td>
+    <td>
+        @Html.TextBoxFor(modelItem => modelItem.ID_SACH, htmlAttributes: new { @readonly = "readonly", @class = "fakeLable" })
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.SACH.TEN_SACH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.GIA_BAN)
+    </td>
+    <td>
+        @Html.TextBoxFor(modelItem => modelItem.SOLUONG)
+        <input type="submit" value="Cập nhật" class="btn btn-default"/>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.TONGTIEN)
+    </td>
+}
+

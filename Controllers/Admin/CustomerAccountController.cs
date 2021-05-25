@@ -51,7 +51,7 @@ namespace Homepage.Controllers.Admin
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     return View();
                 }
