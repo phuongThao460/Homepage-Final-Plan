@@ -40,97 +40,97 @@
             <br />
 
             <div class="form-group">
-                @Html.LabelFor(model => model.TEN_SACH, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Tên sách", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.TEN_SACH, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.LOAI_BIA, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Loại bìa",  new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.LOAI_BIA, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.NGAY_XUATBAN, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Ngày xuất bản", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.NGAY_XUATBAN, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.SOLUONG_TON, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Số lượng tồn", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.SOLUONG_TON, new { htmlAttributes = new { @class = "form-control",@type = "number" } })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.SO_TRANG, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Số trang", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.SO_TRANG, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.KICH_THUOC, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Kích thước", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.KICH_THUOC, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.MOTA, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Mô tả", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.TextAreaFor(model => model.MOTA, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.ID_NXB, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Nhà xuất bản", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @{Html.RenderAction("SelectNXB", "Books"); }
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.ID_TACGIA, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Tác giã", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @{Html.RenderAction("SelectTG", "Books"); }
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.ID_NCC, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Nhà cung cấp", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @{Html.RenderAction("SelectNCC", "Books"); }
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.ID_THELOAI, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Thể loại", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @{Html.RenderAction("SelectTL", "Books"); }
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.KHOILUONG, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Khối lượng", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.KHOILUONG, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.GIA_BIA, htmlAttributes: new { @class = "control-label col-md-2", @type = "number" })
+                @Html.Label("Giá bìa", new { @class = "control-label col-md-2" }))
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.GIA_BIA, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.GIA_BAN, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Giá bán", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.GIA_BAN, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
                 </div>
