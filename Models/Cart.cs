@@ -51,7 +51,10 @@ namespace Homepage.Models
                 {
                     item._quantity = _new_quan;
                 }
-                else item._quantity = 1;
+                else 
+                { 
+                    item._quantity = 1; 
+                }
             }
         }
         public void Remove_CartItem(int id)

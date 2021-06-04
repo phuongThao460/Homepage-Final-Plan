@@ -40,10 +40,19 @@ namespace Homepage.Controllers
         }
         public ActionResult Update_Cart_Quantity(FormCollection form)
         {
+            SACH s = new SACH();
             Cart cart = Session["Cart"] as Cart;
             int id_pro = int.Parse(form["idSach"]);
             int _quantity = int.Parse(form["cartQuantity"]);
-            cart.Update_quantity(id_pro, _quantity);
+            if(s.SOLUONG_TON < _quantity)
+            {
+                ViewData["Loi"] = "Số lượng tồn không phù hợp với số lượng nhập mua";
+            }
+            else
+            {
+                cart.Update_quantity(id_pro, _quantity);
+            }
+            
             return RedirectToAction("ShowCart", "ShoppingCart");
         }
         public ActionResult RemoveCart(int id)
@@ -69,11 +78,12 @@ namespace Homepage.Controllers
             try
             {
                 Cart cart = Session["Cart"] as Cart;
+                SACH sach = new SACH();
                 DONHANG _order = new DONHANG();
+                THONGTINKHACHHANG tt = (THONGTINKHACHHANG)Session["TaiKhoan"];
                 _order.THOIGIAN_DAT = String.Format("{0:u}", DateTime.Now);
                 _order.ID_TTKH = int.Parse(form["CodeCustomer"]);
                 _order.ID_TRANGTHAI = 1;
-                
                 
                 foreach (var item in cart.Items)
                 {
