@@ -26,8 +26,25 @@ namespace Homepage.Controllers
             return View();
         }
         [HttpPost]
-        public RedirectToRouteResult Create(SACH newS)
+        public ActionResult Create(SACH newS)
         {
+            if(newS.TEN_SACH==null||
+                newS.LOAI_BIA==null||
+                newS.NGAY_XUATBAN == null ||
+                newS.SOLUONG_TON == null ||
+                newS.SO_TRANG == null ||
+                newS.KICH_THUOC == null ||
+                newS.ID_NCC == null ||
+                newS.ID_NXB == null ||
+                newS.ID_TACGIA == null ||
+                newS.ID_THELOAI == null ||
+                newS.GIA_BIA == null ||
+                newS.GIA_BAN == null ||
+                newS.KHOILUONG == null)
+            {
+                ViewBag.ErrorContent = "Vui lòng nhập đủ thông tin";
+                return View(newS);
+            }
             db.SACHes.Add(newS);
             db.SaveChanges();
             var list = db.SACHes.ToList();
@@ -54,10 +71,41 @@ namespace Homepage.Controllers
         }
 
         [HttpPost]
-        public RedirectToRouteResult Edit(SACH sach)
+        public ActionResult Edit(SACH sach)
         {
+            if (sach.TEN_SACH == null ||
+                sach.LOAI_BIA == null ||
+                sach.NGAY_XUATBAN == null ||
+                sach.SOLUONG_TON == null ||
+                sach.SO_TRANG == null ||
+                sach.KICH_THUOC == null ||
+                sach.ID_NCC == null ||
+                sach.ID_NXB == null ||
+                sach.ID_TACGIA == null ||
+                sach.ID_THELOAI == null ||
+                sach.GIA_BIA == null ||
+                sach.GIA_BAN == null ||
+                sach.KHOILUONG == null)
+            {
+                ViewBag.ErrorContent = "Vui lòng nhập đủ thông tin";
+                return View(sach);
+            }
             int id = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
-
+            var select = db.SACHes.Where(s => s.ID_SACH == id).FirstOrDefault();
+            select.TEN_SACH = sach.TEN_SACH;
+            select.LOAI_BIA = sach.LOAI_BIA;
+            select.NGAY_XUATBAN = sach.NGAY_XUATBAN;
+            select.SOLUONG_TON = sach.SOLUONG_TON;
+            select.SO_TRANG = sach.SO_TRANG;
+            select.KICH_THUOC = sach.KICH_THUOC;
+            select.ID_NCC = sach.ID_NCC;
+            select.ID_NXB = sach.ID_NXB;
+            select.ID_TACGIA = sach.ID_TACGIA;
+            select.ID_THELOAI = sach.ID_THELOAI;
+            select.GIA_BIA = sach.GIA_BIA;
+            select.GIA_BAN = sach.GIA_BAN;
+            select.KHOILUONG = sach.KHOILUONG;
+            db.SaveChanges();
             return RedirectToRoute(new { controller = "Books", action = "Details", id = id });
         }
 

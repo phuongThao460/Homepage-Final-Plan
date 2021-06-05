@@ -112,6 +112,12 @@
         </div>
     </div>
     @Html.ActionLink("Sửa ảnh", "Index", new { controller = "BookImage", action = "Index", id = Model.ID_SACH })
+    @if(ViewBag.ErrorContent != null)
+                {
+                    <div class="form-group">
+                        <p style="color:red">*{ViewBag.ErrorContent}</p>
+                    </div>
+                }
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Save" class="btn btn-default" />
