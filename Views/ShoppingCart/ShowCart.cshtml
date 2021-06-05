@@ -37,7 +37,8 @@
                     @using (Html.BeginForm("Update_Cart_Quantity", "ShoppingCart"))
                     {
                         <input type="hidden" value="@item._sach.ID_SACH" name="idSach" />
-                        <input type="number" value="@item._quantity" name="cartQuantity" />
+                        <input type="number" value="@item._quantity" name="cartQuantity"/>
+                        @ViewData["Loi"]
                         <input type="submit" value="Update" />
                     }
                 </td>

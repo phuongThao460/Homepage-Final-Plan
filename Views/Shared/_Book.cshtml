@@ -18,23 +18,20 @@
     @RenderSection("scripts", required: false)
     <title>@ViewBag.Title</title>
     <style>
-        footer {
-            background-color: rebeccapurple;
-            margin-top: 50px;
-            color:white;
-            justify-content: center;
-        }
+        
     </style>
 </head>
 <body>
     @{
         Html.RenderPartial("_UserMenu");
     }
-    <div class="container body-content" style="height: 100%">
+    <div class="container">
         @RenderBody()
     </div>
-    <footer style="">
-        new footer
+    <footer>
+        @{
+            Html.RenderPartial("_Footer");
+        }
     </footer>
 </body>
 </html>

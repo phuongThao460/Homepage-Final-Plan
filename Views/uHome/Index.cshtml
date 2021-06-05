@@ -46,7 +46,7 @@
                                 <p class="card-text">@{Html.RenderAction("GetNameTG", "uHome", new { id = item.ID_TACGIA });}</p>
                             </div>
                             <div class="price">
-                                <p class="money">@item.GIA_BAN</p>
+                                <p class="money">@string.Format("{0:#,##0.##}", item.GIA_BAN)</p>
                             </div>
 
                         </div>
@@ -86,7 +86,7 @@
                                 <p class="card-text">@{Html.RenderAction("GetNameTG", "uHome", new { id = item.ID_TACGIA });}</p>
                             </div>
                             <div class="price">
-                                <p class="money">@item.GIA_BAN</p>
+                                <p class="money">@string.Format("{0:#,##0.##}", item.GIA_BAN)</p>
                             </div>
 
                         </div>
@@ -125,7 +125,7 @@
                                 <p class="card-text">@{Html.RenderAction("GetNameTG", "uHome", new { id = item.ID_TACGIA });}</p>
                             </div>
                             <div class="price">
-                                <p class="money">@item.GIA_BAN</p>
+                                <p class="money">@string.Format("{0:#,##0.##}", item.GIA_BAN)</p>
                             </div>
 
                         </div>

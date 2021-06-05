@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Book.cshtml";
 }
 <style>
-    .container .block, 
+    .container .block,
     .container .block-book {
         padding-top: 70px;
     }
@@ -27,14 +27,22 @@
                     <div class="prices-contener">
                         <div class="prices">
                             <div class="saleprices">
-                                <span><b style="font-size:30px">@Html.DisplayFor(model => model.GIA_BAN)</b> VND</span>
+                                <span><b style="font-size:30px">@String.Format("{0:#,##0.##}", (Html.DisplayFor(model => model.GIA_BAN)))</b> VND</span>
                             </div>
 
                         </div>
                         <div class="buy-button">
-                            <a href="/ShoppingCart/AddToCart/@Html.DisplayFor(model=>model.ID_SACH)" class="buy-link">Thêm vào giỏ hàng</a>
+                            @if (Model.SOLUONG_TON == 1)
+                            {
+                                <a class="buy-link">Hết hàng</a>
+                            }
+                            else
+                            {
+                                <a href="/ShoppingCart/AddToCart/@Html.DisplayFor(model=>model.ID_SACH)" class="buy-link">Thêm vào giỏ hàng</a>
+                            }
+
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -91,4 +99,5 @@
         </div>
     </div>
 </div>
+
 
