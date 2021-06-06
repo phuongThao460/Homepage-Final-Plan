@@ -64,6 +64,8 @@ namespace Homepage.Controllers
         {
             int id = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
             fb.ID_SACH = id;
+            fb.XACNHAN_MUAHANG = true;
+            fb.THOIGIAN_DANG = Convert.ToString(DateTime.Now);
             db.FEEDBACKs.Add(fb);
             db.SaveChanges();
             return View(db.SACHes.Where(s => s.ID_SACH == id).FirstOrDefault());
@@ -71,12 +73,6 @@ namespace Homepage.Controllers
         public ActionResult Details(int id)
         {
             return View(db.SACHes.Where(s => s.ID_SACH == id).FirstOrDefault());
-        }
-        [HttpPost]
-        public ActionResult Create(FEEDBACK fb)
-        {
-            
-            return PartialView("Create");
         }
     }
 }

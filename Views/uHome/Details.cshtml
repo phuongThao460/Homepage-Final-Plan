@@ -26,6 +26,17 @@
         border: none;
         cursor: pointer;
     }
+    input[type="number"] {
+        outline: 0;
+        border: none;
+        border-bottom: 1px solid black;
+        width: 30px;
+    }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 </style>
 <div>
     <div class="container">
@@ -120,8 +131,19 @@
         {
             <div class="block">
                 <h3>Nhận Xét</h3>
-                <textarea name="NOIDUNG"></textarea>
-                <input id="submitFb" type="submit" name="name" value="Post" />
+                <div style="display: flex">
+                    <p style="width: 179px"> Đánh giá </p>
+                    <p><input type="number" name="DIEM_DANHGIA" min="1" max="5"/> /5</p>
+                </div>
+                
+                <div style="display: flex">
+                    <p style="width: 20%">Nội dung nhận xét</p>
+                    <textarea name="NOIDUNG"></textarea>
+                </div>
+                <div style="margin-top: 20px;">
+                    <input id="submitFb" type="submit" name="name" value="Post" />
+                </div>
+                
             </div>
         }
     </div>
