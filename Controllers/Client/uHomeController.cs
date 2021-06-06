@@ -59,9 +59,24 @@ namespace Homepage.Controllers
             var theloai = db.THELOAIs.Where(tl => tl.ID_THELOAI == id).FirstOrDefault();
             return PartialView(theloai);
         }
+        [HttpPost]
+        public ActionResult Details(FEEDBACK fb)
+        {
+            int id = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+            fb.ID_SACH = id;
+            db.FEEDBACKs.Add(fb);
+            db.SaveChanges();
+            return View(db.SACHes.Where(s => s.ID_SACH == id).FirstOrDefault());
+        }
         public ActionResult Details(int id)
         {
             return View(db.SACHes.Where(s => s.ID_SACH == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public ActionResult Create(FEEDBACK fb)
+        {
+            
+            return PartialView("Create");
         }
     }
 }
