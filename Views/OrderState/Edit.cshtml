@@ -13,7 +13,7 @@
 
     <div class="form-horizontal">
         <div class="form-group">
-            @Html.LabelFor(model => model.TEN_TRANGTHAI, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("TÊN TRẠNG THÁI", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TEN_TRANGTHAI, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TEN_TRANGTHAI, "", new { @class = "text-danger" })
