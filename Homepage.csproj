@@ -145,6 +145,7 @@
     <Compile Include="Controllers\Admin\NhaXuatBanController.cs" />
     <Compile Include="Controllers\Admin\OrderController.cs" />
     <Compile Include="Controllers\Admin\OrderStateController.cs" />
+    <Compile Include="Controllers\Admin\StatisticController.cs" />
     <Compile Include="Controllers\Admin\TacGiaController.cs" />
     <Compile Include="Controllers\Admin\TheLoaiController.cs" />
     <Compile Include="Controllers\Client\ChiTietSanPhamController.cs" />
@@ -220,6 +221,7 @@
       <DependentUpon>BookshopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StaticClass.cs" />
+    <Compile Include="Models\StatisticClass.cs" />
     <Compile Include="Models\TACGIA.cs">
       <DependentUpon>BookshopModel.tt</DependentUpon>
     </Compile>
@@ -4076,6 +4078,7 @@
     <Content Include="Views\uHome\GetNameTL.cshtml" />
     <Content Include="Views\Order\UpdateQuantity.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Statistic\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

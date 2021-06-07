@@ -1,0 +1,57 @@
+﻿@model Homepage.Models.StatisticClass
+@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<div style="height:30px"></div>
+<h2 class="text-center">Thống kê</h2>
+<div style="height:30px"></div>
+<div id="chartContainer" style="margin-left:10px;margin-right10px"></div>
+
+<script type="text/javascript">
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "light2",
+                title: {
+                    text: "Thống kê doanh thu 10 tháng gần đây"
+                },
+                axisX: {
+                    title: "Năm - Tháng"
+                },
+                axisY: {
+                    title: "Bookshop"
+                },
+
+                data: [
+                {
+                    type: "spline",
+                        dataPoints: [
+                            { y: @Model.lsIncome[9], label: "@Model.lsMonth[9]"},
+                            { y: @Model.lsIncome[8], label: "@Model.lsMonth[8]" },
+                            { y: @Model.lsIncome[7], label: "@Model.lsMonth[7]" },
+                            { y: @Model.lsIncome[6], label: "@Model.lsMonth[6]" },
+                            { y: @Model.lsIncome[5], label: "@Model.lsMonth[5]" },
+                            { y: @Model.lsIncome[4], label: "@Model.lsMonth[4]" },
+                            { y: @Model.lsIncome[3], label: "@Model.lsMonth[3]" },
+                            { y: @Model.lsIncome[2], label: "@Model.lsMonth[2]" },
+                            { y: @Model.lsIncome[1], label: "@Model.lsMonth[1]" },
+                            { y: @Model.lsIncome[0], label: "@Model.lsMonth[0]" },
+                    ],
+
+                    //dataPoints: @Html.Raw(ViewBag.DataPoints),
+                }
+                ]
+            });
+
+            chart.render();
+        };
+</script>
+@*{ y: 28726, label: "2006-07" },
+                    { y: 35000, label: "2007-08" },
+                    { y: 25250, label: "2008-19" },
+                    { y: 19750, label: "2009-10" },
+                    { y: 18850, label: "2010-11" },
+                    { y: 26700, label: "2011-12" },
+                    { y: 16000, label: "2012-13" },
+                    { y: 19000, label: "2013-14" },
+                    { y: 18000, label: "2014-15" }*@
