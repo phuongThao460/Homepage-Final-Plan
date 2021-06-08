@@ -74,5 +74,9 @@ namespace Homepage.Controllers
         {
             return View(db.SACHes.Where(s => s.ID_SACH == id).FirstOrDefault());
         }
+        public ActionResult ListFeedback(int id)
+        {
+            return View(db.FEEDBACKs.Where(fb => fb.ID_FEEDBACK == id).FirstOrDefault());
+        }
     }
 }
