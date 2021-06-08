@@ -19,7 +19,7 @@
             <h4 class="text-center">Chỉnh sửa thể loại</h4>
             <hr />
             <div class="form-group">
-                @Html.LabelFor(model => model.TEN_THELOAI, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("TÊN THỂ LOẠI", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.TEN_THELOAI, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.TEN_THELOAI, "", new { @class = "text-danger" })
