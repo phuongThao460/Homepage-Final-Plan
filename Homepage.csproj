@@ -4076,6 +4076,7 @@
     <Content Include="Views\uHome\GetNameTL.cshtml" />
     <Content Include="Views\Order\UpdateQuantity.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\uHome\ListFeedback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
