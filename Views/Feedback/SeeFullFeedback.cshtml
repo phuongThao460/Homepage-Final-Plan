@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Homepage.Models.FEEDBACK>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .content {
+        margin-top: 20px;
+        margin-bottom: 20px
+    }
+</style>
+<div class="content">
+    @if (ViewBag.State != null)
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    Xác nhận mua hàng
+                </th>
+                <th>
+                    Điểm đánh giá
+                </th>
+                <th>
+                    Thời gian đăng
+                </th>
+                <th>
+                    Nội dung
+                </th>
+                <th>
+                    Thao tác
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if(item.XACNHAN_MUAHANG == true)
+                    {
+                        <p>Đã mua hàng</p>
+                    }
+                    else
+                    {
+                        <p>Chưa mua hàng</p>
+                    }
+                    </td>
+                    <td>
+                        <p>@item.DIEM_DANHGIA +" sao"</p>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.THOIGIAN_DANG)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NOIDUNG)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.ID_FEEDBACK })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <p>Hiện chưa có feedback</p>
+    }
+</div>
+@Html.ActionLink("Quay về", "Index","Feedback")
+
