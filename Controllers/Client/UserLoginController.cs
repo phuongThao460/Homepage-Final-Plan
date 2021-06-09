@@ -37,7 +37,7 @@ namespace Homepage.Controllers.Customer
             return View();
         }
         [HttpPost]
-        public ActionResult RegisterUser(TAIKHOANKHACHHANG _user)
+        public ActionResult RegisterUser(TAIKHOANKHACHHANG _user, THONGTINKHACHHANG tt)
         {
             if (ModelState.IsValid)
             {
@@ -45,6 +45,8 @@ namespace Homepage.Controllers.Customer
                 if (check_ID == null)
                 {
                     db.Configuration.ValidateOnSaveEnabled = false;
+                    db.THONGTINKHACHHANGs.Add(tt);
+                    _user.ID_TTKH = tt.ID_TTKH;
                     db.TAIKHOANKHACHHANGs.Add(_user);
                     db.SaveChanges();
                     return RedirectToAction("Index");

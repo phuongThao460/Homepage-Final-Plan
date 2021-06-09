@@ -11,13 +11,18 @@ namespace Homepage.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Web;
 
     public partial class TAIKHOANKHACHHANG
     {
         public int ID_KHACHHANG { get; set; }
+        [DisplayName("Userame")]
         public string TEN_DANGNHAP { get; set; }
+        [DisplayName("Password")]
+        [DataType(DataType.Password)]
         public string MATKHAU { get; set; }
         public string ANH_DAIDIEN { get; set; }
         public Nullable<int> ID_LOAITK { get; set; }
@@ -27,5 +32,13 @@ namespace Homepage.Models
         public virtual THONGTINKHACHHANG THONGTINKHACHHANG { get; set; }
         [NotMapped]
         public HttpPostedFileBase ImageUpload { get; set; }
+        [NotMapped]
+        [DisplayName("Confirm Password")]
+        [Compare("MATKHAU")]
+        [DataType(DataType.Password)]
+        public string ConfirmPassword { get; set; }
+
+        [NotMapped]
+        public string ErrorLogin { get; set; }
     }
 }
