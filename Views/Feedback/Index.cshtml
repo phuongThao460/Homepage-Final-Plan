@@ -1,58 +1,29 @@
-﻿@model IEnumerable<Homepage.Models.FEEDBACK>
+﻿@model IEnumerable<Homepage.Models.SACH>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>FEEDBACK</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            XÁC NHẬN MUA HÀNG
-        </th>
-        <th>
-            ĐIỂM ĐÁNH GIÁ
-        </th>
-        <th>
-            THỜI GIAN
-        </th>
-        <th>
-            NỘI DUNG
-        </th>
-        <th>
-            TÊN SÁCH
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.XACNHAN_MUAHANG)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DIEM_DANHGIA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.THOIGIAN_DANG)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NOIDUNG)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SACH.TEN_SACH)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_FEEDBACK }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_FEEDBACK }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_FEEDBACK })
-        </td>
-    </tr>
+<style>
+    .content {
+        margin-top: 20px;
+        margin-bottom: 20px
+    }
+</style>
+@using (Html.BeginForm())
+{
+    <div class="content">
+        <p>Tên sách:</p>
+        <select name="ID_SACH">
+            <option value="-1">Chọn sách ...</option>
+            @foreach (var item in Model)
+            {
+                <option value="@item.ID_SACH">@item.TEN_SACH</option>
+            }
+        </select>
+        <br />
+        <br />
+        <input type="submit" value="Xem feedback" class="btn btn-default" />
+    </div>
 }
-
-</table>
+<br />
