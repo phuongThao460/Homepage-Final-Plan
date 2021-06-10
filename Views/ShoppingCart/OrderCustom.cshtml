@@ -1,0 +1,51 @@
+﻿@using Homepage.Models;
+@{
+    ViewBag.Title = "OrderCustom";
+    Layout = "~/Views/Shared/_Book.cshtml";
+}
+
+<h2>OrderCustom</h2>
+<table>
+    @{
+        THONGTINKHACHHANG tt = (THONGTINKHACHHANG)Session["TEN_DANGNHAP"];
+    }
+    @using (Html.BeginForm())
+    {
+        if (tt.ToString() != null)
+        {
+            <tr style="height: 40px">
+                <td>Name</td>
+                <td style="font-weight:bold">@tt.TEN_KHACHHANG.ToString()</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Address</td>
+                <td style="font-weight:bold">@tt.DIACHI.ToString()</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Phone Number</td>
+                <td style="font-weight:bold">@tt.SO_DIENTHOAI.ToString()</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Email</td>
+                <td style="font-weight:bold">@tt.EMAIL_KHACHHANG.ToString()</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Date Order</td>
+                <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Date Ship</td>
+                <td style="font-weight:bold">
+                    <input type="date" name="NgayGiao" />
+                    <span style="color: red">@ViewData["Loi1"]</span>
+                </td>
+            </tr>
+            <tr style="height: 40px">
+                <td></td>
+                <td style="font-weight: bold">
+                    <input type="submit" value="Submit Order" />
+                </td>
+            </tr>
+        }
+    }
+</table>

@@ -80,11 +80,11 @@ namespace Homepage.Controllers
                 Cart cart = Session["Cart"] as Cart;
                 SACH sach = new SACH();
                 DONHANG _order = new DONHANG();
-                THONGTINKHACHHANG tt = (THONGTINKHACHHANG)Session["TaiKhoan"];
+                //THONGTINKHACHHANG tt = (THONGTINKHACHHANG)Session["ID_TTKH"];
                 _order.THOIGIAN_DAT = String.Format("{0:u}", DateTime.Now);
                 _order.ID_TTKH = int.Parse(form["CodeCustomer"]);
                 _order.ID_TRANGTHAI = 1;
-                
+                database.DONHANGs.Add(_order);
                 foreach (var item in cart.Items)
                 {
                     CHITIETDONHANG _order_detail = new CHITIETDONHANG();
@@ -101,7 +101,7 @@ namespace Homepage.Controllers
                         p.SOLUONG_TON = Convert.ToInt16(update_quan_pro);
                     }
                 }
-                database.DONHANGs.Add(_order);
+                
                 database.SaveChanges();
                 cart.ClearCart();
                 return RedirectToAction("CheckOut_Success", "ShoppingCart");

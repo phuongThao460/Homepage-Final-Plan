@@ -1,0 +1,91 @@
+﻿@using Homepage.Models
+@model List<Cart>
+@{
+    ViewBag.Title = "OrderCustomInfo";
+    Layout = "~/Views/Shared/_Book.cshtml";
+}
+
+<h2>OrderCustomInfo</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Hình sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item._idsach</td>
+                <td>@item._tensach </td>
+                <td><a href="@Url.Action("Details", "uHome", new { id = item._idsach})"><img src=@Url.Content(item.sAnhbia) height="100" width="70" /></a></td>
+                <td>@item._quantity</td>
+                <td>@item.giaBan</td>
+                <td>@item._total</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" style="text-align: right">Tổng số lượng @String.Format("{0:0,0}", ViewBag.TongSoLuong)</td>
+            <td colspan="3" style="text-align: right">Tổng tiền: @String.Format("{0:0,0}", ViewBag.TongTien) VND</td>
+        </tr>
+        <tr>
+        <tr>
+            <td colspan="8" style="font-weight: bold;text-align: center;color:blue">
+                @Html.ActionLink("Countinues Shopping", "Index", "uHome")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+@{
+    THONGTINKHACHHANG tt = (THONGTINKHACHHANG)Session["TEN_DANGNHAP"];
+}
+<table>
+    @using (Html.BeginForm())
+    {
+        if (tt.ToString() != null)
+        {
+            <tr style="height: 40px">
+                <td>Name</td>
+                <td style="font-weight:bold">@tt.TEN_KHACHHANG.ToString()</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Address</td>
+                <td style="font-weight:bold">@tt.DIACHI.ToString()</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Phone Number</td>
+                <td style="font-weight:bold">@tt.SO_DIENTHOAI.ToString()</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Email</td>
+                <td style="font-weight:bold">@tt.EMAIL_KHACHHANG.ToString()</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Date Order</td>
+                <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+            </tr>
+            <tr style="height: 40px">
+                <td>Date Ship</td>
+                <td style="font-weight:bold">
+                    <input type="date" name="NgayGiao" />
+                    <span style="color: red">@ViewData["Loi1"]</span>
+                </td>
+            </tr>
+            <tr style="height: 40px">
+                <td></td>
+                <td style="font-weight: bold">
+                    <input type="submit" value="Submit Order" />
+                </td>
+            </tr>
+        }
+    }
+</table>
