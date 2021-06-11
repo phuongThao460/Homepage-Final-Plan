@@ -78,5 +78,69 @@ namespace Homepage.Controllers
         {
             return View(db.FEEDBACKs.Where(fb => fb.ID_FEEDBACK == id).FirstOrDefault());
         }
+        public ActionResult VanHocTrongNuoc()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult VanHocNuocNgoai()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult TamLy()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult DamMy()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult KinhDiTrinhTham()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult LichSuDiaLy()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult KyNangSong()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult TruyenNgan()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult NgonTinh()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult DanhNhan()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult DoiSong()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult DuLichVH()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult KhoaHoc()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult YHoc()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult TieuThuyet()
+        {
+            return View(db.SACHes.ToList());
+        }
+        public ActionResult LightNovel()
+        {
+            return View(db.SACHes.ToList());
+        }
     }
 }
