@@ -40,23 +40,40 @@ namespace Homepage.Controllers.Admin
                 return View();
             }
         }
-        public ActionResult Details(int id)
+        public ActionResult Details()
         {
+            int id = (int)Session["TK_TTKH"];
             var select = db.THONGTINKHACHHANGs.Where(s => s.ID_TTKH == id).FirstOrDefault();
             return View(select);
         }
-        [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
+            int id = (int)Session["TK_TTKH"];
             return View(db.THONGTINKHACHHANGs.Where(kh => kh.ID_TTKH == id).FirstOrDefault());
         }
         [HttpPost]
         public ActionResult Edit(THONGTINKHACHHANG tt)
         {
-            tt.TONG_TIEUDUNG = 0;
-            db.THONGTINKHACHHANGs.Add(tt);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            int id = (int)Session["TK_TTKH"];
+            try
+            {
+                THONGTINKHACHHANG _tt = db.THONGTINKHACHHANGs.Where(t => t.ID_TTKH == id).FirstOrDefault();
+                _tt.TEN_KHACHHANG = tt.TEN_KHACHHANG;
+                _tt.EMAIL_KHACHHANG = tt.EMAIL_KHACHHANG;
+                _tt.DIACHI = tt.DIACHI;
+                _tt.SO_DIENTHOAI = tt.SO_DIENTHOAI;
+                Session["TEN_DANGNHAP"] = _tt.TEN_KHACHHANG;
+                Session["EMAIL_KHACHHANG"] = _tt.EMAIL_KHACHHANG;
+                Session["DIACHI"] = _tt.DIACHI;
+                Session["SO_DIENTHOAI"] = _tt.SO_DIENTHOAI;
+                db.SaveChanges();
+                return RedirectToAction("Details", "CustomerInfo");
+            }
+            catch
+            {
+                return View();
+            }
+            
         }
         
     }

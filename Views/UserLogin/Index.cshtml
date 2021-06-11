@@ -26,7 +26,7 @@
     <div class="form-group">
         <div class="col-md-5" style="display: flex">
             @Html.Label("Mật Khẩu", new { @class = "control-label col-md-6" })
-            <input name="MATKHAU" class="form-control" />
+            <input type="password" name="MATKHAU" class="form-control" />
             @Html.ValidationMessageFor(model => model.MATKHAU, "", new { style = "field-validation-error" })
         </div>
     </div>

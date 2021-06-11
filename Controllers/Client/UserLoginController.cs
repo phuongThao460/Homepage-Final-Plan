@@ -15,23 +15,7 @@ namespace Homepage.Controllers.Customer
         {
             return View();
         }
-        [HttpPost]
-        //public ActionResult LoginAccount(TAIKHOANKHACHHANG _user)
-        //{
-        //    var check = db.TAIKHOANKHACHHANGs.Where(s => s.TEN_DANGNHAP == _user.TEN_DANGNHAP && s.MATKHAU == _user.MATKHAU).FirstOrDefault();
-        //    if (check == null)
-        //    {
-        //        ViewBag.ErrorInfo = "SaiInfo";
-        //        return View("Index");
-        //    }
-        //    else
-        //    {
-        //        db.Configuration.ValidateOnSaveEnabled = false;
-        //        Session["TEN_DANGNHAP"] = _user.TEN_DANGNHAP;
-        //        Session["MATKHAU"] = _user.MATKHAU;
-        //        return RedirectToAction("Index", "uHome");
-        //    }
-        //}
+        [HttpPost]     
         public ActionResult LoginAccount(FormCollection collection)
         {
             var tendn = collection["TEN_DANGNHAP"];
@@ -92,6 +76,11 @@ namespace Homepage.Controllers.Customer
                 }
             }
             return View();
+        }
+        public ActionResult Logout()
+        {
+            Session["TEN_DANGNHAP"] = null;
+            return Redirect("/");
         }
     }
 }
