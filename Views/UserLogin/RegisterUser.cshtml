@@ -5,44 +5,74 @@
     Layout = "~/Views/Shared/_Book.cshtml";
 }
 
-<h2>RegisterUser</h2>
-
+<h2>Đăng Kí Tài Khoản</h2>
+<hr/>
 @using (Html.BeginForm("RegisterUser", "UserLogin")) 
 {
     @Html.AntiForgeryToken()
     
-<div class="form-horizontal">
-    <hr />
+<div class="form-horizontal" style="display: flex;justify-content:space-between">
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div style="width: 46%; border-right: 1px dashed">
+        @using (Html.BeginForm("RegisterUser", "UserLogin", FormMethod.Post))
+        {
+            <div class="form-group">
+                <div class="col-md-10" style="display: flex">
+                    <p class="control-label" style="width: 175px;">Tên khách hàng</p>
+                    <input name="TEN_KHACHHANG" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10" style="display: flex">
+                    <p class="control-label" style="width: 175px;">Email</p>
+                    <input name="EMAIL_KHACHHANG" class="form-control" />
+                </div>
+            </div>
 
-    @using (Html.BeginForm("RegisterUser", "UserLogin", FormMethod.Post))
-    {
-        <p>Tên khách hàng: </p>
-        <input name="TEN_KHACHHANG" />
-        <p>Email khách hàng: </p>
-        <input name="EMAIL_KHACHHANG" />
-        <p>Địa chỉ: </p>
-        <input name="DIACHI" />
-        <p>Số điện thoại: </p>
-        <input name="SO_DIENTHOAI" />
-    }
-
-    <p>@Html.LabelFor(model => model.TEN_DANGNHAP)</p>
-    <p>@Html.TextBoxFor(model => model.TEN_DANGNHAP, new { style = "field-validation-error" })</p>
-    <p>@Html.ValidationMessageFor(model => model.TEN_DANGNHAP)</p>
-
-    <p>@Html.LabelFor(model => model.MATKHAU)</p>
-    <p>@Html.PasswordFor(model => model.MATKHAU, new { style = "field-validation-error" })</p>
-    <p>@Html.ValidationMessageFor(model => model.MATKHAU)</p>
-
-    <p>@Html.LabelFor(model => model.ConfirmPassword)</p>
-    <p>@Html.PasswordFor(model => model.ConfirmPassword, new { style = "field-validation-error" })</p>
-    <p>@Html.ValidationMessageFor(model => model.ConfirmPassword)</p>
+            <div class="form-group">
+                <div class="col-md-10" style="display: flex">
+                    <p class="control-label" style="width: 175px;">Số điện thoại</p>
+                    <input name="SO_DIENTHOAI" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10" style="display: flex">
+                    <p class="control-label" style="width: 175px;">Địa chỉ</p>
+                    <textarea name="DIACHI" class="form-control" style="height: 110px; resize: none;"></textarea>
+                </div>
+            </div>
+        }
+    </div>
+<div style="width: 50%">
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
+        <div class="col-md-9" style="display: flex">
+            @Html.Label("Tên Đăng Nhập", new { @class = "control-label col-md-6" })
+            @Html.EditorFor(model => model.TEN_DANGNHAP, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TEN_DANGNHAP, "", new { style = "field-validation-error" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-9" style="display: flex">
+            @Html.Label("Mật Khẩu", new { @class = "control-label col-md-6" })
+            @Html.PasswordFor(model => model.MATKHAU, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MATKHAU, "", new { style = "field-validation-error" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-9" style="display: flex">
+            @Html.Label("Xác Nhận Mật Khẩu", new { @class = "control-label col-md-6" })
+            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { style = "field-validation-error" })
+        </div>
+    </div>
+
+    <div class="form-group" style=" justify-content: center; display: flex; width: 676px;">
+        <div class="col-md-3">
             <input type="submit" value="Create" class="btn btn-success" />
         </div>
     </div>
 </div>
-}
+</div>
+        }
 

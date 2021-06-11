@@ -28,9 +28,12 @@ namespace Homepage.Controllers.Admin
                 tt.TONG_TIEUDUNG = 0;
                 db.THONGTINKHACHHANGs.Add(tt);
                 db.SaveChanges();
-                var list = db.THONGTINKHACHHANGs.ToList();
-                int id = list.Last().ID_TTKH;
-                return RedirectToRoute(new { controller = "CustomerInfo", action = "Details", id = id });
+                Session["TEN_KHACHHANG"] = tt.TEN_KHACHHANG;
+                Session["ID_TTKH"] = tt.ID_TTKH;
+                Session["EMAIL_KHACHHANG"] = tt.EMAIL_KHACHHANG;
+                Session["DIACHI"] = tt.DIACHI;
+                Session["SO_DIENTHOAI"] = tt.SO_DIENTHOAI;
+                return RedirectToAction("ShowCart", "ShoppingCart");
             }
             catch
             {
