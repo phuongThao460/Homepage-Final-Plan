@@ -60,26 +60,52 @@
     <h2>Thông Tin Khách Hàng</h2>
     <div style="display: flex;justify-content: space-between;">
         <table style="width:50%;">
-            <tr style="height: 40px">
-                <td>Code Customer: </td>
-                <td style="font-weight:bold">@Session["ID_TTKH"]</td>
-            </tr>
-            <tr style="height: 40px;background-color: white;">
-                <td>Name: </td>
-                <td style="font-weight:bold">@Session["TEN_DANGNHAP"]</td>
-            </tr>
-            <tr style="height: 40px">
-                <td>Address: </td>
-                <td style="font-weight:bold">@Session["DIACHI"]</td>
-            </tr>
-            <tr style="height: 40px;background-color: white;">
-                <td>Phone Number: </td>
-                <td style="font-weight:bold">@Session["SO_DIENTHOAI"]</td>
-            </tr>
-            <tr style="height: 40px">
-                <td>Email: </td>
-                <td style="font-weight:bold">@Session["EMAIL_KHACHHANG"]</td>
-            </tr>
+            @if (Session["TEN_DANGNHAP"] != null)
+            {
+                <tr style="height: 40px">
+                    <td>Code Customer: </td>
+                    <td style="font-weight:bold">@Session["ID_TTKH"]</td>
+                </tr>
+                <tr style="height: 40px;background-color: white;">
+                    <td>Name: </td>
+                    <td style="font-weight:bold">@Session["TEN_DANGNHAP"]</td>
+                </tr>
+                <tr style="height: 40px">
+                    <td>Address: </td>
+                    <td style="font-weight:bold">@Session["DIACHI"]</td>
+                </tr>
+                <tr style="height: 40px;background-color: white;">
+                    <td>Phone Number: </td>
+                    <td style="font-weight:bold">@Session["SO_DIENTHOAI"]</td>
+                </tr>
+                <tr style="height: 40px">
+                    <td>Email: </td>
+                    <td style="font-weight:bold">@Session["EMAIL_KHACHHANG"]</td>
+                </tr>
+            }
+            else
+            {
+                <tr style="height: 40px">
+                    <td>Code Customer: </td>
+                    <td style="font-weight:bold">@Session["ID_TTKH"]</td>
+                </tr>
+                <tr style="height: 40px;background-color: white;">
+                    <td>Name: </td>
+                    <td style="font-weight:bold">@Session["TEN_KHACHHANG"]</td>
+                </tr>
+                <tr style="height: 40px">
+                    <td>Address: </td>
+                    <td style="font-weight:bold">@Session["DIACHI"]</td>
+                </tr>
+                <tr style="height: 40px;background-color: white;">
+                    <td>Phone Number: </td>
+                    <td style="font-weight:bold">@Session["SO_DIENTHOAI"]</td>
+                </tr>
+                <tr style="height: 40px">
+                    <td>Email: </td>
+                    <td style="font-weight:bold">@Session["EMAIL_KHACHHANG"]</td>
+                </tr>
+            }
         </table>
         <table style="border-spacing: 5px; width: 45%; height: 100px">
             @using (Html.BeginForm("CheckOut", "ShoppingCart"))
@@ -97,15 +123,12 @@
                 </tr>
                 <tr style="background-color: white">
 
-                    <td style="border: none;">
+                    <td style="border: none;"></td>
                     <td style="border: none">
                         <input type="submit" value="Đặt hàng" class="btn btn-success" />
-                        <a href="@Url.Action("Create", "CustomerInfo")" class="btn btn-success" style="margin-right: 20px;">Đăng ký</a>
-                    </td>
-                    &nbsp;
+                        <a href="@Url.Action("Create", "CustomerInfo")" style="margin-right: 20px;">Đặt hàng không cần tài khoản</a>
                     </td>
                 </tr>
-
             }
         </table>
     </div>

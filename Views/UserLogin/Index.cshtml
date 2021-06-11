@@ -4,50 +4,43 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Book.cshtml";
 }
-
+<style>
+    td{
+        border: none;
+    }
+</style>
 @using (Html.BeginForm("LoginAccount", "UserLogin"))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-    <div class="form-horizontal">
-        <h4>TAI KHOAN</h4>
-        <table align="center" style="font-size: 16px;">
-            
-
-                <tr style="height: 40px">
-                    <td>Username</td>
-                    <td>
-                        @Html.TextBox("TEN_DANGNHAP")
-                        
-                    </td>
-                </tr>
-                <tr style="height: 40px">
-                    <td>Password</td>
-                    <td>
-                        @Html.Password("MATKHAU")
-                        
-                    </td>
-                </tr>
-                <tr style="height: 40px">
-                    <td></td>
-                    <td>
-                        <input type="submit" value="Log in" />
-                    </td>
-                </tr>
-        </table>
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Login" class="btn btn-success" />
-                <a href="@Url.Action("RegisterUser", "UserLogin")" class="btn btn-success">Register</a>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-
-            </div>
+<div class="form-horizontal">
+    <h4>Đăng Nhập</h4>
+    <hr />
+    <div class="form-group">
+        <div class="col-md-5" style="display: flex">
+            @Html.Label("Tên Đăng Nhập", new { @class = "control-label col-md-6" })
+            <input name="TEN_DANGNHAP" class="form-control" />
+            @Html.ValidationMessageFor(model => model.TEN_DANGNHAP, "", new { style = "field-validation-error" })
         </div>
     </div>
+    <div class="form-group">
+        <div class="col-md-5" style="display: flex">
+            @Html.Label("Mật Khẩu", new { @class = "control-label col-md-6" })
+            <input name="MATKHAU" class="form-control" />
+            @Html.ValidationMessageFor(model => model.MATKHAU, "", new { style = "field-validation-error" })
+        </div>
+    </div>
+
+    <div class="form-group" style="justify-content: center;display: flex;width: 741px;">
+        <div class="col-md-5">
+            <input type="submit" value="Login" class="btn btn-success" style="width: 213px;" />
+        </div>
+    </div>
+    <div class="form-group" style="display: flex;padding-left: 386px;">
+        <div class="col-md-offset-3">
+            <a href="@Url.Action("RegisterUser", "UserLogin")" style="font-size: 16px">Đăng Kí</a>
+        </div>
+    </div>
+</div>
 }
 
