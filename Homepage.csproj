@@ -3527,13 +3527,21 @@
     <Content Include="Content\Images\AnhDL.jpg" />
     <Content Include="Content\Images\AnhDP.jpg" />
     <Content Include="Content\Images\AnhLV.jpg" />
+    <Content Include="Content\Images\bautroi.jpg" />
     <Content Include="Content\Images\book1.jpg" />
+    <Content Include="Content\Images\buocduongcung.jpg" />
     <Content Include="Content\Images\cart2.png" />
     <Content Include="Content\Images\event10.png" />
     <Content Include="Content\Images\event3.jpg" />
     <Content Include="Content\Images\Icon\books.png" />
+    <Content Include="Content\Images\kinhvanhoa.jpg" />
+    <Content Include="Content\Images\matbiec.png" />
     <Content Include="Content\Images\new-book.jpg" />
     <Content Include="Content\Images\new-event.jpg" />
+    <Content Include="Content\Images\NG1.jpg" />
+    <Content Include="Content\Images\NG2.jpg" />
+    <Content Include="Content\Images\NG3.jpg" />
+    <Content Include="Content\Images\NG4.jpg" />
     <Content Include="Content\Images\sach0.jpg" />
     <Content Include="Content\Images\sach1.jpg" />
     <Content Include="Content\Images\sach10.jpg" />
@@ -4080,6 +4088,22 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Statistic\Index.cshtml" />
     <Content Include="Views\Feedback\SeeFullFeedback.cshtml" />
+    <Content Include="Views\uHome\VanHocTrongNuoc.cshtml" />
+    <Content Include="Views\uHome\VanHocNuocNgoai.cshtml" />
+    <Content Include="Views\uHome\TamLy.cshtml" />
+    <Content Include="Views\uHome\DamMy.cshtml" />
+    <Content Include="Views\uHome\KinhDiTrinhTham.cshtml" />
+    <Content Include="Views\uHome\LichSuDiaLy.cshtml" />
+    <Content Include="Views\uHome\KyNangSong.cshtml" />
+    <Content Include="Views\uHome\TruyenNgan.cshtml" />
+    <Content Include="Views\uHome\NgonTinh.cshtml" />
+    <Content Include="Views\uHome\DanhNhan.cshtml" />
+    <Content Include="Views\uHome\DoiSong.cshtml" />
+    <Content Include="Views\uHome\DuLichVH.cshtml" />
+    <Content Include="Views\uHome\KhoaHoc.cshtml" />
+    <Content Include="Views\uHome\YHoc.cshtml" />
+    <Content Include="Views\uHome\TieuThuyet.cshtml" />
+    <Content Include="Views\uHome\LightNovel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
