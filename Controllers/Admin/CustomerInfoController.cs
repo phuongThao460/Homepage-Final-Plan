@@ -13,7 +13,7 @@ namespace Homepage.Controllers.Admin
         // GET: CustomerInfo
         public ActionResult Index()
         {
-            return View(db.THONGTINKHACHHANGs.ToList());
+            return View(db.THONGTINKHACHHANGs.OrderBy(x => x.TONG_TIEUDUNG).ToList());
         }
         public ActionResult Create()
         {
