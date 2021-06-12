@@ -18,6 +18,30 @@ namespace Homepage.Controllers.Admin
             return View(db.TAIKHOANKHACHHANGs.ToList());
         }
         // GET: Administrator/USER/Create
+        public ActionResult UpdateCustomerMember()
+        {
+            var lsAccount = db.TAIKHOANKHACHHANGs.Where(tk => tk.ID_TTKH != null).ToList();
+            var lsAccountType = db.LOAITAIKHOANs.OrderBy(x => x.MUC_DATDUOC).ToList();
+            foreach(var item in lsAccount)
+            {
+                for(int i = lsAccountType.Count - 1; i >= 0; i--)
+                {
+                    if(item.THONGTINKHACHHANG.TONG_TIEUDUNG >= lsAccountType[i].MUC_DATDUOC)
+                    {
+                        ChangeCustomerMember(item.ID_KHACHHANG, lsAccountType[i].ID_LOAITK);
+                        break;
+                    }
+                }
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public void ChangeCustomerMember(int idTK, int idLoai)
+        {
+            var account = db.TAIKHOANKHACHHANGs.Where(tk => tk.ID_KHACHHANG == idTK).FirstOrDefault();
+            account.ID_LOAITK = idLoai;
+            db.SaveChanges();
+        }
         public ActionResult Create()
         {
             TAIKHOANKHACHHANG t = new TAIKHOANKHACHHANG();
@@ -26,9 +50,6 @@ namespace Homepage.Controllers.Admin
             return View(t);
         }
 
-        // POST: Administrator/USER/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(TAIKHOANKHACHHANG user)

@@ -246,6 +246,8 @@ namespace Homepage.Controllers
                 checkHD.TONGTIEN += item.TONGTIEN;
                 
             }
+            var kh = db.THONGTINKHACHHANGs.Where(k => k.ID_TTKH == checkHD.DONHANG.ID_TTKH).FirstOrDefault();
+            kh.TONG_TIEUDUNG += checkHD.TONGTIEN;
             db.SaveChanges();
         }
         [HttpGet]

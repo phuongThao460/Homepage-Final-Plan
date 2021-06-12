@@ -16,7 +16,7 @@ namespace Homepage.Controllers.Admin
         // GET: LoaiTKKH
         public ActionResult Index()
         {
-            return View(db.LOAITAIKHOANs.ToList());
+            return View(db.LOAITAIKHOANs.OrderBy(x=>x.MUC_DATDUOC).ToList());
         }
 
         // GET: LoaiTKKH/Details/5
@@ -26,9 +26,10 @@ namespace Homepage.Controllers.Admin
         }
 
         // GET: LoaiTKKH/Create
+        [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            return View(new LOAITAIKHOAN());
         }
 
         // POST: LoaiTKKH/Create
