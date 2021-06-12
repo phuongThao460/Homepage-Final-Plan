@@ -47,6 +47,11 @@ namespace Homepage.Controllers
             }
             return View(listSach);
         }
+        public ActionResult TheLoai()
+        {
+            var tl = db.THELOAIs.OrderBy(n => n.TEN_THELOAI).ToList();
+            return PartialView(tl);
+        }
         public ActionResult GetNameTG()
         {
             int id = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
@@ -59,6 +64,7 @@ namespace Homepage.Controllers
             var theloai = db.THELOAIs.Where(tl => tl.ID_THELOAI == id).FirstOrDefault();
             return PartialView(theloai);
         }
+        
         [HttpPost]
         public ActionResult Details(FEEDBACK fb)
         {
@@ -78,69 +84,16 @@ namespace Homepage.Controllers
         {
             return View(db.FEEDBACKs.Where(fb => fb.ID_FEEDBACK == id).FirstOrDefault());
         }
-        public ActionResult VanHocTrongNuoc()
+        public ActionResult GetTL()
         {
-            return View(db.SACHes.ToList());
+            int id = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+            var theloai = db.THELOAIs.Where(tl => tl.ID_THELOAI == id).FirstOrDefault();
+            return PartialView(theloai);
         }
-        public ActionResult VanHocNuocNgoai()
+        public ActionResult SachTheoTheLoai(int id)
         {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult TamLy()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult DamMy()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult KinhDiTrinhTham()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult LichSuDiaLy()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult KyNangSong()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult TruyenNgan()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult NgonTinh()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult DanhNhan()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult DoiSong()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult DuLichVH()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult KhoaHoc()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult YHoc()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult TieuThuyet()
-        {
-            return View(db.SACHes.ToList());
-        }
-        public ActionResult LightNovel()
-        {
-            return View(db.SACHes.ToList());
+            var s = db.SACHes.Where(n => n.ID_THELOAI == id).ToList();
+            return View(s);
         }
     }
 }

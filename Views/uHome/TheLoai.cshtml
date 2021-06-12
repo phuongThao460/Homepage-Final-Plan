@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Homepage.Models.THELOAI>
+
+@foreach (var item in Model)
+{
+    <a class="dropdown-item" href="@Url.Action("SachTheoTheLoai","uHome", new { id = item.ID_THELOAI})">@item.TEN_THELOAI</a>
+}

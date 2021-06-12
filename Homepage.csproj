@@ -4095,22 +4095,6 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Statistic\Index.cshtml" />
     <Content Include="Views\Feedback\SeeFullFeedback.cshtml" />
-    <Content Include="Views\uHome\VanHocTrongNuoc.cshtml" />
-    <Content Include="Views\uHome\VanHocNuocNgoai.cshtml" />
-    <Content Include="Views\uHome\TamLy.cshtml" />
-    <Content Include="Views\uHome\DamMy.cshtml" />
-    <Content Include="Views\uHome\KinhDiTrinhTham.cshtml" />
-    <Content Include="Views\uHome\LichSuDiaLy.cshtml" />
-    <Content Include="Views\uHome\KyNangSong.cshtml" />
-    <Content Include="Views\uHome\TruyenNgan.cshtml" />
-    <Content Include="Views\uHome\NgonTinh.cshtml" />
-    <Content Include="Views\uHome\DanhNhan.cshtml" />
-    <Content Include="Views\uHome\DoiSong.cshtml" />
-    <Content Include="Views\uHome\DuLichVH.cshtml" />
-    <Content Include="Views\uHome\KhoaHoc.cshtml" />
-    <Content Include="Views\uHome\YHoc.cshtml" />
-    <Content Include="Views\uHome\TieuThuyet.cshtml" />
-    <Content Include="Views\uHome\LightNovel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
