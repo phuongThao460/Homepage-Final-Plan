@@ -80,6 +80,11 @@ namespace Homepage.Controllers.Customer
         public ActionResult Logout()
         {
             Session["TEN_DANGNHAP"] = null;
+            Session["TEN_DANGNHAP"] = null;
+            Session["ID_TTKH"] = null;
+            Session["EMAIL_KHACHHANG"] = null;
+            Session["DIACHI"] = null;
+            Session["SO_DIENTHOAI"] = null;
             return Redirect("/");
         }
     }

@@ -19,14 +19,14 @@
     <div class="form-group">
         <div class="col-md-5" style="display: flex">
             @Html.Label("Tên Đăng Nhập", new { @class = "control-label col-md-6" })
-            <input name="TEN_DANGNHAP" class="form-control" />
+            <input name="TEN_DANGNHAP" class="form-control" required/>
             @Html.ValidationMessageFor(model => model.TEN_DANGNHAP, "", new { style = "field-validation-error" })
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-5" style="display: flex">
             @Html.Label("Mật Khẩu", new { @class = "control-label col-md-6" })
-            <input type="password" name="MATKHAU" class="form-control" />
+            <input type="password" name="MATKHAU" class="form-control" required/>
             @Html.ValidationMessageFor(model => model.MATKHAU, "", new { style = "field-validation-error" })
         </div>
     </div>
