@@ -29,45 +29,49 @@ namespace Homepage.Controllers.Admin
         [HttpGet]
         public ActionResult Create()
         {
-            return View(new LOAITAIKHOAN());
+            return View();
         }
 
         // POST: LoaiTKKH/Create
         [HttpPost]
-        public ActionResult Create(LOAITAIKHOAN collection)
+        public ActionResult Create([Bind(Include = "ID_LOAITK,TEN_LOAITK,MUC_DATDUOC")]LOAITAIKHOAN  s)
         {
-            try
+            if (ModelState.IsValid)
             {
-                db.LOAITAIKHOANs.Add(collection);
+                db.LOAITAIKHOANs.Add(s);
                 db.SaveChanges();
-                return RedirectToAction("Index", "LoaiTKKH");
+                return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(s);
         }
 
         // GET: LoaiTKKH/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            if (id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            LOAITAIKHOAN s = db.LOAITAIKHOANs.Find(id);
+            if (s == null)
+            {
+                return HttpNotFound();
+            }
+            return View(s);
         }
 
         // POST: LoaiTKKH/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit([Bind(Include = "ID_LOAITK,TEN_LOAITK,MUC_DATDUOC")] LOAITAIKHOAN s)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(s).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(s);
         }
 
         // GET: LoaiTKKH/Delete/5

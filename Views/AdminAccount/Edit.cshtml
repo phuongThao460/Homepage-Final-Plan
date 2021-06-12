@@ -15,13 +15,13 @@
         <h4>TAIKHOANQUANTRIVIEN</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
+    @*<div class="form-group">
         @Html.Label("Mã quản trị viên", new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ID_QUANTRIVIEN, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ID_QUANTRIVIEN, "", new { @class = "text-danger" })
         </div>
-    </div>
+    </div>*@
 
     <div class="form-group">
         @Html.Label("Tên đăng nhập", new { @class = "control-label col-md-2" })
@@ -34,7 +34,7 @@
     <div class="form-group">
         @Html.Label("Mật khẩu", new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.MATKHAU, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.PasswordFor(model => model.MATKHAU, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.MATKHAU, "", new { @class = "text-danger" })
         </div>
     </div>

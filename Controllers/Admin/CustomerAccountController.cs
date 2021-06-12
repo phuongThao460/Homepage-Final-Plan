@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
+using System.Xml.Linq;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Security.Cryptography;
 using System.Web.Mvc;
 using Homepage.Models;
 namespace Homepage.Controllers.Admin
@@ -68,6 +70,8 @@ namespace Homepage.Controllers.Admin
                         //pro.MoreImages= "~/Contents/images/" + file;
                         user.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/Images/"), file));
                     }
+                    user.MATKHAU = GetMD5(user.MATKHAU);
+                    db.Configuration.ValidateOnSaveEnabled = false;
                     db.TAIKHOANKHACHHANGs.Add(user);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -82,6 +86,20 @@ namespace Homepage.Controllers.Admin
             ViewBag.ID_TTKH = new SelectList(db.THONGTINKHACHHANGs, "ID_TTKH", "TEN_KHACHHANG", user.ID_TTKH);
             return View(user);
 
+        }
+        public static string GetMD5(string str)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] fromData = System.Text.Encoding.ASCII.GetBytes(str);
+            byte[] targetData = md5.ComputeHash(fromData);
+            string byte2String = null;
+
+            for (int i = 0; i < targetData.Length; i++)
+            {
+                byte2String += targetData[i].ToString("x2");
+
+            }
+            return byte2String;
         }
         public ActionResult Edit(int? id)
         {
@@ -108,6 +126,8 @@ namespace Homepage.Controllers.Admin
         {
             if (ModelState.IsValid)
             {
+                ad.MATKHAU = GetMD5(ad.MATKHAU);
+                db.Configuration.ValidateOnSaveEnabled = false;
                 db.Entry(ad).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

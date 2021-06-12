@@ -37,12 +37,12 @@
         }
 </style>
 <p>
-    @Html.ActionLink("Tạo đơn hàng mới", "Create","Order",htmlAttributes: new { @class = "createBtn" })
+    @Html.ActionLink("Tạo đơn hàng mới", "Create", "Order", htmlAttributes: new { @class = "createBtn" })
 </p>
-<br/>
+<br />
 @{Html.RenderAction("SearchBar", "Order"); }
-<hr/>
-<table class="table">
+<hr />
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             Mã đơn hàng

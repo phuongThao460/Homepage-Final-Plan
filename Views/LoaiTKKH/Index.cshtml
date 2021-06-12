@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>LOẠI TÀI KHOẢN</h2>
+<h3 class="text-center">LOẠI TÀI KHOẢN</h3>
 
 <p>
     @Html.ActionLink("Thêm loại tài khoản", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             Mã loại
@@ -26,23 +26,24 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_LOAITK)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TEN_LOAITK)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MUC_DATDUOC)
-        </td>
-        <td>
-            @Html.ActionLink("Sửa", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Chi tiết", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Xóa", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_LOAITK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN_LOAITK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MUC_DATDUOC)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Chi tiết", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Xóa", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
 
 </table>

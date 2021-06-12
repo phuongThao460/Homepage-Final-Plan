@@ -9,33 +9,34 @@
         margin-bottom: 20px
     }
 </style>
+<h2 class="text-center">FeedBack khách hàng</h2>
 <div class="content">
     @if (ViewBag.State != null)
     {
-        <table class="table">
-            <tr>
-                <th>
-                    Xác nhận mua hàng
-                </th>
-                <th>
-                    Điểm đánh giá
-                </th>
-                <th>
-                    Thời gian đăng
-                </th>
-                <th>
-                    Nội dung
-                </th>
-                <th>
-                    Thao tác
-                </th>
-            </tr>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                Xác nhận mua hàng
+            </th>
+            <th>
+                Điểm đánh giá
+            </th>
+            <th>
+                Thời gian đăng
+            </th>
+            <th>
+                Nội dung
+            </th>
+            <th>
+                Thao tác
+            </th>
+        </tr>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @if(item.XACNHAN_MUAHANG == true)
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.XACNHAN_MUAHANG == true)
                     {
                         <p>Đã mua hàng</p>
                     }
@@ -43,23 +44,23 @@
                     {
                         <p>Chưa mua hàng</p>
                     }
-                    </td>
-                    <td>
-                        <p>@item.DIEM_DANHGIA +" sao"</p>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.THOIGIAN_DANG)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NOIDUNG)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Xóa", "Delete", new { id = item.ID_FEEDBACK })
-                    </td>
-                </tr>
-            }
+                </td>
+                <td>
+                    <p>@item.DIEM_DANHGIA +" sao"</p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.THOIGIAN_DANG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOIDUNG)
+                </td>
+                <td>
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID_FEEDBACK })
+                </td>
+            </tr>
+        }
 
-        </table>
+    </table>
     }
     else
     {

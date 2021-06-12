@@ -11,24 +11,33 @@
 {
 <table>
     <tr>
-        <td>Ngày áp dụng:</td>
+        <th style="font-size: 17px">Ngày áp dụng:</th>
         <td>@Html.TextBoxFor(model => model.ngayApDung)</td>
     </tr>
     <tr>
-        <td>Loại chỉnh sửa:</td>
+        <td></td>
+    </tr>
+    <tr>
+        <th style="font-size: 17px">Loại chỉnh sửa:</th>
         <td>
-            <select name="tangGiam">
+            <select name="tangGiam" style="width:172px">
                 <option value="up">Tăng giá</option>
                 <option value="down">Giảm giá</option>
             </select>
         </td>
     </tr>
     <tr>
-        <td>Giá trị:</td>
+        <td></td>
+    </tr>
+    <tr>
+        <th style="font-size: 17px">Giá trị:</th>
         <td>@Html.TextBoxFor(model => model.giaTri)</td>
     </tr>
     <tr>
-        <td>Đơn vị:</td>
+        <td></td>
+    </tr>
+    <tr>
+        <th style="font-size: 17px">Đơn vị:</th>
         <td>
             <select name="donVi">
                 <option value="1">VND</option>
@@ -36,36 +45,36 @@
             </select>
         </td>
     </tr>
-    </table>
-    <table class="table">
-    <tr>
-        <th>Mã sách</th>
-        <th>Tên sách</th>
-        <th>Giá bìa</th>
-        <th>Giá bán</th>
-    </tr>
-    @foreach (var item in Model.lsDepend)
-    {
+</table>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Mã sách</th>
+            <th>Tên sách</th>
+            <th>Giá bìa</th>
+            <th>Giá bán</th>
+        </tr>
+        @foreach (var item in Model.lsDepend)
+        {
+            <tr>
+                <td>
+                    @item.ID_SACH
+                </td>
+                <td>
+                    @item.TEN_SACH
+                </td>
+                <td>
+                    @item.GIA_BIA
+                </td>
+                <td>
+                    @item.GIA_BAN
+                </td>
+            </tr>
+        }
         <tr>
             <td>
-                @item.ID_SACH
+                <input type="submit" value="Lưu" />
             </td>
-            <td>
-                @item.TEN_SACH
-            </td>
-            <td>
-                @item.GIA_BIA
-            </td>
-            <td>
-                @item.GIA_BAN
-            </td>
-        </tr>
-    }
-    <tr>
-        <td>
-            <input type="submit" value="Lưu" />
-        </td>
 
-    </tr>
-</table>
+        </tr>
+    </table>
 }

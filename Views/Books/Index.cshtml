@@ -31,105 +31,107 @@
             color: black;
         }
 </style>
+<h3 class="text-center">Quản lý sách</h3>
+<br />
     <p>
         @Html.ActionLink("Thêm sách", "Create","Books", htmlAttributes: new { @class = "createBtn" })
     </p>
-        <table class="table">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                Mã sách
+            </th>
+            <th>
+                Tên sách
+            </th>
+            <th>
+                Loại bìa
+            </th>
+            <th>
+                Ngày xuất bản
+            </th>
+            <th>
+                Số lượng tồn
+            </th>
+            <th>
+                Số trang
+            </th>
+            <th>
+                Nhà xuất bản
+            </th>
+            <th>
+                Tác giả
+            </th>
+            <th>
+                Nhà cung cấp
+            </th>
+            <th>
+                Thể loại
+            </th>
+            <th>
+                Giá bìa
+            </th>
+            <th>
+                Giá bán
+            </th>
+            <th>
+                Thao tác
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>
-                    Mã sách
-                </th>
-                <th>
-                    Tên sách
-                </th>
-                <th>
-                    Loại bìa
-                </th>
-                <th>
-                    Ngày xuất bản
-                </th>
-                <th>
-                    Số lượng tồn
-                </th>
-                <th>
-                    Số trang
-                </th>
-                <th>
-                    Nhà xuất bản
-                </th>
-                <th>
-                    Tác giả
-                </th>
-                <th>
-                    Nhà cung cấp
-                </th>
-                <th>
-                    Thể loại
-                </th>
-                <th>
-                    Giá bìa
-                </th>
-                <th>
-                    Giá bán
-                </th>
-                <th>
-                    Thao tác
-                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_SACH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TEN_SACH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LOAI_BIA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NGAY_XUATBAN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SOLUONG_TON)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SO_TRANG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NHAXUATBAN.TEN_NHAXUATBAN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TACGIA.TEN_TACGIA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NHACUNGCAP.TEN_NHACUNGCAP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.THELOAI.TEN_THELOAI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fomatGiaBia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fomatGiaBan)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID_SACH }, htmlAttributes: new { @class = "actionBtn" })
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_SACH }, htmlAttributes: new { @class = "actionBtn" })
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID_SACH }, htmlAttributes: new { @class = "actionBtn" })
+                </td>
             </tr>
+            <tr>
+                @foreach (var image in item.ANHBIAs)
+                {
+                    <td>
+                        <img src="@Url.Content(image.ANH)" width="100" height="100" />
+                    </td>
+                }
+            </tr>
+        }
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ID_SACH)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TEN_SACH)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LOAI_BIA)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NGAY_XUATBAN)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SOLUONG_TON)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SO_TRANG)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NHAXUATBAN.TEN_NHAXUATBAN)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TACGIA.TEN_TACGIA)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NHACUNGCAP.TEN_NHACUNGCAP)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.THELOAI.TEN_THELOAI)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.fomatGiaBia)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.fomatGiaBan)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Sửa", "Edit", new { id = item.ID_SACH },htmlAttributes: new { @class= "actionBtn"})
-                        @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_SACH }, htmlAttributes: new { @class = "actionBtn" }) 
-                        @Html.ActionLink("Xóa", "Delete", new { id = item.ID_SACH }, htmlAttributes: new { @class = "actionBtn" })
-                    </td>
-                </tr>
-                <tr>
-                    @foreach (var image in item.ANHBIAs)
-                    {
-                        <td>
-                            <img src="@Url.Content(image.ANH)" width="100" height="100" />
-                        </td>
-                    }
-                </tr>
-            }
-
-        </table>
+    </table>

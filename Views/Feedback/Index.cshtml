@@ -13,9 +13,9 @@
 @using (Html.BeginForm())
 {
     <div class="content">
-        <p>Tên sách:</p>
-        <select name="ID_SACH">
-            <option value="-1">Chọn sách ...</option>
+        <p style="font-size: 17px">Tên sách:</p>
+        <select name="ID_SACH" style="height:30px">
+            <option value="-1" >Chọn sách ...</option>
             @foreach (var item in Model)
             {
                 <option value="@item.ID_SACH">@item.TEN_SACH</option>

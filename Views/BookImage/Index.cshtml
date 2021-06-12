@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <h2>Thêm ảnh</h2>
+    <h4 class="text-center">Quản lý ảnh</h4>
 
     <script src="~/Content/Scripts/AddImage.js"></script>
 </head>
@@ -49,7 +49,7 @@
 
         @Html.ActionLink("Thêm ảnh", "UploadImages", new { controller = "BookImage", action = "Index", id = ViewBag.Id},htmlAttributes: new { @class= "createBtn"})
     </p>
-    <table class="table">
+    <table class="table table-bordered table-hover">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.ID_ANH)
@@ -62,25 +62,26 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_ANH)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_SACH)
-            </td>
-            <td>
-                <img src="@Url.Content(item.ANH)" width="100" height="100" />
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_ANH }, htmlAttributes: new { @class= "actionBtn"})
-                @Html.ActionLink("Delete", "Delete", new { id=item.ID_ANH }, htmlAttributes: new { @class = "actionBtn" })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_ANH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_SACH)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.ANH)" width="100" height="100" />
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_ANH }, htmlAttributes: new { @class = "actionBtn" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_ANH }, htmlAttributes: new { @class = "actionBtn" })
+                </td>
+            </tr>
+        }
+
     </table>
 </body>
 </html>

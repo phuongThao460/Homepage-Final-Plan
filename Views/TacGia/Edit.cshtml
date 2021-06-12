@@ -9,6 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <h3 class="text-center">Tác Giả</h3>
 </head>
 <body>
     @using (Html.BeginForm())
@@ -16,7 +17,6 @@
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4 class="text-center">Chỉnh sửa tác giả</h4>
             <hr />
             <div class="form-group">
                 @Html.Label("TÊN TÁC GIẢ", new { @class = "control-label col-md-2" })

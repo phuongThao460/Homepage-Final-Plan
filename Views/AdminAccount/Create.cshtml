@@ -20,7 +20,7 @@
         <div class="form-group">
             @Html.Label("Tên đăng nhập", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TEN_DANGNHAP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.TEN_DANGNHAP, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TEN_DANGNHAP, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="form-group">
             @Html.Label("Mật khẩu", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MATKHAU, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.PasswordFor(model => model.MATKHAU, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MATKHAU, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="form-group">
             @Html.Label("Tên Quản Trị Viên", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TEN_QUANTRIVIEN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.TEN_QUANTRIVIEN, new { htmlAttributes = new { @class = "form-control" } }) 
                 @Html.ValidationMessageFor(model => model.TEN_QUANTRIVIEN, "", new { @class = "text-danger" })
             </div>
         </div>

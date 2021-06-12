@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Cập nhật giá - Thủ công</h2>
+<h3 class="text-center">Cập nhật giá - Thủ công</h3>
 
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ID_SACH)
@@ -16,16 +16,17 @@
             TÊN SÁCH
         </th>
         <th>
-           GIÁ BÌA
+            GIÁ BÌA
         </th>
         <th>
-           GIÁ BÁN
+            GIÁ BÁN
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    @Html.Partial("UpdatePrice",item)
-}
+    @foreach (var item in Model)
+    {
+        @Html.Partial("UpdatePrice", item)
+    }
 
 </table>

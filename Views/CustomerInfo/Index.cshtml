@@ -5,59 +5,70 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>THÔNG TIN KHÁCH HÀNG</h2>
+<!DOCTYPE html>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            THÔNG TIN KHÁCH HÀNG
-        </th>
-        <th>
-            TÊN KHÁCH HÀNG
-        </th>
-        <th>
-            EMAIL
-        </th>
-        <th>
-            ĐỊA CHỈ
-        </th>
-        <th>
-            SỐ ĐỊỆN THOẠI
-        </th>
-        <th>
-            TỔNG TIÊU DÙNG
-        </th>
-        <th></th>
-    </tr>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <br />
+    <h3 class="text-center">Quản lý thông tin khách hàng</h3>
+</head>
+<body>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_TTKH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TEN_KHACHHANG)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMAIL_KHACHHANG)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DIACHI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SO_DIENTHOAI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TONG_TIEUDUNG)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID_TTKH }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID_TTKH }) 
-        </td>
-    </tr>
-}
+    <p>
+        @Html.ActionLink("Thêm mới", "Create")
+    </p>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                THÔNG TIN KHÁCH HÀNG
+            </th>
+            <th>
+                TÊN KHÁCH HÀNG
+            </th>
+            <th>
+                EMAIL
+            </th>
+            <th>
+                ĐỊA CHỈ
+            </th>
+            <th>
+                SỐ ĐỊỆN THOẠI
+            </th>
+            <th>
+                TỔNG TIÊU DÙNG
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_TTKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TEN_KHACHHANG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMAIL_KHACHHANG)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DIACHI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SO_DIENTHOAI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TONG_TIEUDUNG)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_TTKH }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_TTKH })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </body>
+</html>

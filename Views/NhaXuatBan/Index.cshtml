@@ -9,13 +9,13 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>NHÀ XUẤTBAN3</title>
+    <<h3> class="text-center"> Nhà Xuất Bản</h3>
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Thêm mới", "Create")
     </p>
-    <table class="table">
+    <table class="table table-bordered table-hover">
         <tr>
             <th>
                 MÃ NHÀ XUẤT BẢN
@@ -25,22 +25,23 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_NXB)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TEN_NHAXUATBAN)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_NXB }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID_NXB }) |
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_NXB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TEN_NHAXUATBAN)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_NXB }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_NXB }) |
+                </td>
+            </tr>
+        }
+
     </table>
 </body>
 </html>

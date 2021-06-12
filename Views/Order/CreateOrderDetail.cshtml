@@ -1,7 +1,8 @@
 ﻿@model Homepage.Models.CHITIETDONHANG
+<h3> class="text-center"> Đơn hàng</h3>
 @using (Html.BeginForm("CreateOrderDetail", "Order"))
 {
-    <table class="table">
+    <table class="table table-bordered table-hover">
         <tr>
             <td>Mã đơn hàng:</td>
             <td>@Html.TextBoxFor(model => model.ID_DONHANG, htmlAttributes: new { @readonly = "readonly" })</td>
@@ -16,7 +17,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Thêm"/>
+                <input type="submit" value="Thêm" />
             </td>
         </tr>
     </table>

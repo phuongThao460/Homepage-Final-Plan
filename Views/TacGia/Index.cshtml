@@ -9,37 +9,39 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <h3 class="text-center">Tác Giả</h3>
 </head>
 <body>
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
+    <table class="table table-bordered table-hover">
         <tr>
             <th>
                 MÃ TÁC GIẢ
             </th>
             <th>
-               TÊN TÁC GIẢ
+                TÊN TÁC GIẢ
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_TACGIA)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TEN_TACGIA)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_TACGIA }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID_TACGIA}) |
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_TACGIA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TEN_TACGIA)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_TACGIA }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_TACGIA }) |
+                </td>
+            </tr>
+        }
+
     </table>
 </body>
 </html>

@@ -4,19 +4,20 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>TÀI KHOẢN KHÁCH HÀNG</h2>
+<br />
+<h3 class="text-center">TÀI KHOẢN KHÁCH HÀNG</h3>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <p>
+  
     @Html.ActionLink("Cập nhật loại tài khoản", "UpdateCustomerMember")
 </p>
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
         <th>
-           TÊN ĐĂNG NHẬP
+            TÊN ĐĂNG NHẬP
         </th>
         <th>
             ẢNH ĐẠI DIỆN
@@ -30,26 +31,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TEN_DANGNHAP)
-        </td>
-        <td>
-            <img src="@item.ANH_DAIDIEN" width="150" height="150" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LOAITAIKHOAN.TEN_LOAITK)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_TTKH)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_KHACHHANG }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_KHACHHANG }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_KHACHHANG })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN_DANGNHAP)
+            </td>
+            <td>
+                <img src="@item.ANH_DAIDIEN" width="150" height="150" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOAITAIKHOAN.TEN_LOAITK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_TTKH)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID_KHACHHANG }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID_KHACHHANG }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID_KHACHHANG })
+            </td>
+        </tr>
+    }
 
 </table>
