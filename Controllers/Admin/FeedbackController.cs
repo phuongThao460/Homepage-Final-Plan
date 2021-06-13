@@ -18,6 +18,11 @@ namespace Homepage.Controllers.Admin
         [HttpPost]
         public ActionResult Index(SACH sach)
         {
+            if(sach.ID_SACH == -1)
+            {
+                ViewBag.ErrorContent = "Vui lòng chọn sách";
+                return View(db.SACHes.ToList());
+            }
             return RedirectToRoute(new { controller = "Feedback", action = "SeeFullFeedback", id = sach.ID_SACH });
         }
         public ActionResult Delete(int id)
@@ -32,7 +37,7 @@ namespace Homepage.Controllers.Admin
             var ls = db.FEEDBACKs.Where(item => item.ID_SACH == id).ToList();
             if(ls.Count <= 0)
             {
-                ViewBag.State = null;
+                ViewBag.State = false;
             }
             return View(ls);
         }

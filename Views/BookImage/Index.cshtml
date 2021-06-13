@@ -9,69 +9,60 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <h4 class="text-center">Quản lý ảnh</h4>
+    
 
     <script src="~/Content/Scripts/AddImage.js"></script>
 </head>
 
 <body>
     <style>
-    .createBtn {
-        padding: 10px 20px 10px 20px;
-        border-radius: 10px;
-        margin-left: 20px;
-        background-color: #0032A0;
-        color: white;
-        border-style: none;
-    }
-
-        .createBtn:hover {
-            text-decoration: none;
-            background-color: aqua;
-            color: black;
+        .createBtn {
+            padding: 10px 20px 10px 20px;
+            border-radius: 10px;
+            margin-left: 10%;
+            background-color: #0032A0;
+            color: white;
+            border-style: none;
         }
 
-    .actionBtn {
-        padding: 2px 5px 2px 5px;
-        margin-right: 2px;
-        border-radius: 5px;
-        background-color: #0032A0;
-        color: white;
-    }
+            .createBtn:hover {
+                text-decoration: none;
+                background-color: aqua;
+                color: black;
+            }
 
-        .actionBtn :hover {
-            text-decoration: none;
-            background-color: aqua;
-            color: black;
+        .actionBtn {
+            padding: 2px 5px 2px 5px;
+            margin-right: 2px;
+            border-radius: 5px;
+            background-color: #0032A0;
+            color: white;
         }
-</style>
+
+            .actionBtn :hover {
+                text-decoration: none;
+                background-color: aqua;
+                color: black;
+            }
+    </style>
+    <br/>
+    <h4 class="text-center">Quản lý ảnh</h4>
     <p>
 
-        @Html.ActionLink("Thêm ảnh", "UploadImages", new { controller = "BookImage", action = "Index", id = ViewBag.Id},htmlAttributes: new { @class= "createBtn"})
+        @Html.ActionLink("Thêm ảnh", "UploadImages", new { controller = "BookImage", action = "Index", id = ViewBag.Id }, htmlAttributes: new { @class = "createBtn" })
     </p>
-    <table class="table table-bordered table-hover">
+    <br/>
+    <table class="table table-bordered table-hover" style="margin-left:10%">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ID_ANH)
+                Ảnh
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ID_SACH)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ANH)
-            </th>
-            <th></th>
+            <th>Thao tác</th>
         </tr>
 
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID_ANH)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID_SACH)
-                </td>
                 <td>
                     <img src="@Url.Content(item.ANH)" width="100" height="100" />
                 </td>

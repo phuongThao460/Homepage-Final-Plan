@@ -15,21 +15,22 @@
     <script src="~/Scripts/jquery-3.6.0.js"></script>
     <script src="~/Scripts/jquery-3.6.0.min.js"></script>
     <script src="~/Content/Scripts/AddImage.js"></script>
-
+    <br />
+    <h4 class="text-center">ẢNH BÌA</h4>
 
     @using (Html.BeginForm("UploadImages", "BookImage", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            <h4>ẢNH BÌA</h4>
-            <hr />
-            <img src="~/Content/Images/45132924_2137631566256381_8060785941003894784_n.jpg" id="previewImg" width="350" height="350" />
-            <br />
-            <input type="file" name="ImageFile" value="Thêm ảnh ..." onchange="ChangeImage(this, document.getElementById('previewImg'))" />
-            <br />
-            <input type="submit" value="Xác nhận" class="btn btn-default" />
-        </div>
+<div class="form-horizontal" style="margin-left:37%">
+    <hr />
+    <img src="~/Content/Images/45132924_2137631566256381_8060785941003894784_n.jpg" id="previewImg" width="350" height="350" />
+    <br />
+    <input type="file" name="ImageFile" id="myFile" onchange="ChangeImage(this, document.getElementById('previewImg'))" hidden/>
+    <label for="myFile">Choose a file</label>
+    <br />
+    <input type="submit" value="Xác nhận" class="btn btn-default" style="margin-left:17%" />
+</div>
     }
 
     <style>

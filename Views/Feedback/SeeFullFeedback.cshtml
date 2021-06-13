@@ -8,64 +8,122 @@
         margin-top: 20px;
         margin-bottom: 20px
     }
+
+    .fb-card {
+        margin: 10px 20px 10px 20px;
+        padding: 10px 20px 10px 20px;
+        border: 1px solid;
+        border-radius: 20px;
+    }
 </style>
+<br/>
 <h2 class="text-center">FeedBack khách hàng</h2>
-<div class="content">
-    @if (ViewBag.State != null)
-    {
-    <table class="table table-bordered table-hover">
-        <tr>
-            <th>
-                Xác nhận mua hàng
-            </th>
-            <th>
-                Điểm đánh giá
-            </th>
-            <th>
-                Thời gian đăng
-            </th>
-            <th>
-                Nội dung
-            </th>
-            <th>
-                Thao tác
-            </th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+<br />
+@foreach (var item in Model)
+{
+    <div class="fb-card" style="width:50%; margin-left:25%; background-color:aquamarine;padding-left:10%">
+        <table>
             <tr>
-                <td>
-                    @if (item.XACNHAN_MUAHANG == true)
-                    {
-                        <p>Đã mua hàng</p>
-                    }
-                    else
-                    {
-                        <p>Chưa mua hàng</p>
-                    }
-                </td>
-                <td>
-                    <p>@item.DIEM_DANHGIA +" sao"</p>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.THOIGIAN_DANG)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NOIDUNG)
-                </td>
-                <td>
-                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID_FEEDBACK })
-                </td>
+                <td>Tên sách: </td>
+                <td width="20px"></td>
+                <td>@item.SACH.TEN_SACH</td>
             </tr>
-        }
+            <tr>
+                <td>Ảnh bìa: </td>
+                <td width="20px"></td>
+                <td>
+                    @foreach (var image in item.SACH.ANHBIAs)
+                    {
+                        <img src="@Url.Content(image.ANH)" width="100" height="100" />
+                }
+                </tr>
+        </table>
+    </div>
+    break;
+}
 
-    </table>
+<div class="content">
+    @if (ViewBag.State == false)
+    {
+        <p>Hiện chưa có feedback</p>
+
     }
     else
     {
-        <p>Hiện chưa có feedback</p>
+        foreach (var item in Model)
+        {
+            <div class="fb-card">
+                <table style="width:120%">
+                    <tr>
+                        <td style="display:inline">
+                            <p>
+                                @{ var numStar = item.DIEM_DANHGIA;
+                                    var numNull = 5 - numStar;
+                                }
+                                @for (int i = 0; i < numStar; i++)
+                                {
+                                    <span style="display:inline-block;width:20px;height:20px">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+<path style="fill:#FFDC64;" d="M499.92,188.26l-165.839-15.381L268.205,19.91c-4.612-10.711-19.799-10.711-24.411,0l-65.875,152.97  L12.08,188.26c-11.612,1.077-16.305,15.52-7.544,23.216l125.126,109.922L93.044,483.874c-2.564,11.376,9.722,20.302,19.749,14.348  L256,413.188l143.207,85.034c10.027,5.954,22.314-2.972,19.75-14.348l-36.619-162.476l125.126-109.922  C516.225,203.78,511.532,189.337,499.92,188.26z" />
+<path style="fill:#FFC850;" d="M268.205,19.91c-4.612-10.711-19.799-10.711-24.411,0l-65.875,152.97L12.08,188.26  c-11.612,1.077-16.305,15.52-7.544,23.216l125.126,109.922L93.044,483.874c-2.564,11.376,9.722,20.302,19.749,14.348l31.963-18.979  c4.424-182.101,89.034-310.338,156.022-383.697L268.205,19.91z" />
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+                                    </span>
+                                }
+                                @for (int i = 0; i < numNull; i++)
+                                {
+                                    <span style="display:inline-block;width:20px;height:20px">
+
+                                    </span>
+                                }
+                            </p>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.THOIGIAN_DANG)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NOIDUNG)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Xóa", "Delete", new { id = item.ID_FEEDBACK })
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        }
     }
 </div>
-@Html.ActionLink("Quay về", "Index","Feedback")
+@Html.ActionLink("Quay về", "Index", "Feedback")
 

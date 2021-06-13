@@ -9,6 +9,8 @@ using System.Web;
 using System.Security.Cryptography;
 using System.Web.Mvc;
 using Homepage.Models;
+using System.Data.Entity.Validation;
+
 namespace Homepage.Controllers.Admin
 {
     public class CustomerAccountController : Controller
@@ -18,31 +20,6 @@ namespace Homepage.Controllers.Admin
         public ActionResult Index()
         {
             return View(db.TAIKHOANKHACHHANGs.ToList());
-        }
-        // GET: Administrator/USER/Create
-        public ActionResult UpdateCustomerMember()
-        {
-            var lsAccount = db.TAIKHOANKHACHHANGs.Where(tk => tk.ID_TTKH != null).ToList();
-            var lsAccountType = db.LOAITAIKHOANs.OrderBy(x => x.MUC_DATDUOC).ToList();
-            foreach(var item in lsAccount)
-            {
-                for(int i = lsAccountType.Count - 1; i >= 0; i--)
-                {
-                    if(item.THONGTINKHACHHANG.TONG_TIEUDUNG >= lsAccountType[i].MUC_DATDUOC)
-                    {
-                        ChangeCustomerMember(item.ID_KHACHHANG, lsAccountType[i].ID_LOAITK);
-                        break;
-                    }
-                }
-            }
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        public void ChangeCustomerMember(int idTK, int idLoai)
-        {
-            var account = db.TAIKHOANKHACHHANGs.Where(tk => tk.ID_KHACHHANG == idTK).FirstOrDefault();
-            account.ID_LOAITK = idLoai;
-            db.SaveChanges();
         }
         public ActionResult Create()
         {

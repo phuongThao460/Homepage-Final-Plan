@@ -6,8 +6,8 @@
 }
 <style>
     .content {
-        margin-top: 20px;
-        margin-bottom: 20px
+        margin-left: 35%;
+        margin-right: 35%;
     }
 </style>
 @using (Html.BeginForm())
@@ -22,6 +22,10 @@
             }
         </select>
         <br />
+        @if(ViewBag.ErrorContent != null)
+                {
+                    <p style="color:red">*@ViewBag.ErrorContent</p>
+                }
         <br />
         <input type="submit" value="Xem feedback" class="btn btn-default" />
     </div>
