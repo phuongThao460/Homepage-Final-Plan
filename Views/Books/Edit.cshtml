@@ -4,127 +4,133 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<br/>
+<h4 class="text-center" style="margin-top:20px">Sửa thông tin</h4>
+<br />
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <h4 class="text-center" style="margin-top:20px">Sửa thông tin</h4>
-    <br />
+    <div class="form-horizontal">
 
 
-    <div class="form-group">
-        @Html.Label("Tên sách", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.TEN_SACH, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Loại bìa", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.LOAI_BIA, new { htmlAttributes = new { @class = "form-control" } })
+        <div class="form-group">
+            @Html.Label("Tên sách", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TEN_SACH, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Ngày xuất bản", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NGAY_XUATBAN, new { htmlAttributes = new { @class = "form-control" } })
+        <div class="form-group">
+            @Html.Label("Loại bìa", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LOAI_BIA, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Số lượng tồn", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.SOLUONG_TON, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+        <div class="form-group">
+            @Html.Label("Ngày xuất bản", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NGAY_XUATBAN, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Số trang", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.SO_TRANG, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+        <div class="form-group">
+            @Html.Label("Số lượng tồn", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SOLUONG_TON, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Kích thước", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.KICH_THUOC, new { htmlAttributes = new { @class = "form-control" } })
+        <div class="form-group">
+            @Html.Label("Số trang", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SO_TRANG, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Mô tả", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.MOTA, new { htmlAttributes = new { @class = "form-control" } })
+        <div class="form-group">
+            @Html.Label("Kích thước", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KICH_THUOC, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Nhà xuất bản", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @{Html.RenderAction("SelectNXB", "Books"); }
+        <div class="form-group">
+            @Html.Label("Mô tả", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.MOTA, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Tác giã", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @{Html.RenderAction("SelectTG", "Books"); }
+        <div class="form-group">
+            @Html.Label("Nhà xuất bản", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{Html.RenderAction("SelectNXB", "Books"); }
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Nhà cung cấp", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @{Html.RenderAction("SelectNCC", "Books"); }
+        <div class="form-group">
+            @Html.Label("Tác giả", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{Html.RenderAction("SelectTG", "Books"); }
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Thể loại", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @{Html.RenderAction("SelectTL", "Books"); }
+        <div class="form-group">
+            @Html.Label("Nhà cung cấp", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{Html.RenderAction("SelectNCC", "Books"); }
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Khối lượng", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.KHOILUONG, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+        <div class="form-group">
+            @Html.Label("Thể loại", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{Html.RenderAction("SelectTL", "Books"); }
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Giá bìa", new { @class = "control-label col-md-2" }))
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.GIA_BIA, new { htmlAttributes = new { @class = "form-control" } })
+        <div class="form-group">
+            @Html.Label("Khối lượng", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KHOILUONG, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("Giá bán", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.GIA_BAN, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
-        </div>
-    </div>
-    @Html.ActionLink("Sửa ảnh", "Index", new { controller = "BookImage", action = "Index", id = Model.ID_SACH })
-    @if(ViewBag.ErrorContent != null)
-                {
-                    <div class="form-group">
-                        <p style="color:red">*{ViewBag.ErrorContent}</p>
-                    </div>
-                }
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-    </div>
 
-</div>
+        <div class="form-group">
+            @Html.Label("Giá bìa", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GIA_BIA, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Giá bán", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GIA_BAN, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+            </div>
+        </div>
+
+        @if (ViewBag.ErrorContent != null)
+        {
+            <div class="form-group">
+                <p style="color:red">*{ViewBag.ErrorContent}</p>
+            </div>
+        }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 btn btn-default" style="width: 70px">
+                @Html.ActionLink("Sửa ảnh", "Index", new { controller = "BookImage", action = "Index", id = Model.ID_SACH })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
 }
 
 <div>

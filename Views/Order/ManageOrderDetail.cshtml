@@ -4,22 +4,13 @@
     ViewBag.Title = "ManageOrderDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<br/>
 <h2 class="text-center">Quản lý chi tiết đơn hàng</h2>
 
 @{Html.RenderAction("CreateOrderDetail", "Order");}
 
-<table class="table">
+<table class="table" style="margin-left:7%;width:80%">
     <tr>
-        <th>
-            Mã chi tiết
-        </th>
-        <th>
-            Mã đơn hàng
-        </th>
-        <th>
-            Mã sách
-        </th>
         <th>
             Tên sách
         </th>

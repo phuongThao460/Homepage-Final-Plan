@@ -17,17 +17,16 @@
     <script src="~/Content/Scripts/AddImage.js"></script>
     <br />
     <h4 class="text-center">ẢNH BÌA</h4>
-
     @using (Html.BeginForm("UploadImages", "BookImage", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
 <div class="form-horizontal" style="margin-left:37%">
     <hr />
-    <img src="~/Content/Images/45132924_2137631566256381_8060785941003894784_n.jpg" id="previewImg" width="350" height="350" />
+    <img src="~/Content/Images/45132924_2137631566256381_8060785941003894784_n.jpg" id="previewImg" width="350" height="350" style="border-radius:10px" />
     <br />
-    <input type="file" name="ImageFile" id="myFile" onchange="ChangeImage(this, document.getElementById('previewImg'))" hidden/>
-    <label for="myFile">Choose a file</label>
+    <input type="file" name="ImageFile" id="myFile" onchange="ChangeImage(this, document.getElementById('previewImg'))" style="width:0px"/>
+    <label for="myFile">+ Chọn ảnh ...</label>
     <br />
     <input type="submit" value="Xác nhận" class="btn btn-default" style="margin-left:17%" />
 </div>
@@ -49,7 +48,7 @@
             }
     </style>
     <div>
-        @Html.ActionLink("Trở về trang chủ", "Index", "BookImage", htmlAttributes: new { @class = "backBtn" })
+        @Html.ActionLink("Trở về trang chủ", "Index", "Books", htmlAttributes: new { @class = "backBtn" })
     </div>
 </body>
 </html>

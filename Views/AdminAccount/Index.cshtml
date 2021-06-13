@@ -9,15 +9,15 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <br />
-    <h3 class="text-center">DANH SÁCH TÀI KHOẢN QUẢN TRỊ VIÊN</h3>
+    
 </head>
 <body>
-
-    <p>
-        @Html.ActionLink("Create New", "Create")
+    <br />
+    <h3 class="text-center">DANH SÁCH TÀI KHOẢN QUẢN TRỊ VIÊN</h3>
+    <p class="btn btn-default" style="margin-left:7%">
+        @Html.ActionLink("Thêm mới", "Create")
     </p>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover"  style="margin-left:7%;width:80%">
         <tr>
             <th>
                 Tên đăng nhập
@@ -28,7 +28,7 @@
             <th>
                 Ảnh đại diện
             </th>
-            <th></th>
+            <th>Thao tác</th>
         </tr>
 
         @foreach (var item in Model)
@@ -45,12 +45,11 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID_QUANTRIVIEN }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_QUANTRIVIEN }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID_QUANTRIVIEN })
                 </td>
             </tr>
         }
 
     </table>
-    </body>
+</body>
 </html>

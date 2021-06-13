@@ -31,6 +31,21 @@ namespace Homepage.Controllers
             db.SaveChanges();
             return RedirectToRoute(new { controller = "OrderState", action = "DanhSachTrangThai" });
         }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var check = db.TRANGTHAIDONHANGs.Where(tt => tt.ID_TRANGTHAI == id).FirstOrDefault();
+            return View(check);
+        }
+        [HttpPost]
+        public RedirectToRouteResult Edit(TRANGTHAIDONHANG state)
+        {
+            int id = int.Parse(Url.RequestContext.RouteData.Values["id"].ToString());
+            var check = db.TRANGTHAIDONHANGs.Where(tt => tt.ID_TRANGTHAI == id).FirstOrDefault();
+            check.TEN_TRANGTHAI = state.TEN_TRANGTHAI;
+            db.SaveChanges();
+            return RedirectToRoute(new { controller = "OrderState", action = "DanhSachTrangThai" });
+        }
         public ActionResult Details(int id)
         {
             return View(db.TRANGTHAIDONHANGs.Where(tt => tt.ID_TRANGTHAI == id).FirstOrDefault());

@@ -4,7 +4,7 @@
     ViewBag.Title = "DanhSachDonHang";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<br/>
 <h2 class="text-center">Danh sách đơn hàng</h2>
 <style>
     .createBtn {
@@ -48,9 +48,6 @@
             Mã đơn hàng
         </th>
         <th>
-            Mã tài khoản khách hàng
-        </th>
-        <th>
             <b>Trạng thái đơn hàng cũ</b>
         </th>
         <th>
@@ -87,7 +84,7 @@
         if (Session["Details"] != null && detail != null && item.ID_DONHANG == detail.ID_DONHANG)
         {
             <tr class="p-3 mb-2 bg-warning text-dark">
-                <th>Mã sách</th>
+                <th>Chi tiết đơn</th>
                 <th>Tên sách</th>
                 <th>Số lượng</th>
                 <th>Tổng tiền</th>
@@ -96,7 +93,7 @@
             foreach (var prd in detail.CHITIETDONHANGs)
             {
                 <tr class="p-3 mb-2 bg-light text-dark">
-                    <td>@prd.ID_SACH</td>
+                    <td></td>
                     <td>@prd.SACH.TEN_SACH</td>
                     <td>@prd.SOLUONG</td>
                     <td>@prd.TONGTIEN</td>

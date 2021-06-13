@@ -7,11 +7,11 @@
 <br />
 <h3 class="text-center">TÀI KHOẢN KHÁCH HÀNG</h3>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class="btn btn-default" style="margin-left:7%">
+    @Html.ActionLink("Thêm mới", "Create")
 </p>
 
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover"  style="margin-left:7%;margin-right:7%;width:80%">
     <tr>
         <th>
             TÊN ĐĂNG NHẬP
@@ -45,7 +45,6 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID_KHACHHANG }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID_KHACHHANG }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ID_KHACHHANG })
             </td>
         </tr>

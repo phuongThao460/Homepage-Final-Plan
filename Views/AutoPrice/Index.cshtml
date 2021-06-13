@@ -9,101 +9,92 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <br />
-    <h3 class="text-center">BẢNG GIÁ</h3>
+    
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Thêm mới", "Create")
-    </p>
-    <p>
-        @Html.ActionLink("Update price auto", "AutoUpdate")
-    </p>
-    <table class="table table-bordered table-hover">
-        <tr>
-            <th>
-                Mã bảng giá
-            </th>
-            <th>
-                Mã sách
-            </th>
-            <th>
-                Tên Sách
-            </th>
-            <th>
-                Ngày áp dụng
-            </th>
-            <th>
-                Tăng giảm
-            </th>
-            <th>
-                Giá trị
-            </th>
-            <th>Giá cũ</th>
-            <th>Giá mới</th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+    <div style="width:80%; margin-left:7%">
+        <br />
+        <h3 class="text-center">Cập nhật giá - Tự động</h3>
+        <p>
+            Chức năng:
+            @Html.ActionLink("Thêm mới", "Create") - 
+            @Html.ActionLink("Cập nhật giá tự động", "AutoUpdate")
+        </p>
+        <table class="table table-bordered table-hover">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID_BANGGIA)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID_SACH)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SACH.TEN_SACH)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NGAY_APDUNG)
-                </td>
-                @{
-                    if (item.TANG_GIAM == true)
-                    {
-                        var showString = "Tăng";
-                        <td>
-                            @Html.DisplayFor(modelItem => showString)
-                        </td>
-                    }
-                    else
-                    {
-                        var showString = "Giảm";
-                        <td>
-                            @Html.DisplayFor(modelItem => showString)
-                        </td>
-                    }
-                }
-                <td>
-                    @Html.DisplayFor(modelItem => item.GIATRI)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SACH.GIA_BAN)
-                </td>
-                @{
-                    if (item.TANG_GIAM == true)
-                    {
-                        var temp = item.SACH.GIA_BAN + item.GIATRI;
-                        <td>
-                            @Html.DisplayFor(modelItem => temp)
-                        </td>
-                    }
-                    else
-                    {
-                        var temp2 = item.SACH.GIA_BAN - item.GIATRI;
-                        <td>
-                            @Html.DisplayFor(modelItem => temp2)
-                        </td>
-                    }
-                }
-
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_BANGGIA }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_BANGGIA })
-                </td>
+                <th>
+                    Tên Sách
+                </th>
+                <th>
+                    Ngày áp dụng
+                </th>
+                <th>
+                    Tăng giảm
+                </th>
+                <th>
+                    Giá trị
+                </th>
+                <th>Giá cũ</th>
+                <th>Giá mới</th>
             </tr>
-        }
 
-    </table>
-    </body>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SACH.TEN_SACH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NGAY_APDUNG)
+                    </td>
+                    @{
+                        if (item.TANG_GIAM == true)
+                        {
+                            var showString = "Tăng";
+                            <td>
+                                @Html.DisplayFor(modelItem => showString)
+                            </td>
+                        }
+                        else
+                        {
+                            var showString = "Giảm";
+                            <td>
+                                @Html.DisplayFor(modelItem => showString)
+                            </td>
+                        }
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GIATRI)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SACH.GIA_BAN)
+                    </td>
+                    @{
+                        if (item.TANG_GIAM == true)
+                        {
+                            var temp = item.SACH.GIA_BAN + item.GIATRI;
+                            <td>
+                                @Html.DisplayFor(modelItem => temp)
+                            </td>
+                        }
+                        else
+                        {
+                            var temp2 = item.SACH.GIA_BAN - item.GIATRI;
+                            <td>
+                                @Html.DisplayFor(modelItem => temp2)
+                            </td>
+                        }
+                    }
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_BANGGIA }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_BANGGIA })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    
+</body>
 </html>

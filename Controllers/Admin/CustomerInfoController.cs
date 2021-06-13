@@ -40,15 +40,13 @@ namespace Homepage.Controllers.Admin
                 return View();
             }
         }
-        public ActionResult Details()
+        public ActionResult Details(int id)
         {
-            int id = (int)Session["TK_TTKH"];
             var select = db.THONGTINKHACHHANGs.Where(s => s.ID_TTKH == id).FirstOrDefault();
             return View(select);
         }
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
-            int id = (int)Session["TK_TTKH"];
             return View(db.THONGTINKHACHHANGs.Where(kh => kh.ID_TTKH == id).FirstOrDefault());
         }
         [HttpPost]

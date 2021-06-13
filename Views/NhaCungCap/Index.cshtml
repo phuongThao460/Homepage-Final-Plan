@@ -9,35 +9,32 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <h3 class="text-center"> Nhà Cung Cấp</h3>
+    
 </head>
 <body>
-    <p>
+    <br/>
+    <h3 class="text-center">Nhà Cung Cấp</h3>
+    <p class="btn btn-default" style="margin-left:7%">
         @Html.ActionLink("Thêm mới", "Create")
     </p>
-    <table class="table table-bordered table-hover">
+    <br/>
+    <table class="table table-bordered table-hover" style="margin-left:7%;margin-right:7%">
         <tr>
             <th>
-                MÃ NHÀ CUNG CẤP
+                Tên nhà cung cấp
             </th>
-            <th>
-                TÊN NHÀ CUNG CẤP
-            </th>
-            <th></th>
+            <th>Thao tác</th>
         </tr>
 
         @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ID_NCC)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.TEN_NHACUNGCAP)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_NCC }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_NCC }) |
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID_NCC }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_NCC })
                 </td>
             </tr>
         }

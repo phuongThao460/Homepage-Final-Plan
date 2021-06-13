@@ -9,14 +9,16 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <h3 class="text-center">Tác Giả</h3>
+    
 </head>
 <body>
+    <br />
+    <h3 class="text-center">Tác Giả</h3>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
+        <div class="form-horizontal" style="margin-right:10%">
             <hr />
 
             <div class="form-group">
@@ -29,7 +31,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Tại" class="btn btn-default center-block" />
+                    <input type="submit" value="Tạo" class="btn btn-default center-block" />
                 </div>
             </div>
         </div>

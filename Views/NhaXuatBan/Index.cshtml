@@ -9,17 +9,17 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <<h3> class="text-center"> Nhà Xuất Bản</h3>
+    
 </head>
 <body>
-    <p>
+    <br />
+    <h3 class="text-center">Nhà Xuất Bản</h3>
+    <p class="btn btn-default" style="margin-left:7%">
         @Html.ActionLink("Thêm mới", "Create")
     </p>
-    <table class="table table-bordered table-hover">
+    <br/>
+    <table class="table table-bordered table-hover" style="margin-left:7%; margin-right:7%">
         <tr>
-            <th>
-                MÃ NHÀ XUẤT BẢN
-            </th>
             <th>
                 TÊN NHÀ XUẤT BẢN
             </th>
@@ -30,14 +30,11 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ID_NXB)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.TEN_NHAXUATBAN)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_NXB }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_NXB }) |
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID_NXB }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_NXB })
                 </td>
             </tr>
         }

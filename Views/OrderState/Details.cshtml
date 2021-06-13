@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<br/>
 <h2 class="text-center">Chi tiết trạng thái</h2>
 
 <div>
@@ -25,12 +25,16 @@
             @Html.DisplayFor(model => model.TEN_TRANGTHAI)
         </dd>
 
+        <dt>
+            THAO TÁC
+        </dt>
+
+        <dd>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID_TRANGTHAI })
+        </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
 <style>
     .backBtn {
         margin-top: 10px;

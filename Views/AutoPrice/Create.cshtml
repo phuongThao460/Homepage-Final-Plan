@@ -4,51 +4,70 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<br/>
 <h2 class="text-center">Tạo bảng giá chung</h2>
 
 @using (Html.BeginForm())
 {
-<table>
-    <tr>
-        <th style="font-size: 17px">Ngày áp dụng:</th>
-        <td>@Html.TextBoxFor(model => model.ngayApDung)</td>
-    </tr>
-    <tr>
-        <td></td>
-    </tr>
-    <tr>
-        <th style="font-size: 17px">Loại chỉnh sửa:</th>
-        <td>
-            <select name="tangGiam" style="width:172px">
-                <option value="up">Tăng giá</option>
-                <option value="down">Giảm giá</option>
-            </select>
-        </td>
-    </tr>
-    <tr>
-        <td></td>
-    </tr>
-    <tr>
-        <th style="font-size: 17px">Giá trị:</th>
-        <td>@Html.TextBoxFor(model => model.giaTri)</td>
-    </tr>
-    <tr>
-        <td></td>
-    </tr>
-    <tr>
-        <th style="font-size: 17px">Đơn vị:</th>
-        <td>
-            <select name="donVi">
-                <option value="1">VND</option>
-                <option value="2">%</option>
-            </select>
-        </td>
-    </tr>
-</table>
-    <table class="table table-bordered table-hover">
+<div style="        border-style: solid;
+        border-width: 1px;
+        width: 40%;
+        padding: 10px 10px 10px 10px;
+        margin-left: 30%;
+        border-radius:10px;
+    ">
+    <table>
         <tr>
-            <th>Mã sách</th>
+            <th style="font-size: 17px">Ngày áp dụng:</th>
+            <td>@Html.TextBoxFor(model => model.ngayApDung)</td>
+        </tr>
+        <tr>
+            <td style="height:10px"></td>
+        </tr>
+        <tr>
+            <th style="font-size: 17px">Loại chỉnh sửa:</th>
+            <td>
+                <select name="tangGiam" style="width:172px">
+                    <option value="up">Tăng giá</option>
+                    <option value="down">Giảm giá</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="height:10px"></td>
+        </tr>
+        <tr>
+            <th style="font-size: 17px">Giá trị:</th>
+            <td>@Html.TextBoxFor(model => model.giaTri)</td>
+        </tr>
+        <tr>
+            <td style="height:10px"></td>
+        </tr>
+        <tr>
+            <th style="font-size: 17px">Đơn vị:</th>
+            <td>
+                <select name="donVi">
+                    <option value="1">VND</option>
+                    <option value="2">%</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="height:10px"></td>
+        </tr>
+        <tr>
+            <td class="btn btn-default" style="margin-right:5px">
+                @Html.ActionLink("Trở về trang chủ","Index")
+            </td>
+            <td>
+                <input type="submit" value="Tạo" class="btn btn-default"/>
+            </td>
+        </tr>
+    </table>
+</div>
+<br/>
+    <table class="table table-bordered table-hover" style="width:80%;margin-left:7%">
+        <tr>
             <th>Tên sách</th>
             <th>Giá bìa</th>
             <th>Giá bán</th>
@@ -56,9 +75,6 @@
         @foreach (var item in Model.lsDepend)
         {
             <tr>
-                <td>
-                    @item.ID_SACH
-                </td>
                 <td>
                     @item.TEN_SACH
                 </td>
@@ -71,10 +87,6 @@
             </tr>
         }
         <tr>
-            <td>
-                <input type="submit" value="Lưu" />
-            </td>
-
         </tr>
     </table>
 }

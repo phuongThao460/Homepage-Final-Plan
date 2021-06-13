@@ -14,7 +14,7 @@ namespace Homepage.Controllers
         public RedirectToRouteResult Index()
         {
             
-            return RedirectToRoute(new { controller = "Order", action = "DanhSachDonHang" });
+            return RedirectToRoute(new { controller = "Order", action = "DanhSachDonHang", id = 0  });
         }
         public ActionResult DanhSachDonHang(int id)
         {

@@ -2,11 +2,12 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_homepageLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <div>
+    <br/>
     <h3 class="text-center">Chi tiết thể loại</h3>
     <hr />
     <dl class="dl-horizontal">
@@ -25,12 +26,14 @@
         <dd>
             @Html.DisplayFor(model => model.TEN_THELOAI)
         </dd>
-
+        <dt>
+            Thao tác
+        </dt>
+        <dd>
+            @Html.ActionLink("Sửa", "Edit", new { id = Model.ID_THELOAI })
+        </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Sửa", "Edit", new { id = Model.ID_THELOAI }) |
-</p>
 <style>
     .backBtn {
         margin-top: 10px;

@@ -10,18 +10,19 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <br />
-    <h3 class="text-center">Quản lý thông tin khách hàng</h3>
+    
 </head>
 <body>
-
-    <p>
+    <br />
+    <h3 class="text-center">Quản lý thông tin khách hàng</h3>
+    <br/>
+    <p class="btn btn-default" style="margin-left:7%">
         @Html.ActionLink("Thêm mới", "Create")
     </p>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover"  style="margin-left:7%; margin-right:7%;width:80%">
         <tr>
             <th>
-                THÔNG TIN KHÁCH HÀNG
+                MÃ THÔNG TIN KHÁCH HÀNG
             </th>
             <th>
                 TÊN KHÁCH HÀNG
@@ -63,12 +64,12 @@
                     @Html.DisplayFor(modelItem => item.TONG_TIEUDUNG)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_TTKH }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_TTKH })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID_TTKH }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_TTKH })
                 </td>
             </tr>
         }
 
     </table>
-    </body>
+</body>
 </html>

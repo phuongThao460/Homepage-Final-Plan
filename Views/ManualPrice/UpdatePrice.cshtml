@@ -8,7 +8,7 @@
 @using (Html.BeginForm("UpdatePrice","ManualPrice"))
 {
     <tr>
-        <td class="fakeInput">
+        <td class="fakeInput" hidden>
             @Html.TextBoxFor(modelItem => modelItem.ID_SACH, htmlAttributes: new { @readonly = "readonly" })
         </td>
         <td>

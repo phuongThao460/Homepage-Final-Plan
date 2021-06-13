@@ -2,14 +2,12 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Book.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h3 class="text-center">CHI TIẾT</h3>
+<br/>
+<h3 class="text-center">CHI TIẾT THÔNG TIN KHÁCH HÀNG</h3>
 
 <div>
-    <h4>THÔNG TIN KHÁCH HÀNG</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
             THÔNG TIN KHÁCH HÀNG
@@ -57,7 +55,15 @@
         <dd>
             @Html.DisplayFor(model => model.TONG_TIEUDUNG)
         </dd>
-        <a href=@Url.Action("Edit","CustomerInfo") class="btn btn-success"></a>
+        <dt>
+            THAO TÁC
+        </dt>
+
+        <dd>
+            <a href=@Url.Action("Edit","CustomerInfo",new { id = Model.ID_TTKH }) class="btn btn-success">Sửa</a>
+            <a href=@Url.Action("Index","CustomerInfo") class="btn btn-default">Trở về</a>
+        </dd>
+        
     </dl>
 </div>
 

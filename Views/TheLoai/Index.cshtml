@@ -9,17 +9,16 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <h3 class="text-center">Thể Loại</h3>
+    
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
+    <br />
+    <h3 class="text-center">Thể Loại</h3>
+    <p class="btn btn-default" style="margin-left:7%">
+        @Html.ActionLink("Thêm mới", "Create")
     </p>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" style="margin-left:7%;margin-right:7%">
         <tr>
-            <th>
-                MÃ THỂ LOẠI
-            </th>
             <th>
                 TÊN THỂ LOẠI
             </th>
@@ -30,14 +29,11 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ID_THELOAI)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.TEN_THELOAI)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_THELOAI }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_THELOAI }) |
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID_THELOAI }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_THELOAI })
                 </td>
             </tr>
         }

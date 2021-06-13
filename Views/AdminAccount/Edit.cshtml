@@ -4,24 +4,22 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>CHỈNH SỬA TÀI KHOẢN QUẢN TRỊ VIÊN</h2>
+<br/>
+<h2 class="text-center">CHỈNH SỬA TÀI KHOẢN QUẢN TRỊ VIÊN</h2>
 
 @using (Html.BeginForm("Edit", "AdminAccount", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>TAIKHOANQUANTRIVIEN</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @*<div class="form-group">
-        @Html.Label("Mã quản trị viên", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.ID_QUANTRIVIEN, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ID_QUANTRIVIEN, "", new { @class = "text-danger" })
-        </div>
-    </div>*@
+            @Html.Label("Mã quản trị viên", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ID_QUANTRIVIEN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ID_QUANTRIVIEN, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
     <div class="form-group">
         @Html.Label("Tên đăng nhập", new { @class = "control-label col-md-2" })
@@ -58,14 +56,20 @@
         </div>
     </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
         </div>
     </div>
-}
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <div class="btn btn-default">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
 </div>
+
+}
+<br/>

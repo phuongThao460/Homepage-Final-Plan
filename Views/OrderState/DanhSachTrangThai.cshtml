@@ -4,35 +4,29 @@
     ViewBag.Title = "DanhSachTrangThai";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br/>
+<h2 class="text-center">Danh sách trạng thái</h2>
 
-<h2 class="text-center">Danh SÁCh Trạng Thái</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class="btn btn-default" style="margin-left:7%">
+    @Html.ActionLink("Thêm mới", "Create")
 </p>
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover" style="margin-left:7%; margin-right:7%">
     <tr>
-        <th>
-            MÃ TRẠNG THAÍ
-        </th>
         <th>
             TÊN TRẠNG THÁI
         </th>
-        <th></th>
+        <th>THAO TÁC</th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ID_TRANGTHAI)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.TEN_TRANGTHAI)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_TRANGTHAI }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID_TRANGTHAI }) |
+                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_TRANGTHAI }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_TRANGTHAI })
             </td>
         </tr>
     }

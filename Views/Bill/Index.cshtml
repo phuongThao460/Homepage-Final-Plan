@@ -35,15 +35,12 @@
         }
 </style>
 <br />
-<h3 class="text-center">Quản lý đơn hàng</h3>
+<h3 class="text-center">Quản lý hóa đơn</h3>
 
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover" style="margin-left:7%;margin-right7%;width:80%">
     <tr>
         <th>
-            <b>Mã hóa đơn</b>
-        </th>
-        <th>
-            <b>Mã khách hàng</b>
+            Mã thông tin khách hàng
         </th>
         <th>
             <b>Trạng thái</b>
@@ -65,6 +62,7 @@
             }
 
         }
+        <th>Thao tác</th>
     </tr>
 
     @foreach (var item in Model)
@@ -80,7 +78,7 @@
         if (Session["Details"] != null && detail != null && item.ID_HOADON == detail.ID_HOADON)
         {
             <tr class="p-3 mb-2 bg-warning text-dark">
-                <th>Mã sách</th>
+                <th>Chi tiết hóa đơn</th>
                 <th>Tên sách</th>
                 <th>Giá bán</th>
                 <th>Số lượng</th>
@@ -90,7 +88,7 @@
             foreach (var prd in detail.CHITIETHOADONs)
             {
                 <tr class="p-3 mb-2 bg-light text-dark">
-                    <td>@prd.ID_SACH</td>
+                    <td></td>
                     <td>@prd.SACH.TEN_SACH</td>
                     <td>@prd.GIA_BAN</td>
                     <td>@prd.SOLUONG</td>
