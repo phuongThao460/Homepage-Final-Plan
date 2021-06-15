@@ -4106,6 +4106,7 @@
     <Content Include="Views\uHome\SachTheoTheLoai.cshtml" />
     <Content Include="Views\UserLogin\Edit.cshtml" />
     <Content Include="Views\UserLogin\Details.cshtml" />
+    <Content Include="Views\ShoppingCart\CreateCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
