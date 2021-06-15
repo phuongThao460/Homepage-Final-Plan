@@ -4045,8 +4045,7 @@
     <Content Include="Views\Books\SelectNXB.cshtml" />
     <Content Include="Views\Books\SelectTG.cshtml" />
     <Content Include="Views\Books\SelectTL.cshtml" />
-    <Content Include="Views\CustomerInfo\Create.cshtml" />
-    <Content Include="Views\CustomerInfo\Edit.cshtml" />
+    <Content Include="Views\UserLogin\Create.cshtml" />
     <Content Include="Views\CustomerInfo\Index.cshtml" />
     <Content Include="Views\ManualPrice\Index.cshtml" />
     <Content Include="Views\ManualPrice\UpdatePrice.cshtml" />
@@ -4098,6 +4097,8 @@
     <Content Include="Views\uHome\TheLoai.cshtml" />
     <Content Include="Views\uHome\GetTL.cshtml" />
     <Content Include="Views\uHome\SachTheoTheLoai.cshtml" />
+    <Content Include="Views\UserLogin\Edit.cshtml" />
+    <Content Include="Views\UserLogin\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

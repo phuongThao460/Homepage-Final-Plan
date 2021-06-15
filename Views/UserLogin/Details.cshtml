@@ -1,0 +1,64 @@
+﻿@model Homepage.Models.THONGTINKHACHHANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Book.cshtml";
+}
+<style>
+    .form-group {
+        display: flex;
+    }
+
+    .control-label {
+        font-weight: 500;
+    }
+</style>
+<h2>CHI TIẾT</h2>
+<div class="form-horizontal">
+    <h4>THÔNG TIN KHÁCH HÀNG</h4>
+    <hr />
+    <div class="form-group">
+        @Html.Label("Code Customer", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.ID_TTKH)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Tên Khách Hàng", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.TEN_KHACHHANG)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Email", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.EMAIL_KHACHHANG)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Địa Chỉ", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.DIACHI)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Số Điện Thoại", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.SO_DIENTHOAI)
+        </div>
+    </div>
+    <div class="form-group" style="justify-content: center;
+        display: flex;
+        width: 442px;">
+        <div class="col-md-3">
+            <a href=@Url.Action("Edit","UserLogin") class="btn btn-success">Sửa thông tin</a>
+        </div>
+    </div>
+    <div class="form-group" style="display: flex;padding-left: 15px;">
+        <div class="col-md-offset-3">
+            <a href="@Url.Action("Index", "uHome")" style="font-size: 16px">Về Trang Chủ</a>
+        </div>
+    </div>
+</div>
