@@ -115,5 +115,30 @@ namespace Homepage.Controllers
         {
             return View();
         }
+        public ActionResult CreateCustomer()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateCustomer(THONGTINKHACHHANG tt)
+        {
+            try
+            {
+                tt.TONG_TIEUDUNG = 0;
+                database.THONGTINKHACHHANGs.Add(tt);
+                database.SaveChanges();
+                Session["TEN_KHACHHANG"] = tt.TEN_KHACHHANG;
+                Session["ID_TTKH"] = tt.ID_TTKH;
+                Session["EMAIL_KHACHHANG"] = tt.EMAIL_KHACHHANG;
+                Session["DIACHI"] = tt.DIACHI;
+                Session["SO_DIENTHOAI"] = tt.SO_DIENTHOAI;
+                return RedirectToAction("ShowCart", "ShoppingCart");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
