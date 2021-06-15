@@ -61,7 +61,7 @@ namespace Homepage.Controllers
                 NHACUNGCAP d = db.NHACUNGCAPs.Where(s => s.ID_NCC == id).FirstOrDefault();
                 d.TEN_NHACUNGCAP = ncc.TEN_NHACUNGCAP;
                 db.SaveChanges();
-                return RedirectToAction("Index", "NhaXuatBan");
+                return RedirectToAction("Index", "NhaCungCap");
             }
             catch
             {

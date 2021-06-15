@@ -2,16 +2,16 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_homepageLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3> class="text-center"> Nhà Xuất Bản</h3>
+<h3 class="text-center"> Nhà Xuất Bản</h3>
 
 <div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            MÃ NHÀ XUẤT BẢN
+            Mã nhà xuất bản
         </dt>
 
         <dd>
@@ -19,12 +19,18 @@
         </dd>
 
         <dt>
-            TÊN NHÀ XUẤT BẢN
+            Tên nhà xuất bản
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.TEN_NHAXUATBAN)
         </dd>
-
+        <dt>
+            Thao tác
+        </dt>
+        <dd>
+            @Html.ActionLink("Sửa", "Edit", new { id = Model.ID_NXB }) |
+            @Html.ActionLink("Trở về trang chủ", "Index")
+        </dd>
     </dl>
 </div>

@@ -3526,6 +3526,9 @@
     <Content Include="Content\dist\js\pages\dashboard2.js" />
     <Content Include="Content\excanvas.js" />
     <Content Include="Content\Images\AnhAT.jpg" />
+    <Content Include="Content\Images\AnhDL2.jpg" />
+    <Content Include="Content\Images\AnhDL3.jpg" />
+    <Content Include="Content\Images\AnhDL4.jpg" />
     <Content Include="Content\Images\AnhTG.jpg" />
     <Content Include="Content\Images\AnhTN.jpg" />
     <Content Include="Content\Images\AnhTP.jpg" />
