@@ -3525,6 +3525,9 @@
     <Content Include="Content\dist\js\pages\dashboard.js" />
     <Content Include="Content\dist\js\pages\dashboard2.js" />
     <Content Include="Content\excanvas.js" />
+    <Content Include="Content\Images\AnhAT.jpg" />
+    <Content Include="Content\Images\AnhTG.jpg" />
+    <Content Include="Content\Images\AnhTN.jpg" />
     <Content Include="Content\Images\AnhTP.jpg" />
     <Content Include="Content\Images\1_2.jpg" />
     <Content Include="Content\Images\44898943_1009037035969815_9189095955859767296_n.jpg" />
@@ -3533,6 +3536,7 @@
     <Content Include="Content\Images\AnhDL.jpg" />
     <Content Include="Content\Images\AnhDP.jpg" />
     <Content Include="Content\Images\AnhLV.jpg" />
+    <Content Include="Content\Images\AnhTT.jpg" />
     <Content Include="Content\Images\bautroi.jpg" />
     <Content Include="Content\Images\book1.jpg" />
     <Content Include="Content\Images\buocduongcung.jpg" />
