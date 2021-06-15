@@ -16,9 +16,6 @@
     <br />
     <h3 class="text-center">Quản lý thông tin khách hàng</h3>
     <br/>
-    <p class="btn btn-default" style="margin-left:7%">
-        @Html.ActionLink("Thêm mới", "Create")
-    </p>
     <table class="table table-bordered table-hover"  style="margin-left:7%; margin-right:7%;width:80%">
         <tr>
             <th>
@@ -64,7 +61,6 @@
                     @Html.DisplayFor(modelItem => item.TONG_TIEUDUNG)
                 </td>
                 <td>
-                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID_TTKH }) |
                     @Html.ActionLink("Chi tiết", "Details", new { id = item.ID_TTKH })
                 </td>
             </tr>
