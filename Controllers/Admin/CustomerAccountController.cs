@@ -19,7 +19,23 @@ namespace Homepage.Controllers.Admin
         // GET: CustomerAccount
         public ActionResult Index()
         {
-            return View(db.TAIKHOANKHACHHANGs.ToList());
+            var lsAccount = db.TAIKHOANKHACHHANGs.ToList();
+            var lsType = db.LOAITAIKHOANs.OrderByDescending(x => x.MUC_DATDUOC).ToList();
+            foreach (var item in lsAccount)
+            {
+                foreach (var type in lsType)
+                {
+                    if (item.THONGTINKHACHHANG.TONG_TIEUDUNG >= type.MUC_DATDUOC)
+                    {
+                        item.ID_LOAITK = type.ID_LOAITK;
+                        item.ConfirmPassword = item.MATKHAU;
+                        break;
+                    }
+                }
+            }
+            db.SaveChanges();
+
+            return View(lsAccount);
         }
         public ActionResult Create()
         {
