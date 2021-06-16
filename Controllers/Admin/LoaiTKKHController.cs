@@ -16,6 +16,7 @@ namespace Homepage.Controllers.Admin
         // GET: LoaiTKKH
         public ActionResult Index()
         {
+            
             return View(db.LOAITAIKHOANs.OrderBy(x=>x.MUC_DATDUOC).ToList());
         }
 
