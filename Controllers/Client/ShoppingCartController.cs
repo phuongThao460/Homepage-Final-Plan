@@ -40,20 +40,22 @@ namespace Homepage.Controllers
         }
         public ActionResult Update_Cart_Quantity(FormCollection form)
         {
-            SACH s = new SACH();
             Cart cart = Session["Cart"] as Cart;
             int id_pro = int.Parse(form["idSach"]);
             int _quantity = int.Parse(form["cartQuantity"]);
-            if(s.SOLUONG_TON < _quantity)
+            //int stock = 0;
+            var stock = database.SACHes.Where(id => id.ID_SACH == id_pro).FirstOrDefault();
+            if (stock.SOLUONG_TON < _quantity)
             {
-                 return Content("Sản phẩm chỉ còn lại ");
+                TempData["StatusMessage"] = "Sản phẩm chỉ còn lại " + stock.SOLUONG_TON +" cuốn";
+                return RedirectToAction("ShowCart", "ShoppingCart");
             }
             else
             {
                 cart.Update_quantity(id_pro, _quantity);
                 return RedirectToAction("ShowCart", "ShoppingCart");
+
             }
-            
             
         }
         public ActionResult RemoveCart(int id)
