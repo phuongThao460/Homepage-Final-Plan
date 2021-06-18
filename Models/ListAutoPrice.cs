@@ -13,6 +13,7 @@ namespace Homepage.Models
         public string donVi { get; set; }
         public List<SACH> lsDepend { get; set; }
 
+        public string minDate { get; set; }
         public ListAutoPrice()
         {
             lsDepend = new List<SACH>();

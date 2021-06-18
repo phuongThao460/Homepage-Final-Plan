@@ -26,6 +26,14 @@ namespace Homepage.Controllers.Admin
                     newObj.lsDepend.Add(item);
                 }
             }
+            DateTime needDate = DateTime.Now.AddDays(1);
+            string date = needDate.Day.ToString();
+            if (date.Length == 1)
+                date = "0" + date;
+            string month = needDate.Month.ToString();
+            if (month.Length == 1)
+                month = "0" + month;
+            newObj.minDate = needDate.Year.ToString() + "-" + month + "-" + date;
             return View(newObj);
         }
         [HttpPost]
@@ -73,7 +81,17 @@ namespace Homepage.Controllers.Admin
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            return View(db.BANGGIAs.Where(bg => bg.ID_BANGGIA == id).FirstOrDefault());
+            var item = db.BANGGIAs.Where(bg => bg.ID_BANGGIA == id).FirstOrDefault();
+            item.lsSach = db.SACHes.ToList();
+            DateTime needDate = DateTime.Now.AddDays(1);
+            string date = needDate.Day.ToString();
+            if (date.Length == 1)
+                date = "0" + date;
+            string month = needDate.Month.ToString();
+            if (month.Length == 1)
+                month = "0" + month;
+            item.minDate = needDate.Year.ToString() + "-" + month + "-" + date;
+            return View(item);
         }
         [HttpPost]
         public ActionResult Edit(BANGGIA bg)
@@ -98,6 +116,10 @@ namespace Homepage.Controllers.Admin
             if (check.TANG_GIAM == false)
             {
                 check.GIATRI = bg.GIATRI * (-1);
+            }
+            else
+            {
+                check.GIATRI = bg.GIATRI;
             }
             db.SaveChanges();
             return RedirectToAction("Index");

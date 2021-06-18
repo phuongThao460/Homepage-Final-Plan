@@ -21,5 +21,7 @@ namespace Homepage.Models
         public Nullable<double> GIATRI { get; set; }
     
         public virtual SACH SACH { get; set; }
+        public List<SACH> lsSach { get; set; }
+        public string minDate { get; set; }
     }
 }
