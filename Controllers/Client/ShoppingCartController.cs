@@ -46,14 +46,15 @@ namespace Homepage.Controllers
             int _quantity = int.Parse(form["cartQuantity"]);
             if(s.SOLUONG_TON < _quantity)
             {
-                //FlashMessage.Warning( "Sản phẩm chỉ còn lại " + s.SOLUONG_TON);
+                 return Content("Sản phẩm chỉ còn lại ");
             }
             else
             {
                 cart.Update_quantity(id_pro, _quantity);
+                return RedirectToAction("ShowCart", "ShoppingCart");
             }
             
-            return RedirectToAction("ShowCart", "ShoppingCart");
+            
         }
         public ActionResult RemoveCart(int id)
         {
