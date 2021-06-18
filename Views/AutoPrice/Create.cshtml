@@ -19,7 +19,9 @@
     <table>
         <tr>
             <th style="font-size: 17px">Ngày áp dụng:</th>
-            <td>@Html.TextBoxFor(model => model.ngayApDung)</td>
+            <td>
+                <input type="date" min="@Model.minDate" name="ngayApDung" value="@Model.ngayApDung"/>
+            </td>
         </tr>
         <tr>
             <td style="height:10px"></td>
@@ -47,8 +49,8 @@
             <th style="font-size: 17px">Đơn vị:</th>
             <td>
                 <select name="donVi">
-                    <option value="1">VND</option>
-                    <option value="2">%</option>
+                    <option value="VND">VND</option>
+                    <option value="Else">%</option>
                 </select>
             </td>
         </tr>
