@@ -91,11 +91,13 @@
                         <div class="buy-button">
                             @if (Model.SOLUONG_TON == 1)
                             {
-                                <a class="buy-link">Hết hàng</a>
+                                <div class="buy-link">Hết hàng</div>
+                                <p style="color: red">Sản phẩn sẽ được cập nhật trong thời gian sớm nhất</p>
                             }
                             else
                             {
-                                <a href="/ShoppingCart/AddToCart/@Html.DisplayFor(model=>model.ID_SACH)" class="buy-link">Thêm vào giỏ hàng</a>
+                                <a href="@Url.Action("AddToCart","ShoppingCart", new {@id = Model.ID_SACH, @strURL = Request.Url.ToString()})" class="buy-link">Thêm vào giỏ hàng</a>
+                                @*<a href="/ShoppingCart/AddToCart/@Html.DisplayFor(model=>model.ID_SACH)" class="buy-link">Thêm vào giỏ hàng</a>*@
                             }
 
                         </div>
@@ -194,6 +196,5 @@
             </div>
         }
     </div>
-    `
 </div>
 

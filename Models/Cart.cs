@@ -53,7 +53,7 @@ namespace Homepage.Models
                 }
                 else 
                 { 
-                    item._quantity = 1; 
+                    item._quantity = (int)item._sach.SOLUONG_TON; 
                 }
             }
         }

@@ -29,14 +29,14 @@ namespace Homepage.Controllers
             }
             return cart;
         }
-        public ActionResult AddToCart(int id)
+        public ActionResult AddToCart(int id, string strURL)
         {
             var _pro = database.SACHes.SingleOrDefault(s => s.ID_SACH == id);
             if (_pro != null)
             {
                 GetCart().Add_Product_Cart(_pro);
             }
-            return RedirectToAction("ShowCart", "ShoppingCart");
+            return Redirect(strURL);
         }
         public ActionResult Update_Cart_Quantity(FormCollection form)
         {
@@ -46,7 +46,7 @@ namespace Homepage.Controllers
             int _quantity = int.Parse(form["cartQuantity"]);
             if(s.SOLUONG_TON < _quantity)
             {
-                ViewData["Loi"] = "Số lượng tồn không phù hợp với số lượng nhập mua";
+                //FlashMessage.Warning( "Sản phẩm chỉ còn lại " + s.SOLUONG_TON);
             }
             else
             {

@@ -36,10 +36,11 @@
                     <td>
                         @using (Html.BeginForm("Update_Cart_Quantity", "ShoppingCart"))
                         {
+                            @Html.ValidationSummary(true)
                             <input type="hidden" value="@item._sach.ID_SACH" name="idSach" />
                             <input type="number" value="@item._quantity" name="cartQuantity" />
-                            @ViewData["Loi"]
                             <input type="submit" value="Update" />
+                            @TempData["Loi"]
                         }
                     </td>
                     <td>@String.Format("{0:0,0}", total)</td>
@@ -47,7 +48,7 @@
                         <a href="/ShoppingCart/RemoveCart/@item._sach.ID_SACH">Xóa</a>
                     </td>
                 </tr>
-            }
+                        }
         </tbody>
         <tfoot>
             <tr>
@@ -55,7 +56,6 @@
             </tr>
 
         </tfoot>
-
     </table>
     <h2>Thông Tin Khách Hàng</h2>
     <div style="display: flex;justify-content: space-between;">

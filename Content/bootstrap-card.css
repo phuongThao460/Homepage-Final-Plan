@@ -35,7 +35,7 @@
     overflow: hidden;
 }
 
-    .card .card-body .image .img {
+    .card .card-body img {
         border: none;
         width: 130px;
         height: 160px;
