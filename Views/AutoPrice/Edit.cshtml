@@ -12,7 +12,7 @@
 <div class="form-horizontal">
     <div class="form-group">
         @Html.Label("Mã Sách", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
+        <div class="col-md-3">
             <select name="ID_SACH">
                 @foreach (var item in Model.lsSach)
                 {
@@ -32,7 +32,7 @@
 
     <div class="form-group">
         @Html.Label("Ngày áp dụng", new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
+        <div class="col-md-3">
             <input type="date" min="@Model.minDate" name="NGAY_APDUNG" value="@Model.NGAY_APDUNG" />
         </div>
     </div>
