@@ -8,10 +8,19 @@ namespace Homepage.Models
     interface ICartStrategy
     {
         double GetActPrice(double rawPrice);
+        CartItem Items(SACH _sa, int quan);
     }
     class NormalStategy : ICartStrategy
     {
         public double GetActPrice(double rawPrice) => rawPrice;
+        public CartItem Items(SACH _sa, int quan)
+        {
+            return (new CartItem
+            {
+                _sach = _sa,
+                _quantity = quan
+            });
+        }
     }
     public class CartItem
     {
@@ -21,7 +30,7 @@ namespace Homepage.Models
     class Cart
     {
         public List<CartItem> items;
-        private List<double> prices;
+        //private List<double> prices;
         private ICartStrategy Strategy { get; set; }
         public IEnumerable<CartItem> Items
         {
@@ -29,7 +38,7 @@ namespace Homepage.Models
         }
         public Cart(ICartStrategy strategy)
         {
-            this.prices = new List<double>();
+            this.items = new List<CartItem>();
             this.Strategy = strategy;
         }
         public void Add_Product_Cart(SACH _sa, int _quan = 1)
@@ -37,17 +46,12 @@ namespace Homepage.Models
             var item = Items.FirstOrDefault(s => s._sach.ID_SACH == _sa.ID_SACH);
             if (item == null)
             {
-                items.Add(new CartItem
-                {
-                    _sach = _sa,
-                    _quantity = _quan
-                });
-                this.prices.Add(this.Strategy.GetActPrice(item._sach.GIA_BAN * item._quantity));
+                this.items.Add(this.Strategy.Items(item._sach, item._quantity));
             }
             else
             {
-                //item._quantity += _quan;
-                this.prices.Add(this.Strategy.GetActPrice(item._sach.GIA_BAN * (item._quantity += _quan)));
+                item._quantity += _quan;
+                //this.prices.Add(this.Strategy.GetActPrice(item._sach.GIA_BAN * (item._quantity += _quan)));
             }
             
         }
@@ -60,16 +64,16 @@ namespace Homepage.Models
             var total = items.Sum(s => s._quantity * s._sach.GIA_BAN);
             return (decimal)total;
         }
-        public void Total()
-        {
-            double sum = 0;
-            foreach (var bookCost in this.prices)
-            {
-                sum += bookCost;
-            }
-            Console.Write($"Total : {sum}");
-            this.prices.Clear();
-        }
+        //public void Total()
+        //{
+        //    double sum = 0;
+        //    foreach (var bookCost in this.items)
+        //    {
+        //        sum += bookCost;
+        //    }
+        //    Console.Write($"Total : {sum}");
+        //    this.prices.Clear();
+        //}
         public void Update_quantity(int id, int _new_quan)
         {
             var item = items.Find(s => s._sach.ID_SACH == id);
