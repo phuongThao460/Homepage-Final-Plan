@@ -50,8 +50,8 @@ namespace Homepage.Models
             }
             else
             {
-                item._quantity += _quan;
-                //this.prices.Add(this.Strategy.GetActPrice(item._sach.GIA_BAN * (item._quantity += _quan)));
+                //item._quantity += _quan;
+                this.items.Add(this.Strategy.Items(item._sach, (item._quantity += _quan)));
             }
             
         }
