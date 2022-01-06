@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Homepage.Models
 {
-    interface ICartStrategy
+    public interface ICartStrategy
     {
         double GetActPrice(double rawPrice);
         CartItem Items(SACH _sa, int quan);
@@ -27,11 +27,11 @@ namespace Homepage.Models
         public SACH _sach { get; set; }
         public int _quantity { get; set; }
     }
-    class Cart
+    public class Cart
     {
         public List<CartItem> items;
         //private List<double> prices;
-        private ICartStrategy Strategy { get; set; }
+        public ICartStrategy Strategy { get; set; }
         public IEnumerable<CartItem> Items
         {
             get { return items; }
@@ -46,7 +46,7 @@ namespace Homepage.Models
             var item = Items.FirstOrDefault(s => s._sach.ID_SACH == _sa.ID_SACH);
             if (item == null)
             {
-                this.items.Add(this.Strategy.Items(item._sach, item._quantity));
+                this.items.Add(this.Strategy.Items( _sa, _quan));
             }
             else
             {

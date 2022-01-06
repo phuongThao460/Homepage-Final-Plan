@@ -139,11 +139,11 @@ namespace Homepage.Controllers.Admin
                     var check = db.SACHes.Where(s => s.ID_SACH == item.ID_SACH).FirstOrDefault();
                     if (item.TANG_GIAM == true)
                     {
-                        check.GIA_BAN += item.GIATRI;
+                        check.GIA_BAN += item.GIATRI.Value;
                     }
                     else
                     {
-                        check.GIA_BAN -= item.GIATRI;
+                        check.GIA_BAN -= item.GIATRI.Value;
                     }
                     db.BANGGIAs.Remove(item);
                     db.SaveChanges();

@@ -23,7 +23,7 @@
         <tbody>
             @foreach (var item in Model.Items)
             {
-                decimal total = item._quantity * (decimal)item._sach.GIA_BAN.Value;
+                decimal total = item._quantity * (decimal)item._sach.GIA_BAN;
             <tr>
                 <td>@Html.DisplayFor(model => item._sach.TEN_SACH) </td>
                 @foreach (var anh in item._sach.ANHBIAs)
@@ -37,8 +37,10 @@
                     @using (Html.BeginForm("Update_Cart_Quantity", "ShoppingCart"))
                     {
                         <input type="hidden" value="@item._sach.ID_SACH" name="idSach" />
-                        <input type="number" value="@item._quantity" name="cartQuantity" />
+                        <input type="number" value="@item._quantity" name="cartQuantity" min="1" max="@item._sach.SOLUONG_TON" />
                         <input type="submit" value="Update" />
+                        <p></p>
+                        <p>Sản phẩm chỉ còn @item._sach.SOLUONG_TON</p>
                         if (TempData["StatusMessage"] != null)
                         {
                             <div class="alert alert-warning">
@@ -58,7 +60,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="6" style="text-align: right">Tổng tiền:@String.Format("{0:0,0}", Model.Total())</td>
+                <td colspan="6" style="text-align: right">Tổng tiền:@String.Format("{0:0,0}", Model.Total_money())</td>
             </tr>
 
         </tfoot>
