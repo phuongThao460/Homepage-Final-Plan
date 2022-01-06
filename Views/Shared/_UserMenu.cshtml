@@ -74,9 +74,6 @@
             <li class="nav-item active">
                 <a class="nav-link" href="@Url.Action("Index", "uHome")">Trang Chủ</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="@Url.Action("Search", "uHome")">Tìm kiếm sản phẩm</a>
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Danh Mục Sản Phẩm
@@ -87,6 +84,7 @@
             </li>
         </ul>
     </div>
+    <div><a class="nav-link" href="@Url.Action("Search", "uHome")"><i class="fas fa-search"></i></a></div>
     <div class="sign-item">
             @if (Session["TEN_DANGNHAP"] == null)
             {
@@ -105,10 +103,10 @@
             }
 
         </div>
-        <div>
+    <div>
             <span>
                 <a href="/ShoppingCart/ShowCart">
-                    <i class='fa fa-shopping-cart' style='font-size: 37px;color: white;margin-top: 10px;padding: 0px;margin-left: 3px;'></i>
+                    <i class='fa fa-shopping-cart' style='font-size: 20px;color: white;margin-top: 10px;padding: 0px;margin-left: 3px;'></i>
                 </a>
             </span>
             @Html.Action("BagCart", "ShoppingCart")
