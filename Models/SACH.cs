@@ -66,10 +66,10 @@ namespace Homepage.Models
         public Nullable<double> KHOILUONG { get; set; }
 
         [Display(Name = "Giá bìa")]
-        public Nullable<double> GIA_BIA { get; set; }
+        public double GIA_BIA { get; set; }
 
         [Display(Name = "Giá bán")]
-        public Nullable<double> GIA_BAN { get; set; }
+        public double GIA_BAN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ANHBIA> ANHBIAs { get; set; }

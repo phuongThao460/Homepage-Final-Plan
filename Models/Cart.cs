@@ -5,17 +5,32 @@ using System.Web;
 
 namespace Homepage.Models
 {
+    interface ICartStrategy
+    {
+        double GetActPrice(double rawPrice);
+    }
+    class NormalStategy : ICartStrategy
+    {
+        public double GetActPrice(double rawPrice) => rawPrice;
+    }
     public class CartItem
     {
         public SACH _sach { get; set; }
         public int _quantity { get; set; }
     }
-    public class Cart
+    class Cart
     {
-        List<CartItem> items = new List<CartItem>();
+        public List<CartItem> items;
+        private List<double> prices;
+        private ICartStrategy Strategy { get; set; }
         public IEnumerable<CartItem> Items
         {
             get { return items; }
+        }
+        public Cart(ICartStrategy strategy)
+        {
+            this.prices = new List<double>();
+            this.Strategy = strategy;
         }
         public void Add_Product_Cart(SACH _sa, int _quan = 1)
         {
@@ -27,11 +42,14 @@ namespace Homepage.Models
                     _sach = _sa,
                     _quantity = _quan
                 });
+                this.prices.Add(this.Strategy.GetActPrice(item._sach.GIA_BAN * item._quantity));
             }
             else
             {
-                item._quantity += _quan;
+                //item._quantity += _quan;
+                this.prices.Add(this.Strategy.GetActPrice(item._sach.GIA_BAN * (item._quantity += _quan)));
             }
+            
         }
         public int Total_quantity()
         {
@@ -41,6 +59,16 @@ namespace Homepage.Models
         {
             var total = items.Sum(s => s._quantity * s._sach.GIA_BAN);
             return (decimal)total;
+        }
+        public void Total()
+        {
+            double sum = 0;
+            foreach (var bookCost in this.prices)
+            {
+                sum += bookCost;
+            }
+            Console.Write($"Total : {sum}");
+            this.prices.Clear();
         }
         public void Update_quantity(int id, int _new_quan)
         {
