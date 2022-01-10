@@ -18,18 +18,6 @@ namespace Homepage.Controllers
             Cart _cart = Session["Cart"] as Cart;
             return View(_cart);
         }
-
-        public void GetCart()
-        {
-            var normalStrategy = new NormalStategy();
-            Cart cart = Session["Cart"] as Cart;
-            if (cart == null || Session["Cart"] == null)
-            {
-                cart = new Cart(normalStrategy);
-                Session["Cart"] = cart;
-            }
-            //return cart;
-        }
         public ActionResult AddToCart(int id, string strURL)
         {
             var normalStrategy = new NormalStategy();
@@ -39,6 +27,7 @@ namespace Homepage.Controllers
                 cart = new Cart(normalStrategy);
                 Session["Cart"] = cart;
             }
+            
             var _pro = database.SACHes.SingleOrDefault(s => s.ID_SACH == id);
             if (_pro != null)
             {
@@ -96,7 +85,7 @@ namespace Homepage.Controllers
                 _order.ID_TTKH = int.Parse(form["CodeCustomer"]);
                 _order.ID_TRANGTHAI = 1;
                 database.DONHANGs.Add(_order);
-                foreach (var item in cart.Items)
+                foreach (var item in cart.items)
                 {
                     CHITIETDONHANG _order_detail = new CHITIETDONHANG();
                     _order_detail.ID_DONHANG = _order.ID_DONHANG;
